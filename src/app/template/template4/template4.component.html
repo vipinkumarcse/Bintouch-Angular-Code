@@ -1,0 +1,66 @@
+<div class="main-wrap"> 
+    <div class="template_header">  
+        <img src="assets/images/ft-logo.png" alt="logo-image" />   
+        <a href="#">Get Your Card4</a>  
+    </div>  
+    <div class="upload-btn">  
+        <a>
+            <img  *ngIf="!contact.cover_photo" src="assets/images/upload-image.png" alt="icon" />
+            <img  *ngIf="contact.cover_photo"  [src]="coverImg" alt="icon" />
+        </a>  
+        <!-- <input type="file" id="myFile" name="filename">   -->
+    </div> 
+    <div class="info-container" [ngStyle]="{'background-color': background}"> 
+        <div class="profile-image"> 
+            <img *ngIf="!contact.photo" src="assets/images/profile_img.png" alt="image" /> 
+            <img *ngIf="contact.photo" [src]="profImg" alt="image"/>
+        </div>
+        <div class="content">                
+            <h4 class="blue-cl" [ngStyle]="{'color': textColor}" *ngIf="name">{{name?name:''}}</h4>
+            <p class="subject"  *ngIf="contact.position">{{contact.position?contact.position:''}}</p>
+            <p *ngIf="contact.note">{{contact.note?contact.note:''}}</p> 
+            <div class="common-btns"> 
+                <a class="grad-btn" [ngStyle]="{'background':buttonColor,'border-radius': buttonStyle}" (click)="addContact()">Add To Contacts</a>
+                <a class="grad-btn" [ngStyle]="{'background':buttonColor,'border-radius': buttonStyle}" (click)="moveToPage()">Share Your Contact</a>
+            </div>
+        </div>
+        <div class="social-btns"> 
+            <ul>  
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'facebook.png':'assets/images/fb-dark.png'}}" alt="icon"/></a></li>  
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'instagram.png':'assets/images/insta-dark.png'}}" alt="icon"/></a></li> 
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'snapchat.png':'assets/images/snapchat-dark.png'}}" alt="icon"/></a></li> 
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'twitter.png':'assets/images/twitter-dark.png'}}" alt="icon"/></a></li> 
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'linkedin.png':'assets/images/template-img/linkedin.png'}}" alt="icon"/></a></li> 
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'facebookPage.png':'assets/images/template-img/facebook-page.png'}}" alt="icon"/></a></li> 
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'tiktok.png':'assets/images/template-img/tiktok.png'}}" alt="icon"/></a></li> 
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="{{appicon == 'round'?round_icons+'youtube.png':'assets/images/Group 24.png'}}" alt="icon"/></a></li> 
+                <!-- <li *ngIf="contact.snapchat"><a (click)="iconsClick(contact.snapchat, 'snapchat')"><img src="{{appicon == 'round'?round_icons+'snapchat.png':assets/images/snapchat-dark.png'}}" alt="icon"/></a></li>    
+                <li *ngIf="contact.twitter"><a (click)="iconsClick(contact.twitter, 'twitter')" ><img src="{{appicon == 'round'?round_icons+'twitter.png':assets/images/twitter-dark.png'}}" alt="icon"/></a></li>    
+                <li *ngIf="contact.linkedin"><a (click)="iconsClick(contact.linkedin, 'linkedin')" ><img src="{{appicon == 'round'?round_icons+'linkedin.png':assets/images/template-img/linkedin.png'}}" alt="icon"/></a></li>    
+                <li *ngIf="contact.facebook_page"><a  (click)="iconsClick(contact.facebook_page, 'facebook')" ><img src="{{appicon == 'round'?round_icons+'facebookPage.png':assets/images/template-img/facebook-page.png'}}" alt="icon"/></a></li>   
+                <li *ngIf="contact.tiktok"><a (click)="iconsClick(contact.tiktok, 'tiktok')" ><img src="{{appicon == 'round'?round_icons+'tiktok.png':assets/images/template-img/tiktok.png'}}" alt="icon"/></a></li>   
+                <li *ngIf="contact.youtube"><a (click)="iconsClick(contact.youtube, 'youtube')" ><img src="{{appicon == 'round'?round_icons +'youtube.png':assets/images/Group 24.png'}}" alt="icon"/></a></li>    -->
+            </ul> 
+        </div> 
+        <div class="info-icons"> 
+            <ul> 
+                <li ><a (click)="contact.phone?iconsClick(contact.phone, 'phone'):''"><img src="assets/images/phone_grey.png" alt="icon"/></a></li>
+                <li><a (click)="contact.work_phone?iconsClick(contact.work_phone, 'phone'):''"><img src="assets/images/suitcase_grey.png" alt="icon"/></a></li>
+                <li><a (click)="contact.email?iconsClick(contact.email, 'email'):''"><img src="assets/images/email_grey.png" alt="icon"/></a></li>
+                <li><a (click)="contact.website?iconsClick(contact.website, 'chrome'):''"><img src="assets/images/web_grey.png" alt="icon"/></a></li>
+                <li><a (click)="contact.address?iconsClick(address, 'maps'):''"><img src="assets/images/location_grey.png" alt="icon"/></a></li>
+                <li><a (click)="contact.addrpaypaless?iconsClick(contact.paypal, 'paypal'):''"><img src="assets/images/template-img/paypal.png" alt="icon"/></a></li>
+                <li><a (click)="contact.whatsapp?iconsClick(contact.whatsapp, 'whatsApp'):''"><img src="assets/images/contact-profile/WhatsApp.png" alt="icon"/></a></li>
+                <li><a (click)="contact.messenger?iconsClick(contact.messenger, 'messenger'):''"><img src="assets/images/contact-profile/Messenger.png" alt="icon"/></a></li>
+                <li><a (click)="contact.zoom?iconsClick(contact.zoom, 'zoom'):''"><img src="assets/images/contact-profile/Zoom.png" alt="icon"/></a></li>
+                <li><a (click)="file_Title()"><img src="assets/images/contact-profile/download.png" alt="icon"/></a></li>
+                <li><a (click)="contact.link_url?Link_Title():''"><img src="assets/images/contact-profile/likedin.png" alt="icon"/></a></li>
+                <li><a (click)="contact.lydia?iconsClick(contact.lydia, 'lydia'):''"><img src="assets/images/contact-profile/lydia.png" alt="icon"/></a></li>
+            </ul>
+        </div>
+    </div>        
+    <div class="template_footer">
+        <p>Be-In-Touch</p>
+        <small>Website</small>
+    </div>
+</div>

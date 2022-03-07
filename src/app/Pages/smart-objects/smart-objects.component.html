@@ -1,0 +1,639 @@
+<app-sidebar></app-sidebar>
+
+<!--*******************
+        Preloader start
+    ********************-->
+
+<!--*******************
+        Preloader end
+    ********************-->
+
+<!--**********************************
+        Main wrapper start
+    ***********************************-->
+<!-- <app-sidebar></app-sidebar> -->
+
+<!--**********************************
+            Nav header start
+        ***********************************-->
+
+<!--**********************************
+            Nav header end
+        ***********************************-->
+
+
+
+<!--**********************************
+            Left Sidebar start
+		***********************************-->
+
+<!--**********************************
+            Sidebar end
+        ***********************************-->
+
+<!--**********************************
+            Content body start
+        ***********************************-->
+<div class="content-body">
+	<div class="container-fluid">
+		<div class="form-head d-flex flex-wrap align-items-center mb-5">
+			<h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview</h2>
+
+			<div class="searchbar">
+				<form id="demo-2">
+					<input class="form-control" type="search" placeholder="Search here" [(ngModel)]="search" name="search">
+				</form>
+			</div>
+		</div>
+
+
+		<div class="row barcode_sec">
+			<div class="col-xl-4">
+				<div class="card scanner_sec">
+					<div class="card-body">
+						<div class="scanner_main d-flex mt-4">
+							<div class="icons_main align-self-end text-right">
+								<a>
+									<svg width="24" height="24" viewBox="0 0 24 24">
+										<g id="download-24px" opacity="0.753">
+											<path id="Path_806" data-name="Path 806" d="M0,0H24V24H0Z" fill="none" />
+											<path id="Path_807" data-name="Path 807"
+												d="M19,9H15V3H9V9H5l7,7Zm-8,2V5h2v6h1.17L12,13.17,9.83,11ZM5,18H19v2H5Z"
+												fill="#b6b8c7" />
+										</g>
+									</svg>
+								</a>
+								<!-- <a>
+									<svg width="24" height="24" viewBox="0 0 24 24">
+										<g id="share-24px" opacity="0.753">
+											<path id="Path_802" data-name="Path 802" d="M0,0H24V24H0Z" fill="none" />
+											<path id="Path_803" data-name="Path 803"
+												d="M18,16.08a2.912,2.912,0,0,0-1.96.77L8.91,12.7A3.274,3.274,0,0,0,9,12a3.274,3.274,0,0,0-.09-.7l7.05-4.11A2.993,2.993,0,1,0,15,5a3.274,3.274,0,0,0,.09.7L8.04,9.81a3,3,0,1,0,0,4.38l7.12,4.16a2.821,2.821,0,0,0-.08.65A2.92,2.92,0,1,0,18,16.08ZM18,4a1,1,0,1,1-1,1A1,1,0,0,1,18,4ZM6,13a1,1,0,1,1,1-1A1,1,0,0,1,6,13Zm12,7.02a1,1,0,1,1,1-1A1,1,0,0,1,18,20.02Z"
+												fill="#b6b8c7" />
+										</g>
+									</svg>
+								</a> -->
+							</div>
+
+							<div class="scan_img ml-3">
+								<img class="img-fluid" *ngIf="modalData?.qrimage" id="qrcode"  src="{{service.qrurl}}{{modalData?.qrimage}}" alt="">
+								<img class="img-fluid" *ngIf="!modalData?.qrimage" src="assets/images/scan_img.png" alt="">
+							</div>
+						</div>
+						<!-- Scanner div end -->
+
+						<div class="object_name mt-5">
+							<h5 class="fs17 font-weight-bold">Smart Object Name</h5>
+							<div class="dark_bg_label">
+								
+								<h6 class="fs14 font-weight-bold m-0">{{modalData?.tag_name}}</h6>
+							</div>
+						</div>
+
+						<div class="d-flex mt-5">
+							<div class="icons_main align-self-end pb-1">
+								<a [cdkCopyToClipboard]="link" (click)="copyUrl()">
+									<svg width="24" height="24" viewBox="0 0 24 24">
+										<g id="file_copy-24px" opacity="0.753">
+											<path id="Path_868" data-name="Path 868" d="M0,0H24V24H0Z" fill="none" />
+											<path id="Path_869" data-name="Path 869"
+												d="M16,1H4A2.006,2.006,0,0,0,2,3V17H4V3H16ZM15,5H8A2,2,0,0,0,6.01,7L6,21a2,2,0,0,0,1.99,2H19a2.006,2.006,0,0,0,2-2V11ZM8,21V7h6v5h5v9Z"
+												fill="#b6b8c7" />
+										</g>
+									</svg>
+								</a>
+								<!-- <a>
+									<svg width="24" height="24" viewBox="0 0 24 24">
+										<g id="share-24px" opacity="0.753">
+											<path id="Path_802" data-name="Path 802" d="M0,0H24V24H0Z" fill="none" />
+											<path id="Path_803" data-name="Path 803"
+												d="M18,16.08a2.912,2.912,0,0,0-1.96.77L8.91,12.7A3.274,3.274,0,0,0,9,12a3.274,3.274,0,0,0-.09-.7l7.05-4.11A2.993,2.993,0,1,0,15,5a3.274,3.274,0,0,0,.09.7L8.04,9.81a3,3,0,1,0,0,4.38l7.12,4.16a2.821,2.821,0,0,0-.08.65A2.92,2.92,0,1,0,18,16.08ZM18,4a1,1,0,1,1-1,1A1,1,0,0,1,18,4ZM6,13a1,1,0,1,1,1-1A1,1,0,0,1,6,13Zm12,7.02a1,1,0,1,1,1-1A1,1,0,0,1,18,20.02Z"
+												fill="#b6b8c7" />
+										</g>
+									</svg>
+								</a> -->
+							</div>
+
+							<div class="scan_img ml-3">
+								<h5 class="fs17 font-weight-bold">Virtual Sharing Link</h5>
+								<p class="mb-0 fs14" id="myInput"><a
+										class="text-white text_opacity_68">{{modalData?.tag_url}}</a></p>
+							</div>
+						</div>
+						<!--=======Code========-->
+						<!-- <div class="d-flex mt-3">
+							<div class="icons_main align-self-end pb-1">
+								<a href="#">
+									<svg width="24" height="24" viewBox="0 0 24 24">
+										<g id="file_copy-24px" opacity="0.753">
+											<path id="Path_868" data-name="Path 868" d="M0,0H24V24H0Z" fill="none" />
+											<path id="Path_869" data-name="Path 869"
+												d="M16,1H4A2.006,2.006,0,0,0,2,3V17H4V3H16ZM15,5H8A2,2,0,0,0,6.01,7L6,21a2,2,0,0,0,1.99,2H19a2.006,2.006,0,0,0,2-2V11ZM8,21V7h6v5h5v9Z"
+												fill="#b6b8c7" />
+										</g>
+									</svg>
+								</a>
+								<a href="#">
+									<svg width="24" height="24" viewBox="0 0 24 24">
+										<g id="share-24px" opacity="0.753">
+											<path id="Path_802" data-name="Path 802" d="M0,0H24V24H0Z" fill="none" />
+											<path id="Path_803" data-name="Path 803"
+												d="M18,16.08a2.912,2.912,0,0,0-1.96.77L8.91,12.7A3.274,3.274,0,0,0,9,12a3.274,3.274,0,0,0-.09-.7l7.05-4.11A2.993,2.993,0,1,0,15,5a3.274,3.274,0,0,0,.09.7L8.04,9.81a3,3,0,1,0,0,4.38l7.12,4.16a2.821,2.821,0,0,0-.08.65A2.92,2.92,0,1,0,18,16.08ZM18,4a1,1,0,1,1-1,1A1,1,0,0,1,18,4ZM6,13a1,1,0,1,1,1-1A1,1,0,0,1,6,13Zm12,7.02a1,1,0,1,1,1-1A1,1,0,0,1,18,20.02Z"
+												fill="#b6b8c7" />
+										</g>
+									</svg>
+								</a>
+							</div>
+
+							<div class="scan_img ml-3">
+								<h5 class="fs17 font-weight-bold">Code</h5>
+								<p class="mb-0 fs14"><a href="#" class="text-white text_opacity_68">784312</a></p>
+							</div>
+						</div> -->
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-xl-8 smart_object_main">
+
+				<div class="row no-gutters">
+					<div class="col-sm-3 table_tabs">
+						<div class="nav flex-column nav-pills mb-0">
+							<a href="#v-pills-home" [ngClass]="{'active' : classAdd === true }" data-toggle="pill" class="nav-link active show" (click)="Smartobject()"><i class="mr-2">
+									<svg id="home-white-18dp" width="24" height="24" viewBox="0 0 24 24">
+										<path id="Path_771" data-name="Path 771" d="M0,0H24V24H0Z" fill="none" />
+										<path id="Path_772" data-name="Path 772" d="M10,20V14h4v6h5V12h3L12,3,2,12H5v8Z"
+											fill="#fff" />
+									</svg>
+								</i> Home</a>
+							<!-- <a href="#v-pills-profile" data-toggle="pill" class="nav-link">My Objects</a>
+										<a href="#v-pills-messages" data-toggle="pill" class="nav-link">Other Objects</a> -->
+										<!-- 'zoom' : dragDropActive === true -->
+							<div>
+								<div *ngFor="let contacts of ObjectList; let i=index" (drop)="drop($event,i,contacts.id)" id="{{contacts.id}}" (dragover)="allowDrop($event)" >
+									<a class="nav-link d-flex justify-content-between" [ngClass]="{'active' : contacts.active === true }" (click)="getFilterObjectListing(contacts.id)">{{contacts?.name}}
+										<button class="nav-link p-2 btn smart_btn" (click)="deleteContact(contacts?.id)">
+											<svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+												<path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none" />
+												<path id="Path_809" data-name="Path 809"
+													d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z"
+													fill="#b6b8c7" />
+											</svg>
+										</button>
+									</a>
+									<!-- <a href="#v-pills-messages" data-toggle="pill" class="nav-link">Family & Friends</a> -->
+								</div>
+							</div>
+
+						</div>
+						<form [formGroup]="catForm">
+							<input type="text" *ngIf="inputField == true" formControlName="name"
+								(keyup.enter)="submitCat()" class="add_input" placeholder="Add category">
+						</form>
+						<div class="d-flex justify-content-end flex-column align-items-end action_btn">
+							<button class="nav-link btn" (click)="input()">
+								<svg xmlns="http://www.w3.org/2000/svg" id="add-24px" width="24" height="24"
+									viewBox="0 0 24 24">
+									<path id="Path_810" data-name="Path 810" d="M0,0H24V24H0Z" fill="none" />
+									<path id="Path_811" data-name="Path 811" d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z"
+										fill="#b6b8c7" />
+								</svg>
+							</button>
+
+							<!-- <button class="nav-link btn">
+											<svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+												<path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none"/>
+												<path id="Path_809" data-name="Path 809" d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z" fill="#b6b8c7"/>
+											  </svg>
+										</button> -->
+						</div>
+
+					</div>
+					<div class="col-sm-9">
+						<div class="card">
+							<div class="tab-content p-3">
+								<!-- <div id="v-pills-home" class="tab-pane fade active show">   vidur-->
+								<div id="v-pills-home" class="fade active show"> 
+									<div class="table-responsive custom_table custom_scrollbar">
+										<table class="table bg-warning-hover text-left">
+											<thead>
+												<tr class="text_white">
+													<th class="add_sm_object"><a data-toggle="modal" data-target="#addsmart_object">
+															<svg xmlns="http://www.w3.org/2000/svg" id="add-active-24px"
+																width="24" height="24" viewBox="0 0 24 24">
+																<path id="Path_810" data-name="Path 810"
+																	d="M0,0H24V24H0Z" fill="none" />
+																<path id="Path_811" data-name="Path 811"
+																	d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z"
+																	fill="#8eb8ff" />
+															</svg>
+															Smart Objects
+														</a>
+													</th>
+
+													<th colspan="2" class="text_white text-center">Application</th>
+													<th class="text_white text-center">Inactive/Active</th>
+												</tr>
+											</thead>
+											<tbody class="fs14">
+												<tr  id="drag1" *ngFor="let smart of smartobjects | filter:search" draggable="true" (dragstart)="drag($event,smart.tag_id,smart.slug)">
+													<td *ngIf="smart.tag_name !=''" (click)="model(smart)" class="">{{smart.tag_name}}</td>
+													<td *ngIf="smart.tag_name ==''" class="">{{B-in-touch}}</td> 
+													<!-- <td class="pr-0">
+														<div class="editDelete">
+															<a class="ed_btn" (click)="openDialog(smart.tag_id, smart.tag_name)"><img
+																	src="assets/images/create-24px.svg" /></a>
+																	<span (click)="model(smart)">
+																		<ng-container *ngIf="smart.tag_name != ''">{{smart.tag_name}}</ng-container>
+																		<ng-container *ngIf="smart.tag_name == ''">B-in-touch</ng-container>
+																	</span>
+																</div>
+															</td> -->
+
+													<td class="pr-0">
+														<div class="editDelete">
+															<a class="ed_btn" *ngIf="smart.data.title || smart.data.slug" (click)="applicationList(smart, smart.data.id)"><img
+																	src="assets/images/create-24px.svg" /></a>
+															<a class="ed_btn" *ngIf="smart.data.title || smart.data.slug"
+																(click)="remove(smart)"><img
+																	src="assets/images/delete_outline-24px.svg" /></a>
+															<a class="ed_btn" *ngIf="smart.data.length == 0"
+																(click)="applicationList(smart,'')"><img
+																	src="../../../assets/images/add_icon.svg" /></a>
+														</div>
+													</td>
+													<td>
+														<span *ngIf="smart.data">
+															<!-- <ng-container *ngIf="smart.data && smart.data.slug == 'contact'">{{smart.data.first_name}} {{smart.data.middle_name}} {{smart.data.last_name}}</ng-container> -->
+															<ng-container *ngIf="smart.data">{{smart.data.title}}</ng-container>
+														</span>
+														<span *ngIf="!smart.data">N/A</span>
+
+													</td>
+													<td class="text-center">
+														<div class="switch">
+															<label>
+
+																<input type="checkbox"
+																	(change)="change(smart, smart.lock_status)"
+																	[checked]="smart.lock">
+																<span class="lever"></span>
+															</label>
+														</div>
+													</td>
+												</tr>
+												<tr *ngIf="smartobjects && smartobjects.length==0">No Data</tr>
+												<!-- <tr>
+																<td>My B-Tap</td>
+																<td class="pr-0">
+																	<div class="editDelete">
+																<a class="ed_btn" href=""><img src="assets/images/create-24px.svg"/></a>
+																<a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>
+															</div>
+																</td>
+																<td>Instagram</td>
+																<td class="text-center">
+																	<div class="switch">
+																		<label>
+
+																		  <input type="checkbox">
+																		  <span class="lever"></span>
+																		</label>
+																	  </div>
+																</td>
+
+															</tr>
+															<tr>
+																<td>Desk Badge</td>
+																<td class="pr-0">
+																	<div class="editDelete">
+																<a class="ed_btn" href=""><img src="assets/images/create-24px.svg"/></a>
+																<a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>
+															</div>
+																</td>
+																<td>Review Link</td>
+																<td class="text-center">
+																	<div class="switch">
+																		<label>
+
+																		  <input type="checkbox" disabled>
+																		  <span class="lever"></span>
+																		</label>
+																	  </div>
+																</td>
+
+															</tr>
+															<tr>
+																<td>B-Social Card</td>
+																<td class="pr-0">
+																	<div class="editDelete">
+																<a class="ed_btn" href=""><img src="assets/images/create-24px.svg"/></a>
+																<a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>
+															</div>
+																</td>
+																<td></td>
+																<td class="text-center">
+																	<div class="switch">
+																		<label>
+
+																		  <input type="checkbox" checked="">
+																		  <span class="lever"></span>
+																		</label>
+																	  </div>
+																</td>
+															</tr>
+															<tr>
+																<td>B-Safe Card</td>
+																<td class="pr-0">
+																	<div class="editDelete">
+																<a class="ed_btn" href=""><img src="assets/images/create-24px.svg"/></a>
+																<a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>
+															</div>
+																</td>
+																<td>Emergency</td>
+																<td class="text-center">
+																	<div class="switch">
+																		<label>
+
+																		  <input type="checkbox" checked="">
+																		  <span class="lever"></span>
+																		</label>
+																	  </div>
+																</td>
+															</tr>
+															<tr>
+																<td>Dog’s Badge</td>
+																<td class="pr-0">
+																	<div class="editDelete">
+																<a class="ed_btn" href=""><img src="assets/images/create-24px.svg"/></a>
+																<a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>
+															</div>
+																</td>
+																<td>Dog’s Info</td>
+																<td class="text-center">
+																	<div class="switch">
+																		<label>
+
+																		  <input type="checkbox">
+																		  <span class="lever"></span>
+																		</label>
+																	  </div>
+																</td>
+															</tr>  -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div id="v-pills-profile" class="tab-pane fade">
+									<p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis
+										pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor
+										deserunt commodo et minim in quis laboris ipsum
+										velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut
+										et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id
+										officia mollit qui esse anim eiusmod do sint
+										minim consectetur qui.
+									</p>
+									<p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis
+										pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor
+										deserunt commodo et minim in quis laboris ipsum
+										velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut
+										et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id
+										officia mollit qui esse anim eiusmod do sint
+										minim consectetur qui.
+									</p>
+									<p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis
+										pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor
+										deserunt commodo et minim in quis laboris ipsum
+										velit id veniam.
+									</p>
+
+
+								</div>
+								<div id="v-pills-messages" class="tab-pane fade">
+									<p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+										magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+										occaecat velit nostrud magna nulla. Velit
+										et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+										labore est magna commodo est ea veniam consectetur.</p>
+
+									<p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+										magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+										occaecat velit nostrud magna nulla. Velit
+										et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+										labore est magna commodo est ea veniam consectetur.</p>
+
+									<p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+										magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+										occaecat velit nostrud magna nulla. Velit
+										et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+										labore est magna commodo est ea veniam consectetur.</p>
+
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-xl-12">
+
+				<div class="card position-relative">
+					<div class="card_header_pre position-absolute">
+						<h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+					</div>
+
+					<div class="preview_main text-center">
+						<img class="img-fluid" src="assets/images/preview_jpg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--**********************************
+            Content body end
+        ***********************************-->
+
+
+	<!--**********************************
+            Right Sidebar
+        ***********************************-->
+
+
+
+
+
+</div>
+<!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+<!--**********************************
+       Smart Opject Add Popup start
+    ***********************************-->
+
+<!-- The Modal -->
+<div class="modal fade" id="addsmart_object">
+	<div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+		<div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal">
+				<svg width="24" height="24" viewBox="0 0 24 24">
+					<path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none" />
+					<path id="Path_823" data-name="Path 823"
+						d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"
+						fill="#b6b8c7" />
+				</svg>
+			</button>
+			<div class="modal-body">
+				<div class="scanner_sec">
+					<div class="scanner_main d-flex">
+						<div class="scanner_div d-flex align-items-end justify-content-center w-100">
+							<div class="scanner_icons pb-1">
+								<a href=""><img src="assets/images/qr_code_scanner-24px.svg" /></a>
+								<a href=""><img src="assets/images/settings_remote-24px.svg" /></a>
+
+							</div>
+						</div>
+					</div>
+					<!-- Scanner div end -->
+					<form [formGroup]="EditnameForm">
+					<div class="object_name mt-5 pl-0">
+						<h5 class="fs17 font-weight-bold pl-3">Smart Object Name</h5>
+						<!-- <div class="dark_bg_label">
+							<h6 class="fs14 font-weight-bold m-0">{{modalData?.tag_name}}</h6>
+							
+						</div> -->
+						<input class="form-control"  placeholder="Smart Object Name" formControlName="title" (keyup.enter)="submit()"  (focusout)="submit()">
+					</div>
+					</form>
+
+					<div class="d-flex mt-5">
+						<div class="icons_main align-self-end pb-1">
+							<a>
+								<svg width="24" height="24" viewBox="0 0 24 24">
+									<g id="share-24px" opacity="0.753">
+										<path id="Path_802" data-name="Path 802" d="M0,0H24V24H0Z" fill="none" />
+										<path id="Path_803" data-name="Path 803"
+											d="M18,16.08a2.912,2.912,0,0,0-1.96.77L8.91,12.7A3.274,3.274,0,0,0,9,12a3.274,3.274,0,0,0-.09-.7l7.05-4.11A2.993,2.993,0,1,0,15,5a3.274,3.274,0,0,0,.09.7L8.04,9.81a3,3,0,1,0,0,4.38l7.12,4.16a2.821,2.821,0,0,0-.08.65A2.92,2.92,0,1,0,18,16.08ZM18,4a1,1,0,1,1-1,1A1,1,0,0,1,18,4ZM6,13a1,1,0,1,1,1-1A1,1,0,0,1,6,13Zm12,7.02a1,1,0,1,1,1-1A1,1,0,0,1,18,20.02Z"
+											fill="#b6b8c7" />
+									</g>
+								</svg>
+							</a>
+						</div>
+
+						<div class="scan_img ml-3">
+							<h5 class="fs17 font-weight-bold">Virtual Link</h5>
+							<p class="mb-0 fs14"><a
+									class="text-white text_opacity_68">{{modalData?.tag_url}}</a></p>
+						</div>
+					</div>
+					<!--=======Code========-->
+					<!-- <div class="d-flex mt-3">
+						<div class="icons_main align-self-end pb-1">
+							<a href="#">
+								<svg width="24" height="24" viewBox="0 0 24 24">
+									<g id="share-24px" opacity="0.753">
+										<path id="Path_802" data-name="Path 802" d="M0,0H24V24H0Z" fill="none" />
+										<path id="Path_803" data-name="Path 803"
+											d="M18,16.08a2.912,2.912,0,0,0-1.96.77L8.91,12.7A3.274,3.274,0,0,0,9,12a3.274,3.274,0,0,0-.09-.7l7.05-4.11A2.993,2.993,0,1,0,15,5a3.274,3.274,0,0,0,.09.7L8.04,9.81a3,3,0,1,0,0,4.38l7.12,4.16a2.821,2.821,0,0,0-.08.65A2.92,2.92,0,1,0,18,16.08ZM18,4a1,1,0,1,1-1,1A1,1,0,0,1,18,4ZM6,13a1,1,0,1,1,1-1A1,1,0,0,1,6,13Zm12,7.02a1,1,0,1,1,1-1A1,1,0,0,1,18,20.02Z"
+											fill="#b6b8c7" />
+									</g>
+								</svg>
+							</a>
+						</div>
+
+						<div class="scan_img ml-3">
+							<h5 class="fs17 font-weight-bold">Code</h5>
+							<p class="mb-0 fs14"><a href="#" class="text-white text_opacity_68">784312</a></p>
+						</div>
+					</div> -->
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--**********************************
+		   Smart Opject Add Popup End
+		***********************************-->
+
+<!--**********************************
+       View contact Popup start
+    ***********************************-->
+
+<!-- The Modal -->
+<div class="modal fade" id="contact_detail">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+
+			<div class="card_header_pre d-flex justify-content-between pb-0">
+				<h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+				<div class="preview_icons d-flex align-items-center">
+					<a href=""><img src="assets/images/download-24px.svg" /></a>
+					<a href=""><img src="assets/images/create-24px.svg" /></a>
+					<a href=""><img src="assets/images/delete_outline-24px.svg" /></a>
+				</div>
+			</div>
+			<button type="button" class="close" data-dismiss="modal">
+				<svg width="24" height="24" viewBox="0 0 24 24">
+					<path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none" />
+					<path id="Path_823" data-name="Path 823"
+						d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"
+						fill="#b6b8c7" />
+				</svg>
+			</button>
+			<div class="modal-body">
+				<div class="user_profile d-flex align-items-center">
+
+					<img src="assets/images/img_user.jpg" alt="" />
+					<div class="user_info d-flex flex-column">
+						<span class="fs17 text_white font-weight-bold">Remi Dupont</span>
+						<span class="fs14 pt-1">ESSEC/Student</span>
+					</div>
+				</div>
+
+				<ul class="list-unstyled user_info_list pt-3">
+					<li>
+						<label class="fs14 m-0">Phone Number</label>
+						<p class="text_white text_opacity_68">0033616930225</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Work Number</label>
+						<p class="text_white text_opacity_68">0033616930224</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Website</label>
+						<p class="text_white text_opacity_68">www.b-intouch.fr</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Home Address</label>
+						<p class="text_white text_opacity_68">23 Rue Louis Pouey, 92800, Puteaux
+							France</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Birthday</label>
+						<p class="text_white text_opacity_68">11/04/1991</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Email </label>
+						<p class="text_white text_opacity_68">aaalfarra1@gmail.com</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Paypal</label>
+						<p class="text_white text_opacity_68">aboud.atassi.paris@gmail.com</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Home Address</label>
+						<p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris
+							France</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

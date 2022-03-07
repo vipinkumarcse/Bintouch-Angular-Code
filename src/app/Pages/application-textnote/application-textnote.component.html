@@ -1,0 +1,78 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Text/Note</h2>
+
+            <div class="searchbar">
+            <form id="demo-2" >
+                <input class="form-control" type="search" placeholder="Search here">
+            </form>
+        </div>
+        </div>
+
+
+        <div class="row ">
+
+        <div class="col-xl-12">
+            <div class="card form_col_manage">
+                <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                    <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Send a direct Text/Note </h4>
+                    </div>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <form class="bform text_white" [formGroup]="AppForm">
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label class="fs17 font-weight-bold">Content </label>
+                                        <textarea class="form-control" rows="10" formControlName="content"></textarea>
+                                     </div>
+                                </div>
+                                <button (click)="submit()" class="btn btn-primary btn-block rounded-pill mt-4 w-50 mx-auto" >Submit</button>
+                                <!-- Form row end -->
+                          </form>
+                     </div>
+                     <div class="col-md-4">
+                                 <div class="graphic_icon text-right">
+                                     <img class="img-fluid" src="assets/images/textnote_img.png" />
+                                 </div>
+                     </div>
+                </div>
+                </div>
+
+                <div class="card-footer border-0 border_half_width py-0">
+                    <hr />
+                    <p class="text-center fs17 mb-0">If you want to send someone a direct text or note without passing by your carrier server</p>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+
+        <div class="col-xl-12">
+    
+            <div class="card position-relative">
+                <div class="card_header_pre position-absolute">
+                    <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                </div>
+
+                <div class="preview_main text-center">
+                    <img class="img-fluid" src="assets/images/preview_jpg3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+<!--**********************************
+    Right Sidebar 
+***********************************-->
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

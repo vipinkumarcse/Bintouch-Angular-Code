@@ -1,0 +1,364 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Linktree</h2>
+
+            <div class="searchbar">
+            <form id="demo-2">
+                <input class="form-control" type="search" placeholder="Search here">
+            </form>
+        </div>
+        </div>
+
+
+        <div class="row ">
+
+        <div class="col-xl-12">
+            <div class="card form_col_manage">
+                <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                    <!-- <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Your Contact Card</h4>
+                    </div> -->
+                <div class="card-body">
+                    <form class="bform text_white" [formGroup]="linkForm">
+                    <div class="row">
+                    <div class="col-md-2">
+                        <div class="profile_img d-flex flex-column align-items-center linkTree_profilePhoto">
+                            <div class="profile_img_container position-relative">
+                            <img [src]="imgURLProfile"/>
+                            <!-- <div class="close_icon d-flex align-items-center justify-content-center">
+                                <svg  width="512" height="512" x="0" y="0" viewBox="0 0 511.99 511.99" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                  <ellipse  cx="255.992" cy="255.999" rx="236.278" ry="236.278" fill="#629ceb" data-original="#1138f7" class=""/>
+                                  <path  d="M255.995,511.979c-65.587,0-131.174-24.957-181.108-74.872c-99.849-99.849-99.849-262.348,0-362.217   l0,0c99.849-99.829,262.368-99.849,362.217,0c99.849,99.869,99.849,262.348,0,362.217   C387.169,487.022,321.562,511.979,255.995,511.979z M102.939,102.942c-84.374,84.394-84.374,221.719,0,306.113   c84.414,84.374,221.738,84.394,306.113,0s84.374-221.719,0-306.113C324.637,18.568,187.333,18.568,102.939,102.942L102.939,102.942   z" fill="#629ceb" data-original="#1138f7" class=""/>
+                                  <path  d="M187.115,344.678c-5.079,0-10.157-1.944-14.026-5.813c-7.757-7.757-7.757-20.295,0-28.052   l140.26-140.26c7.757-7.757,20.295-7.757,28.052,0c7.757,7.757,7.757,20.295,0,28.052l-140.26,140.26   C197.252,342.734,192.193,344.678,187.115,344.678z" fill="#ffffff" data-original="#ffffff" class=""/>
+                                  <path  d="M327.355,344.678c-5.079,0-10.157-1.944-14.026-5.813l-140.26-140.26   c-7.757-7.757-7.757-20.295,0-28.052s20.295-7.757,28.052,0l140.26,140.26c7.757,7.757,7.757,20.295,0,28.052   C337.513,342.734,332.434,344.678,327.355,344.678z" fill="#ffffff" data-original="#ffffff" class=""/>
+                                </svg>
+                              </div> -->
+                            <input type="file" nbInput fullWidth #file accept='image/*' (change)="preview(file.files)" />
+                            </div>
+                            <p class="fs17 font-weight-bold mt-3">Profile Photo</p>
+                        </div>
+                    </div>
+
+                      <div class="col-md-10 pl-lg-4">
+                        <h4 class="card-title fs21 text_transform_none mb-4">Create Your Own Mixed Sharing & Shortcuts Page </h4>
+                          <div class="row">
+                              <div class="col-md-7">
+                                
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-10 profile_cover_img">
+                                            <label class="fs17 font-weight-bold">Cover Photo</label>
+                                            <div class="profile_img_container position-relative">
+                                            <img class="img-fluid" [src]="imgURLCover" alt=""/>
+                                            <input type="file" nbInput fullWidth #fileCover accept='image/*' (change)="cover(fileCover.files)" />
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <!-- Form row end -->
+                                    
+                                
+                              </div>
+                              <div class="col-md-5">
+                                <div class="graphic_icon text-right">
+                                    <img class="img-fluid" src="assets/images/linkTree_img.png" />
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="row mt-1">
+                            <div class="col-md-12">
+                                <!-- <form ></form> -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="fs17 font-weight-bold"> Profile Title</label>
+                                        <input type="text" class="form-control" formControlName="title" (blur)="makeData()">
+                                    </div>
+
+                                    <div class="form-group col-md-8">
+                                        <label class="fs17 font-weight-bold"> Bio</label>
+                                        <textarea class="form-control" rows="4" formControlName="bio" (blur)="makeData()"></textarea>
+                                    </div>
+                                </div>
+                                <!-- Form row end -->
+
+                              
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                            <div class="form-row w-100">
+                            <div class="form-group col-md-8 p-0">
+
+                                <div class="form-row w-100">
+                                    <ng-container formArrayName="labelUrl">
+                                    <!-- Add Link Form Div Start -->
+                                <div class="form-group col-md-12" id="addLinkForm" *ngFor="let lessonForm of getControlsLinks(); let i = index"> 	
+                                <div class="mainForm p-3 radius_5 position-relative" [formGroupName]="i">
+                                    <div class="form_group_inner">
+                                        <label class="fs17 font-weight-bold">Label</label>
+                                        <input type="text" formControlName="label" class="form-control" required>
+                                    </div>
+
+                                    <div class="form_group_inner mt-3">
+                                        <label class="fs17 font-weight-bold"> URL</label>
+                                        <input type="text" formControlName="url" class="form-control" required>
+                                    </div>
+                                    <div>
+                                        <button (click)="addUrl(i,lessonForm)" class="btn btn-info btn-xs mt-4">Save</button>
+                                    </div>
+                                    <div class="delte_icon position-absolute pointer" id="deletLinkForm"  (click)="delete(lessonForm, i)">
+                                        <img src="assets/images/delete_outline-24px.svg" alt="">
+                                    </div>
+                                </div>	
+                                </div>
+                            </ng-container>
+                                <!-- Add Link Form Div End -->
+      <!-- Add Application Div Start -->
+                                <ng-container formArrayName="labelApp">
+                          
+                                <div class="form-group col-md-12" id="addApplicationForm" *ngFor="let appForm of getControls(); let i=index"> 	
+                                    <div class="mainForm p-3 radius_5 position-relative" [formGroupName]="i">
+                                        <div class="form_group_inner">
+                                            <label class="fs17 font-weight-bold"> Label</label>
+                                            <input type="text" class="form-control" formControlName="text" required>
+                                        </div>
+
+                                        <div class="form_group_inner mt-3">
+                                            <label class="fs17 font-weight-bold"> Application</label>
+                                            <select class="form-control default-select" formControlName="app" required>
+                                                <option selected disabled>Select Application</option>
+                                                <option [value]="srv.slug" *ngFor="let srv of services">{{srv.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button (click)="EditApp(i,appForm)" class="btn btn-info btn-xs mt-4">Save</button>
+                                        </div>
+                                       <div class="delte_icon position-absolute pointer" id="deletApplForm" (click)="delete(appForm, i)">
+                                        <img src="assets/images/delete_outline-24px.svg" alt="">
+                                    </div>
+                                    </div>	
+                                    </div>
+                                    </ng-container>
+
+                                    <!-- <ng-container *ngIf="appshow">
+                          
+                                        <div class="form-group col-md-12" id="addApplicationForm"> 	
+                                            <div class="mainForm p-3 radius_5 position-relative">
+                                                <div class="form_group_inner">
+                                                    <label class="fs17 font-weight-bold"> Label</label>
+                                                    <input type="text" class="form-control" formControlName="text">
+                                                </div>
+        
+                                                <div class="form_group_inner mt-3">
+                                                    <label class="fs17 font-weight-bold"> Application</label>
+                                                    <select class="form-control default-select" formControlName="app">
+                                                        <option [value]=srv.slug *ngFor="let srv of services">{{srv.name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <button (click)="addApp(labelApp)" class="btn btn-info btn-xs mt-4">Save</button>
+                                                </div>
+                                                <div class="delte_icon position-absolute pointer" id="deletApplForm">
+                                                </div>
+                                            </div>	
+                                            </div>
+                                            </ng-container> -->
+
+                                    <!-- <div class="delte_icon position-absolute pointer" id="deletApplForm">
+                                        <img src="assets/images/delete_outline-24px.svg" alt="">
+                                    </div> -->
+                                    <!-- Add Application Form Div End -->
+                                </div>
+
+
+                                <div class="form-row w-100">
+                                    <div class="form-group col-md-6">
+                                        <button id="addLinkBtn" (click)="ShowAddLink()" type="button" class="btn dashbutton-blue fs14 w-100"> Add Link</button>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <button id="addApplicationBtn" (click)="ShowPopup()"  type="button" class="btn dashbutton-blue fs14 w-100"> Add Application</button>
+                                    </div>
+                               </div>
+
+                               <!-- (click)="addQuantity('app')" -->
+
+                               
+                            </div>
+                            <!-- src="{{auth?.serviceSocialIcon}}{{socialIcon}}"  -->
+                            
+                        <div class="form-group col-md-4">
+                            <ng-container formArrayName="SocialLink">
+                                <div class="mainForm p-3 radius_5 position-relative mb-4" id="socialMediaForm" *ngFor="let social of getControlsSocial(); let i=index">
+                                <ng-container [formGroupName]="i">
+                                    <div class="form_group_inner icon_container radius_5 p-4 text-center mt-4 d-flex align-items-center justify-content-center">
+                                        <img class="img-fluid" src="{{social.value.image}}" alt="" >
+                                    </div>
+
+                                    <div class="form_group_inner mt-3">
+                                        <select class="form-control default-select" formControlName="slug" (change)="selectIcon($event,i)" required>
+                                            <option selected disabled>-Select Social Media Link</option>
+                                            <option *ngFor="let icon of serviceIcon" [value]="icon.slug">{{icon.name}}</option>
+                                            <!-- <option>Link Two</option>
+                                            <option>Link Three</option> -->
+                                        </select>
+                                    </div>
+                                    <div class="form_group_inner mt-2">
+                                        <input type="text" class="form-control" placeholder="https://instagram.com/" formControlName="url" required>
+                                    </div>
+                                    <div class="delte_icon position-absolute pointer" id="deletSMForm">
+                                    </div>
+
+                                    <button (click)="addSocial(i,social)" class="btn btn-info btn-xs mt-4">Save </button>
+                                </ng-container>
+                                </div>	
+                                </ng-container>
+                                
+                            <button id="addSocialBtn" type="button" class="btn dashbutton-blue fs14 w-100" (click)="ShowAddSocail()" > Add Social Media Link</button>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+
+                     </div> 
+                </div>
+
+                    <!-- Color Pickers section start -->
+                    <div class="row mt-4">
+                        <div class="col-sm-4">
+
+                            <div class="form-row">
+                            <div class="form-group col-md-12">
+                            <label class="fs17 font-weight-bold">Background Color</label>
+                            <input type="color" class="form-control colorPicker" value="#ffffff" formControlName="bgColor" (blur)="makeData()">
+                            </div>
+                            </div>
+                            <!-- Form row end -->
+
+                            <div class="form-row">
+                            <div class="form-group col-md-12">
+                            <label class="fs17 font-weight-bold">Text Color</label>
+                            <input type="color" class="form-control colorPicker" value="#000000" formControlName="textColor" (blur)="makeData()">
+                            </div>
+                            </div>
+                            <!-- Form row end -->
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                <label class="fs17 font-weight-bold">Button Color</label>
+                                <input type="color" class="form-control colorPicker" value="#5079BF" formControlName="buttonColor" (blur)="makeData()">
+                                </div>
+                            </div>
+                                <!-- Form row end -->
+
+                                <!-- <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                    <label class="fs17 font-weight-bold">Select Template</label>
+                                    <select class="form-control default-select" formControlName="template">
+                                        <option selected disabled>-Select Template-</option>
+                                        <option value="1">Template 1</option>
+                                        <option value="2">Template 2</option>
+                                        <option value="3">Template 3</option>
+                                        <option value="4">Template 4</option>
+                                    </select>
+                                    </div>
+                                </div> -->
+                                    <!-- Form row end -->
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <!-- Add Application Div Start -->
+                                <label class="fs17 font-weight-bold">Button Style</label>
+                                    <div class="mainForm p-3 radius_5 position-relative mb-4">
+                                        <div class="form_group_inner icon_container radius_5 p-4 text-center mt-3 d-flex align-items-center justify-content-center">
+                                            <img class="img-fluid selc_temp" src="assets/images/button_template.svg" alt="">
+                                        </div>
+
+                                        <div class="form_group_inner mt-3">
+                                            <select class="form-control default-select" formControlName="buttonStyle" (change)="makeData()">
+                                                <option selected disabled>-Select Button Style-</option>
+                                                <option value="rounded">Rounded Buttons</option>
+                                                <option value="rectangle">Rectangular Buttons</option>
+                                            </select>
+                                        </div>
+                                    </div>	
+                                    <!-- Add Application Form Div End -->
+                            </div>
+                        </div>
+                        <!-- Form row end -->
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <!-- Add Application Div Start -->
+                                <label class="fs17 font-weight-bold">Social Media Icon Style</label>
+                                    <div class="mainForm p-3 radius_5 position-relative mb-4">
+                                        <div class="form_group_inner icon_container radius_5 p-4 text-center mt-3 d-flex align-items-center justify-content-center">
+                                            <img class="img-fluid" src="assets/images/facebook.png" alt="">
+                                        </div>
+
+                                        <div class="form_group_inner mt-3">
+                                            <select class="form-control default-select" formControlName="styleIcon" (change)="makeData()">
+                                                <option selected disabled>-Select Icon Style-</option>
+                                                <option value="grid">Grid Style</option>
+                                                <option value="list">List Style</option>
+                                            </select>
+                                        </div>
+                                    </div>	
+                                    <!-- Add Application Form Div End -->
+                            </div>
+                        </div>
+                        <!-- Form row end -->
+                        </div>
+                    </div>
+                    <button (click)="makeData()" class="btn btn-primary btn-block rounded-pill mt-4 w-50 mx-auto" >Submit</button>
+
+            </form>
+                </div>
+
+               
+            </div>
+            <div class="card-footer border-0 border_half_width py-0">
+                <hr class="border_default" />
+                <p class="text-center fs17 mb-0">Mix & Match all the applications or links that you want to use/share in one landing page of your
+                    design, and connect audiences to all of your content with just one page</p>
+            </div>
+            </div>
+            
+        </div>
+
+
+        <div class="col-xl-12">
+    
+            <div class="card position-relative">
+                <div class="card_header_pre position-absolute">
+                    <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                </div>
+
+                <div class="preview_main text-center">
+                    <img class="img-fluid" src="assets/images/preview_jpg3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+<!--**********************************
+    Right Sidebar 
+***********************************-->
+
+
+
+
+
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

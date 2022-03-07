@@ -1,0 +1,1058 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <!-- <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Emergency</h2>
+
+            <div class="searchbar">
+                <form id="demo-2">
+                    <input class="form-control" type="search" placeholder="Search here" />
+                </form>
+            </div>
+        </div> -->
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <form [formGroup]="Appname">
+            <div class="d-flex align-items-center justify-content-start mr-auto">
+                <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Emergency &lt;</h2>
+                <input class="app_name" placeholder="Application Name" formControlName="title">
+            </div>
+            </form>
+            <!-- <div class="searchbar">
+                <form id="demo-2">
+                    <input class="form-control" type="search" placeholder="Search here" />
+                </form>
+            </div> -->
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card form_col_manage">
+                    <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                        <!-- <div class="card-header border-0">
+                    <h4 class="card-title fs21 text_transform_none">Your Lost & Found Profile</h4>
+                </div> -->
+                        <div class="card-body">
+                            <form class="bform text_white" [formGroup]="emergencyForm">
+                                <div class="row">
+                                    <div class="col-xl-1 col-xxl-2">
+                                        <!-- <div class="profile_photo_contact d-flex flex-column align-items-center linkTree_profilePhoto">
+                            <img class="img-fluid" src="images/profile_photo_img.png"/>
+                            <p class="fs17 font-weight-bold mt-3">Profile Photo</p>
+                        </div> -->
+                                    </div>
+
+                                    <div class="col-md-10">
+                                        <h4 class="card-title fs21 text_transform_none mb-4">Create Your Medical Emergency Profile</h4>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="form-row mb-4">
+                                                    <div class="form-group col-md-10">
+                                                        <div class="profile_img d-inline-flex flex-column align-items-center">
+                                                            <div class="profile_img_container position-relative">
+                                                                <img class="img-fluid" [src]="imgURLProfile" alt="" />
+                                                                <input type="file" nbInput fullWidth #file accept="image/*" (change)="preview(file.files)" />
+                                                            </div>
+                                                            <p class="fs17 font-weight-bold mt-3">Profile Photo</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Form row end -->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="graphic_icon text-right">
+                                                    <img class="img-fluid" src="assets/images/emergency.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-12">
+                                                <h4 class="fs17 font-weight-bold mb-4">PERSONAL DETAILS</h4>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold"> First Name</label>
+                                                        <input type="text" class="form-control" formControlName="firstName" />
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold"> Last Name</label>
+                                                        <input type="text" class="form-control" formControlName="lastName" />
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold"> Organ Donor</label>
+                                                        <select class="form-control default-select" formControlName="donateOrg">
+                                                            <option selected disabled>-select from the list-</option>
+                                                            <option value="yes">Yes</option>
+                                                            <option value="no">No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- Form row end -->
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold">Birthdate</label>
+                                                        <div class="position-relative">
+                                                            <input type="text" class="form-control datetimepicker dntp" formControlName="start_date" matInput [matDatepicker]="picker" />
+                                                            <mat-datepicker-toggle matSuffix [for]="picker">
+                                                            </mat-datepicker-toggle>
+                                                            <mat-datepicker #picker></mat-datepicker>
+                                                        </div>
+                                                        <!-- <input type="date" [min]="minDate" placeholder="dd/mm/yyyy" class="form-control" formControlName="bday" matInput [matDatepicker]="picker" />
+                                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker></mat-datepicker> -->
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold"> Blood Type</label>
+                                                        <select class="form-control default-select" formControlName="bloodType">
+                                                            <option selected disabled>-select from the list-</option>
+                                                            <option value="A+">A+</option>
+                                                            <option value="A-">A-</option>
+                                                            <option value="B+">B+</option>
+                                                            <option value="B-">B-</option>
+                                                            <option value="AB+">AB+</option>
+                                                            <option value="AB-">AB-</option>
+                                                            <option value="O+">O+</option>
+                                                            <option value="O-">O-</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold">Diabetes</label>
+                                                        <select class="form-control default-select" formControlName="diabetes">
+                                                            <option selected disabled>-select from the list-</option>
+                                                            <option value="none">None</option>
+                                                            <option value="type1">Type 1</option>
+                                                            <option value="type2">Type 2</option>
+                                                            <option value="gestational">Gestational</option>
+                                                            <option value="lada">LADA</option>
+                                                            <option value="mody">MODY</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- Form row end -->
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold d-flex justify-content-between">
+                                                            Weight <span
+                                                                class="text_float fs14 font-weight-normal">Kg</span></label>
+                                                        <input type="text" class="form-control" formControlName="weight" />
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold d-flex justify-content-between">Height
+                                                            <span
+                                                                class="text_float fs14 font-weight-normal">Cm</span></label>
+                                                        <input type="text" class="form-control" formControlName="height" />
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-bold"> Epilepsy</label>
+                                                        <select class="form-control default-select" formControlName="epilepsy">
+                                                            <option selected disabled>-select from the list-</option>
+                                                            <option value="yes">Yes</option>
+                                                            <option value="no">No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- Form row end -->
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-6">
+                                                <h4 class="fs17 font-weight-bold mb-4">MEDICAL CONDITIONS</h4>
+
+                                                <div class="medical_cards_container">
+                                                    <ng-container *ngIf="medical_condition.length != 0">
+                                                        <div class="card radius_5 d-flex flex-column" *ngFor="let medicalList of medical_condition; let i=index">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="action_icon mr-2" >
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                            <g opacity="0.743">
+                                                                                <path id="Path_930" data-name="Path 930"
+                                                                                    d="M0,0H24V24H0Z" fill="none" />
+                                                                                <path id="Path_931" data-name="Path 931"
+                                                                                    d="M11,11H7v2H17V11H11Zm1-9A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z" />
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="medical_description text_opacity_68 flex-grow-1">
+                                                                        <h5 class="fs17 font-weight-bold m-0 text_black">
+                                                                            {{medicalList.name}}</h5>
+                                                                        <p class="m-0 fs14 text_black">
+                                                                            {{medicalList.details != 'null'?medicalList.details:''}}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- data-toggle="dropdown" -->
+
+                                                                <div class="bars_icon ml-auto edit_medical_condition{{i}}" role="button" (click)="edit('edit_medical_condition', medicalList, i )">
+                                                                    <!-- (click)="openDialog('medical_condition', 'Edit medical condition', medicalList)" -->
+ 
+                                                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                        <path id="Path_924" data-name="Path 924"
+                                                                            d="M0,0H24V24H0Z" fill="none" />
+                                                                        <path id="Path_925" data-name="Path 925"
+                                                                            d="M2,16v2H22V16Zm0-5v2H22V11ZM2,6V8H22V6Z"
+                                                                            fill="#5079bf" />
+                                                                    </svg>
+                                                                </div>
+
+                                                            
+
+
+                                                            <!-- ==============  
+
+                                                        Dropdown menu code start
+                                                        =========== -->
+                                                                <div class="dropdown-menu dropmenu dropmenu{{i}}">
+                                                                    <form [formGroup]="editMedicalForm">
+                                                                    <div class="dropdown_inner">
+                                                                        <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                            <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                            <h5 class="text_black m-0 font-weight-bold">Edit Medical Condition</h5>
+                                                                            <button type="button" class="close_dropdown" (click)="editsubmit('medical_condition')">Done</button>
+                                                                        </div>
+
+                                                                        <div class="dropdown_body p-3">
+                                                                            <div class="basic-list-group">
+                                                                                <ul class="list-group list-group-flush">
+                                                                                    <li class="list-group-item d-flex align-items-center">
+                                                                                        <div class="action_icon mr-2">
+                                                                                            <svg width="19.866" height="19.866" viewBox="0 0 19.866 19.866">
+                                                                                        <path id="Path_926" data-name="Path 926" d="M0,0H19.866V19.866H0Z" fill="none" />
+                                                                                        <path
+                                                                                            id="Path_927"
+                                                                                            data-name="Path 927"
+                                                                                            d="M14.479,9.953l3.16-3.159a.79.79,0,0,0,0-1.119L14.193,2.23a.791.791,0,0,0-1.119,0L9.914,5.389,6.754,2.23A.813.813,0,0,0,6.191,2a.8.8,0,0,0-.556.23L2.19,5.675a.79.79,0,0,0,0,1.119l3.16,3.159L2.19,13.112a.79.79,0,0,0,0,1.119l3.445,3.445a.791.791,0,0,0,1.119,0l3.16-3.159,3.16,3.159a.78.78,0,0,0,.564.23.813.813,0,0,0,.564-.23l3.445-3.445a.79.79,0,0,0,0-1.119L14.479,9.953ZM9.93,7.556a.794.794,0,1,1-.794.794A.8.8,0,0,1,9.93,7.556ZM6.191,9.111,3.309,6.238,6.191,3.357,9.064,6.23Zm2.151,1.619a.794.794,0,1,1,.794-.794A.8.8,0,0,1,8.342,10.731ZM9.93,12.318a.794.794,0,1,1,.794-.794A.8.8,0,0,1,9.93,12.318Zm1.588-3.175a.794.794,0,1,1-.794.794A.8.8,0,0,1,11.517,9.143Zm2.112,7.414-2.882-2.873L13.629,10.8,16.5,13.676Z"
+                                                                                            fill="#5079bf"
+                                                                                        />
+                                                                                    </svg>
+                                                                                        </div>
+                                                                                        <input type="text" class="form-control border_input"  formControlName="name"  />
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                        <input type="text" class="form-control border_input"  formControlName="details"  />
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="dropdown_footer p-3">
+                                                                            <button class="btn btn-block" type="button" (click)="delete(medicalList.id)">Delete Medical Condition</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                                <!-- ==============  
+                                    Dropdown menu code End
+                                    =========== -->
+                                                                </div>
+                                                            </div>
+                                                    </ng-container>
+                                                    <!-- card end -->
+                                                </div>
+
+                                                <div class="medical_cards_container">
+                                                    <div class="card radius_5 flex-row align-items-center">
+                                                        <div class="d-flex align-items-center w-100 medical_condition" role="button"  (click)="select('medical_condition')">
+                                                            <!-- (click)="openDialog('medical_condition','Add medical condition' ,'0')" -->
+                                                            <!-- data-toggle="dropdown" -->
+                                                            <div class="action_icon mr-2">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                    <path id="Path_936" data-name="Path 936"
+                                                                        d="M0,0H24V24H0Z" fill="none" />
+                                                                    <path id="Path_937" data-name="Path 937"
+                                                                        d="M13,7H11v4H7v2h4v4h2V13h4V11H13ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z"
+                                                                        fill="#5079bf" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="medical_description">
+                                                                <h5 class="fs17 font-weight-bold m-0 text_blue">Add medical condition</h5>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- ==============  
+                                                Dropdown menu code start
+                                                =========== -->
+                                                        <div class="dropdown-menu dropmenu" >
+                                                            <div class="dropdown_inner">
+                                                                <form [formGroup]="editMedicalForm">
+                                                                <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                    <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                    <h5 class="text_black m-0 font-weight-bold">Add Medical Condition</h5>
+                                                                    <button type="button" class="close_dropdown"  [disabled]="!editMedicalForm.valid"  (click)="submit('medical_condition')">Done</button>
+                                                                </div>
+                                                                <div class="dropdown_body p-3">
+                                                                    <div class="basic-list-group">
+                                                                        <ul class="list-group list-group-flush">
+                                                                            <li class="list-group-item d-flex align-items-center">
+                                                                                <div class="action_icon mr-2">
+                                                                                    <svg width="19.866" height="19.866" viewBox="0 0 19.866 19.866">
+                                                                                                <path id="Path_926" data-name="Path 926" d="M0,0H19.866V19.866H0Z" fill="none" />
+                                                                                                <path
+                                                                                                    id="Path_927"
+                                                                                                    data-name="Path 927"
+                                                                                                    d="M14.479,9.953l3.16-3.159a.79.79,0,0,0,0-1.119L14.193,2.23a.791.791,0,0,0-1.119,0L9.914,5.389,6.754,2.23A.813.813,0,0,0,6.191,2a.8.8,0,0,0-.556.23L2.19,5.675a.79.79,0,0,0,0,1.119l3.16,3.159L2.19,13.112a.79.79,0,0,0,0,1.119l3.445,3.445a.791.791,0,0,0,1.119,0l3.16-3.159,3.16,3.159a.78.78,0,0,0,.564.23.813.813,0,0,0,.564-.23l3.445-3.445a.79.79,0,0,0,0-1.119L14.479,9.953ZM9.93,7.556a.794.794,0,1,1-.794.794A.8.8,0,0,1,9.93,7.556ZM6.191,9.111,3.309,6.238,6.191,3.357,9.064,6.23Zm2.151,1.619a.794.794,0,1,1,.794-.794A.8.8,0,0,1,8.342,10.731ZM9.93,12.318a.794.794,0,1,1,.794-.794A.8.8,0,0,1,9.93,12.318Zm1.588-3.175a.794.794,0,1,1-.794.794A.8.8,0,0,1,11.517,9.143Zm2.112,7.414-2.882-2.873L13.629,10.8,16.5,13.676Z"
+                                                                                                    fill="#5079bf"
+                                                                                                />
+                                                                                            </svg>
+                                                                                </div>
+                                                                                <input type="text" class="form-control border_input" placeholder="Name (required)" formControlName="name" />
+                                                                            </li>
+                                                                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                <input type="text" class="form-control border_input" placeholder="More details (optional)" formControlName="details"  />
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <!-- ==============  
+                                            Dropdown menu code End
+                                            =========== -->
+                                                    </div>
+                                                    <!-- card end -->
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <h4 class="fs17 font-weight-bold mb-4">MEDICAL NOTES</h4>
+
+                                                <div class="medical_cards_container">
+                                                    <ng-container *ngIf="medical_note.length != 0">
+                                                        <div class="card radius_5 d-flex flex-column" *ngFor="let medicalnote of medical_note; let i= index">
+
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="action_icon mr-2" >
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                            <g opacity="0.743">
+                                                                                <path id="Path_930" data-name="Path 930"
+                                                                                    d="M0,0H24V24H0Z" fill="none">
+                                                                                </path>
+                                                                                <path id="Path_931" data-name="Path 931"
+                                                                                    d="M11,11H7v2H17V11H11Zm1-9A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z">
+                                                                                </path>
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="medical_description text_opacity_68 flex-grow-1">
+                                                                        <h5 class="fs17 font-weight-bold m-0 text_black">
+                                                                            {{medicalnote.name}}</h5>
+                                                                        <p class="m-0 fs14 text_black">
+                                                                            {{medicalnote.details != 'null'?medicalnote.details:''}}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="bars_icon ml-auto edit_medical_note{{i}}" role="button"  (click)="edit('edit_medical_note',medicalnote, i )">
+                                                                    <!-- (click)="openDialog('medical_note','Edit medical note', medicalnote)" -->
+                                                                    
+                                                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                        <path id="Path_924" data-name="Path 924"
+                                                                            d="M0,0H24V24H0Z" fill="none" />
+                                                                        <path id="Path_925" data-name="Path 925"
+                                                                            d="M2,16v2H22V16Zm0-5v2H22V11ZM2,6V8H22V6Z"
+                                                                            fill="#5079bf" />
+                                                                    </svg>
+                                                                </div>
+
+                                                                <!-- ==============  
+                                            Dropdown menu code start
+                                            =========== -->
+                                                                <div class="dropdown-menu dropmenu{{i}}">
+                                                                    <form [formGroup]="editMedicalForm">
+                                                                    <div class="dropdown_inner">
+                                                                        <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                            <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                            <h5 class="text_black m-0 font-weight-bold">Edit Medical Notes</h5>
+                                                                            <button type="button" class="close_dropdown" (click)="editsubmit('medical_note')">Done</button>
+                                                                        </div>
+
+                                                                        <div class="dropdown_body p-3">
+                                                                            <div class="basic-list-group">
+                                                                                <ul class="list-group list-group-flush">
+                                                                                    <li class="list-group-item d-flex align-items-center">
+                                                                                        <div class="action_icon mr-2">
+                                                                                            <svg width="11.156" height="15.551" viewBox="0 0 11.156 15.551">
+                                                                                            <g id="medical-history" transform="translate(-72.342)">
+                                                                                              <g id="Group_986" data-name="Group 986" transform="translate(72.342)">
+                                                                                                <g id="Group_985" data-name="Group 985">
+                                                                                                  <path id="Path_928" data-name="Path 928" d="M83.188.717H79.64V.31A.31.31,0,0,0,79.33,0H76.51a.31.31,0,0,0-.31.31V.717H72.652a.31.31,0,0,0-.31.31V15.241a.31.31,0,0,0,.31.31H83.188a.31.31,0,0,0,.31-.31V1.027A.31.31,0,0,0,83.188.717ZM76.82.62h2.2V2.213h-2.2Zm-.31,2.213h2.82a.31.31,0,0,0,.31-.31V2.454h2.147V13.747H74.053V2.454H76.2v.069A.31.31,0,0,0,76.51,2.833Zm6.369,12.1H72.962V1.336H76.2v.5H73.743a.31.31,0,0,0-.31.31V14.056a.31.31,0,0,0,.31.31H82.1a.31.31,0,0,0,.31-.31V2.144a.31.31,0,0,0-.31-.31H79.64v-.5h3.239Z" transform="translate(-72.342)" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </g>
+                                                                                              <g id="Group_988" data-name="Group 988" transform="translate(74.743 9.414)">
+                                                                                                <g id="Group_987" data-name="Group 987">
+                                                                                                  <path id="Path_929" data-name="Path 929" d="M154.652,310.846h-.591v-.591a.31.31,0,0,0-.31-.31h-1.16a.31.31,0,0,0-.31.31v.591h-.591a.31.31,0,0,0-.31.31v1.16a.31.31,0,0,0,.31.31h.591v.591a.31.31,0,0,0,.31.31h1.16a.31.31,0,0,0,.31-.31v-.591h.591a.31.31,0,0,0,.31-.31v-1.16A.31.31,0,0,0,154.652,310.846Zm-.31,1.16h-.591a.31.31,0,0,0-.31.31v.591H152.9v-.591a.31.31,0,0,0-.31-.31H152v-.541h.591a.31.31,0,0,0,.31-.31v-.591h.541v.591a.31.31,0,0,0,.31.31h.591Z" transform="translate(-151.381 -309.945)" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </g>
+                                                                                              <g id="Group_990" data-name="Group 990" transform="translate(74.743 3.928)">
+                                                                                                <g id="Group_989" data-name="Group 989">
+                                                                                                  <path id="Path_930" data-name="Path 930" d="M157.426,129.315h-5.735a.31.31,0,1,0,0,.62h5.735a.31.31,0,0,0,0-.62Z" transform="translate(-151.381 -129.315)" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </g>
+                                                                                              <g id="Group_992" data-name="Group 992" transform="translate(74.743 5.891)">
+                                                                                                <g id="Group_991" data-name="Group 991">
+                                                                                                  <path id="Path_931" data-name="Path 931" d="M157.426,193.973h-5.735a.31.31,0,1,0,0,.62h5.735a.31.31,0,1,0,0-.62Z" transform="translate(-151.381 -193.973)" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </g>
+                                                                                              <g id="Group_994" data-name="Group 994" transform="translate(74.743 7.855)">
+                                                                                                <g id="Group_993" data-name="Group 993">
+                                                                                                  <path id="Path_932" data-name="Path 932" d="M157.426,258.629h-5.735a.31.31,0,1,0,0,.62h5.735a.31.31,0,1,0,0-.62Z" transform="translate(-151.381 -258.629)" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </g>
+                                                                                              <g id="Group_996" data-name="Group 996" transform="translate(79.543 12.375)">
+                                                                                                <g id="Group_995" data-name="Group 995">
+                                                                                                  <path id="Path_933" data-name="Path 933" d="M310.676,407.444h-.935a.31.31,0,1,0,0,.62h.935a.31.31,0,0,0,0-.62Z" transform="translate(-309.431 -407.444)" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </g>
+                                                                                              <g id="Group_998" data-name="Group 998" transform="translate(78.421 12.375)">
+                                                                                                <g id="Group_997" data-name="Group 997">
+                                                                                                  <path id="Path_934" data-name="Path 934" d="M272.919,407.444h-.125a.31.31,0,0,0,0,.62h.125a.31.31,0,0,0,0-.62Z" transform="translate(-272.485 -407.444)" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </g>
+                                                                                            </g>
+                                                                                          </svg>
+                                                                                        </div>
+                                                                                        <input type="text" class="form-control border_input" formControlName="name"/>
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                        <input type="text" class="form-control border_input" formControlName="details" />
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="dropdown_footer p-3">
+                                                                            <button class="btn btn-block" type="button" (click)="delete(medicalnote.id)">Delete Medical Notes</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                                <!-- ==============  
+                                        Dropdown menu code End
+                                        =========== -->
+                                                            </div>
+
+                                                        </div>
+                                                    </ng-container>
+
+
+                                                    <!-- card end -->
+                                                </div>
+                                                <div class="medical_cards_container">
+                                                    <div class="card radius_5 flex-row align-items-center">
+                                                        <div class="d-flex align-items-center w-100 medical_note" role="button" (click)="select('medical_note')">
+                                                            <!-- (click)="openDialog('medical_note','Add medical note','0')" -->
+                                                            
+                                                            <div class="action_icon mr-2">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                    <path id="Path_936" data-name="Path 936"
+                                                                        d="M0,0H24V24H0Z" fill="none" />
+                                                                    <path id="Path_937" data-name="Path 937"
+                                                                        d="M13,7H11v4H7v2h4v4h2V13h4V11H13ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z"
+                                                                        fill="#5079bf" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="medical_description">
+                                                                <h5 class="fs17 font-weight-bold m-0 text_blue">Add medical note</h5>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- ==============  
+                                            Dropdown menu code start
+                                            =========== -->
+                                                        <div class="dropdown-menu dropmenu">
+                                                            <form [formGroup]="editMedicalForm">
+                                                            <div class="dropdown_inner">
+                                                              
+                                                                <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                    <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                    <h5 class="text_black m-0 font-weight-bold">Add Medical Note</h5>
+                                                                    <button type="button" class="close_dropdown" [disabled]="!editMedicalForm.valid"  (click)="submit('medical_note')">Done</button>
+                                                                </div>
+                                                          
+
+                                                                <div class="dropdown_body p-3">
+                                                                    <div class="basic-list-group">
+                                                                        <ul class="list-group list-group-flush">
+                                                                            <li class="list-group-item d-flex align-items-center">
+                                                                                <div class="action_icon mr-2">
+                                                                                    <svg width="11.156" height="15.551" viewBox="0 0 11.156 15.551">
+                                                                                        <g id="medical-history" transform="translate(-72.342)">
+                                                                                          <g id="Group_986" data-name="Group 986" transform="translate(72.342)">
+                                                                                            <g id="Group_985" data-name="Group 985">
+                                                                                              <path id="Path_928" data-name="Path 928" d="M83.188.717H79.64V.31A.31.31,0,0,0,79.33,0H76.51a.31.31,0,0,0-.31.31V.717H72.652a.31.31,0,0,0-.31.31V15.241a.31.31,0,0,0,.31.31H83.188a.31.31,0,0,0,.31-.31V1.027A.31.31,0,0,0,83.188.717ZM76.82.62h2.2V2.213h-2.2Zm-.31,2.213h2.82a.31.31,0,0,0,.31-.31V2.454h2.147V13.747H74.053V2.454H76.2v.069A.31.31,0,0,0,76.51,2.833Zm6.369,12.1H72.962V1.336H76.2v.5H73.743a.31.31,0,0,0-.31.31V14.056a.31.31,0,0,0,.31.31H82.1a.31.31,0,0,0,.31-.31V2.144a.31.31,0,0,0-.31-.31H79.64v-.5h3.239Z" transform="translate(-72.342)" fill="#5079bf"></path>
+                                                                                            </g>
+                                                                                          </g>
+                                                                                          <g id="Group_988" data-name="Group 988" transform="translate(74.743 9.414)">
+                                                                                            <g id="Group_987" data-name="Group 987">
+                                                                                              <path id="Path_929" data-name="Path 929" d="M154.652,310.846h-.591v-.591a.31.31,0,0,0-.31-.31h-1.16a.31.31,0,0,0-.31.31v.591h-.591a.31.31,0,0,0-.31.31v1.16a.31.31,0,0,0,.31.31h.591v.591a.31.31,0,0,0,.31.31h1.16a.31.31,0,0,0,.31-.31v-.591h.591a.31.31,0,0,0,.31-.31v-1.16A.31.31,0,0,0,154.652,310.846Zm-.31,1.16h-.591a.31.31,0,0,0-.31.31v.591H152.9v-.591a.31.31,0,0,0-.31-.31H152v-.541h.591a.31.31,0,0,0,.31-.31v-.591h.541v.591a.31.31,0,0,0,.31.31h.591Z" transform="translate(-151.381 -309.945)" fill="#5079bf"></path>
+                                                                                            </g>
+                                                                                          </g>
+                                                                                          <g id="Group_990" data-name="Group 990" transform="translate(74.743 3.928)">
+                                                                                            <g id="Group_989" data-name="Group 989">
+                                                                                              <path id="Path_930" data-name="Path 930" d="M157.426,129.315h-5.735a.31.31,0,1,0,0,.62h5.735a.31.31,0,0,0,0-.62Z" transform="translate(-151.381 -129.315)" fill="#5079bf"></path>
+                                                                                            </g>
+                                                                                          </g>
+                                                                                          <g id="Group_992" data-name="Group 992" transform="translate(74.743 5.891)">
+                                                                                            <g id="Group_991" data-name="Group 991">
+                                                                                              <path id="Path_931" data-name="Path 931" d="M157.426,193.973h-5.735a.31.31,0,1,0,0,.62h5.735a.31.31,0,1,0,0-.62Z" transform="translate(-151.381 -193.973)" fill="#5079bf"></path>
+                                                                                            </g>
+                                                                                          </g>
+                                                                                          <g id="Group_994" data-name="Group 994" transform="translate(74.743 7.855)">
+                                                                                            <g id="Group_993" data-name="Group 993">
+                                                                                              <path id="Path_932" data-name="Path 932" d="M157.426,258.629h-5.735a.31.31,0,1,0,0,.62h5.735a.31.31,0,1,0,0-.62Z" transform="translate(-151.381 -258.629)" fill="#5079bf"></path>
+                                                                                            </g>
+                                                                                          </g>
+                                                                                          <g id="Group_996" data-name="Group 996" transform="translate(79.543 12.375)">
+                                                                                            <g id="Group_995" data-name="Group 995">
+                                                                                              <path id="Path_933" data-name="Path 933" d="M310.676,407.444h-.935a.31.31,0,1,0,0,.62h.935a.31.31,0,0,0,0-.62Z" transform="translate(-309.431 -407.444)" fill="#5079bf"></path>
+                                                                                            </g>
+                                                                                          </g>
+                                                                                          <g id="Group_998" data-name="Group 998" transform="translate(78.421 12.375)">
+                                                                                            <g id="Group_997" data-name="Group 997">
+                                                                                              <path id="Path_934" data-name="Path 934" d="M272.919,407.444h-.125a.31.31,0,0,0,0,.62h.125a.31.31,0,0,0,0-.62Z" transform="translate(-272.485 -407.444)" fill="#5079bf"></path>
+                                                                                            </g>
+                                                                                          </g>
+                                                                                        </g>
+                                                                                      </svg>
+                                                                                </div>
+                                                                                <input type="text" class="form-control border_input" placeholder="Name (required)" formControlName="name"  />
+                                                                            </li>
+                                                                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                <input type="text" class="form-control border_input" placeholder="More details (optional)" formControlName="details"  />
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                        <!-- ==============  
+                                        Dropdown menu code End
+                                        =========== -->
+                                                    </div>
+                                                    <!-- card end -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-5">
+                                            <div class="col-md-6">
+                                                <h4 class="fs17 font-weight-bold mb-4">ALLERGIES & REACTIONS</h4>
+
+                                                <div class="medical_cards_container">
+                                                    <ng-container *ngIf="allergy?.length != 0">
+                                                        <div class="card radius_5 d-flex flex-column" *ngFor="let medicalallergy of allergy; let i= index">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="action_icon mr-2" >
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                            <g opacity="0.743">
+                                                                                <path id="Path_930" data-name="Path 930"
+                                                                                    d="M0,0H24V24H0Z" fill="none" />
+                                                                                <path id="Path_931" data-name="Path 931"
+                                                                                    d="M11,11H7v2H17V11H11Zm1-9A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z" />
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="medical_description text_opacity_68 flex-grow-1">
+                                                                        <h5 class="fs17 font-weight-bold m-0 text_black">
+                                                                            {{medicalallergy.name}}</h5>
+                                                                        <p class="m-0 fs14 text_black">
+                                                                            {{medicalallergy.details != 'null'?medicalallergy.details:''}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="bars_icon ml-auto edit_allergy{{i}}" role="button" (click)="edit('edit_allergy', medicalallergy, i )">
+                                                                    <!-- (click)="openDialog('allergy','Add medical allergy', medicalallergy)" -->
+                                                                    
+                                                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                        <path id="Path_924" data-name="Path 924"
+                                                                            d="M0,0H24V24H0Z" fill="none" />
+                                                                        <path id="Path_925" data-name="Path 925"
+                                                                            d="M2,16v2H22V16Zm0-5v2H22V11ZM2,6V8H22V6Z"
+                                                                            fill="#5079bf" />
+                                                                    </svg>
+                                                                </div>
+                                                                <!-- ==============  
+                                                    Dropdown menu code start
+                                                    =========== -->
+
+                                                              
+
+                                                            <div class="dropdown-menu dropmenu{{i}}">
+                                                                <form [formGroup]="editMedicalForm">
+                                                                <div class="dropdown_inner">
+                                                                    <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                        <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                        <h5 class="text_black m-0 font-weight-bold">Edit Allergy Or Reaction</h5>
+                                                                        <button type="button" class="close_dropdown" (click)="editsubmit('allergy')">Done</button>
+                                                                    </div>
+
+
+                                                                        <div class="dropdown_body p-3">
+                                                                            <div class="basic-list-group">
+                                                                                <ul class="list-group list-group-flush">
+                                                                                    <li class="list-group-item d-flex align-items-center">
+                                                                                        <div class="action_icon mr-2">
+                                                                                            <svg width="17.75" height="14.75" viewBox="0 0 17.75 14.75">
+                                                                                            <g id="report_problem_black_24dp"
+                                                                                                transform="translate(-1 -2)">
+                                                                                                <path id="Path_925"
+                                                                                                    data-name="Path 925"
+                                                                                                    d="M9.875,5.1,15.95,15.2H3.8L9.875,5.1m0-3.1L1,16.75H18.75Zm.807,10.868H9.068v1.553h1.614Zm0-4.658H9.068v3.105h1.614Z"
+                                                                                                    fill="#5079bf" />
+                                                                                            </g>
+                                                                                        </svg>
+                                                                                        </div>
+                                                                                        <input type="text" class="form-control border_input" formControlName="name"/>
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                        <input type="text" class="form-control border_input" formControlName="details" />
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="dropdown_footer p-3">
+                                                                            <button class="btn btn-block" type="button" (click)="delete(medicalallergy.id)">Delete Allergy Or
+                                                                            Reaction</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+
+                                                                
+
+                                                            </div>
+                                                            <!-- ==============  
+
+                                                Dropdown menu code End
+                                                =========== -->
+                                                            </div>
+                                                            
+                                                        
+                                                    </ng-container>
+                                                    <!-- card end -->
+                                                </div>
+                                                <div class="medical_cards_container">
+
+                                                    <div class="card radius_5 flex-row align-items-center">
+                                                        <div class="d-flex align-items-center w-100 allergy" role="button" (click)="select('allergy')">
+                                                            <!-- (click)="openDialog('allergy','Add medical allergy','0')" -->
+                                                            
+                                                            <div class="action_icon mr-2">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                    <path id="Path_936" data-name="Path 936"
+                                                                        d="M0,0H24V24H0Z" fill="none" />
+                                                                    <path id="Path_937" data-name="Path 937"
+                                                                        d="M13,7H11v4H7v2h4v4h2V13h4V11H13ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z"
+                                                                        fill="#5079bf" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="medical_description">
+                                                                <h5 class="fs17 font-weight-bold m-0 text_blue">Add allergy or reaction</h5>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- ==============  
+                                                    Dropdown menu code start
+                                                    =========== -->
+                                                        <div class="dropdown-menu dropmenu">
+                                                            <form [formGroup]="editMedicalForm">
+                                                            <div class="dropdown_inner">
+                                                                <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                    <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                    <h5 class="text_black m-0 font-weight-bold">Add Allergy Or Reaction</h5>
+                                                                    <button type="button" class="close_dropdown"  [disabled]="!editMedicalForm.valid"  (click)="submit('allergy')">Done</button>
+                                                                </div>
+
+                                                                <div class="dropdown_body p-3">
+                                                                    <div class="basic-list-group">
+                                                                        <ul class="list-group list-group-flush">
+                                                                            <li class="list-group-item d-flex align-items-center">
+                                                                                <div class="action_icon mr-2">
+                                                                                    <svg width="17.75" height="14.75" viewBox="0 0 17.75 14.75">
+                                                                                                <g id="report_problem_black_24dp" transform="translate(-1 -2)">
+                                                                                                  <path id="Path_925" data-name="Path 925" d="M9.875,5.1,15.95,15.2H3.8L9.875,5.1m0-3.1L1,16.75H18.75Zm.807,10.868H9.068v1.553h1.614Zm0-4.658H9.068v3.105h1.614Z" fill="#5079bf"/>
+                                                                                                </g>
+                                                                                              </svg>
+                                                                                </div>
+                                                                                <input type="text" class="form-control border_input" placeholder="Name (required)" formControlName="name" />
+                                                                            </li>
+                                                                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                <input type="text" class="form-control border_input" placeholder="More details (optional)" formControlName="details"/>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                        <!-- ==============  
+                                                Dropdown menu code End
+                                                =========== -->
+                                                    </div>
+                                                    <!-- card end -->
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <h4 class="fs17 font-weight-bold mb-4">MEDICATIONS</h4>
+
+                                                <div class="medical_cards_container">
+                                                    <ng-container *ngIf="medication?.length != 0">
+                                                        <div class="card radius_5 flex-column" *ngFor="let medicalmedication of medication; let i= index">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="action_icon mr-2" >
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                            <g opacity="0.743">
+                                                                                <path id="Path_930" data-name="Path 930"
+                                                                                    d="M0,0H24V24H0Z" fill="none" />
+                                                                                <path id="Path_931" data-name="Path 931"
+                                                                                    d="M11,11H7v2H17V11H11Zm1-9A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z" />
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="medical_description text_opacity_68 flex-grow-1">
+                                                                        <h5 class="fs17 font-weight-bold m-0 text_black">
+                                                                            {{medicalmedication.name}}</h5>
+                                                                        <p class="m-0 fs14 text_black">
+                                                                            {{medicalmedication.details != 'null' ? medicalmedication.details:''}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="bars_icon ml-auto edit_medication{{i}}" role="button" (click)="edit('edit_medication', medicalmedication, i )">
+                                                                    <!-- (click)="openDialog('medication','Add medication', medicalmedication)" -->
+                                                                    
+                                                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                        <path id="Path_924" data-name="Path 924"
+                                                                            d="M0,0H24V24H0Z" fill="none" />
+                                                                        <path id="Path_925" data-name="Path 925"
+                                                                            d="M2,16v2H22V16Zm0-5v2H22V11ZM2,6V8H22V6Z"
+                                                                            fill="#5079bf" />
+                                                                    </svg>
+                                                                </div>
+                                                                <!-- ==============  
+                                                    Dropdown menu code start
+                                                    =========== -->
+
+                                                            
+
+                                                            <div class="dropdown-menu dropmenu{{i}}">
+                                                                <form [formGroup]="editMedicalForm">
+                                                                <div class="dropdown_inner">
+                                                                    <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                        <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                        <h5 class="text_black m-0 font-weight-bold">Edit Medication
+                                                                        </h5>
+                                                                        <button type="button" class="close_dropdown" (click)="editsubmit('medication')">Done</button>
+                                                                    </div>
+
+
+                                                                        <div class="dropdown_body p-3">
+                                                                            <div class="basic-list-group">
+                                                                                <ul class="list-group list-group-flush">
+                                                                                    <li class="list-group-item d-flex align-items-center">
+                                                                                        <div class="action_icon mr-2">
+                                                                                            <svg width="19.599" height="8.5" viewBox="0 0 19.599 8.5">
+                                                                                            <g id="pill-svgrepo-com"
+                                                                                                transform="translate(0 -147.391)">
+                                                                                                <path id="Path_923"
+                                                                                                    data-name="Path 923"
+                                                                                                    d="M15.35,147.391H4.25a4.25,4.25,0,1,0,0,8.5h11.1a4.25,4.25,0,0,0,0-8.5Zm-9.976,1.693c-2.959,0-3.162,1.574-3.164,1.59a.422.422,0,0,1-.419.377.365.365,0,0,1-.045,0,.421.421,0,0,1-.374-.464c.01-.1.294-2.344,4-2.344a.422.422,0,1,1,0,.843Zm9.976,5.753H11.767v-6.392H15.35a3.2,3.2,0,0,1,0,6.392Z"
+                                                                                                    fill="#5079bf" />
+                                                                                            </g>
+                                                                                        </svg>
+                                                                                        </div>
+                                                                                        <input type="text" class="form-control border_input" formControlName="name" />
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                        <input type="text" class="form-control border_input" formControlName="details"/>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="dropdown_footer p-3">
+                                                                            <button class="btn btn-block" type="button" (click)="delete(medicalmedication.id)">Delete Medication</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- ==============  
+                                                Dropdown menu code End
+                                                =========== -->
+                                                        </div>
+                                                    </ng-container>
+                                                    <!-- card end -->
+                                                </div>
+
+                                                <div class="medical_cards_container">
+                                                    <div class="card radius_5 flex-row align-items-center">
+                                                        <div class="d-flex align-items-center w-100 medication" role="button" (click)="select('medication')">
+                                                            <!-- (click)="openDialog('medication','Add medication','0')" -->
+                                                            
+                                                            <div class="action_icon mr-2">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                    <path id="Path_936" data-name="Path 936"
+                                                                        d="M0,0H24V24H0Z" fill="none" />
+                                                                    <path id="Path_937" data-name="Path 937"
+                                                                        d="M13,7H11v4H7v2h4v4h2V13h4V11H13ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z"
+                                                                        fill="#5079bf" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="medical_description">
+                                                                <h5 class="fs17 font-weight-bold m-0 text_blue">Add medication
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- ==============  
+                                                    Dropdown menu code start
+                                                    =========== -->
+                                                        <div class="dropdown-menu dropmenu">
+                                                            <form [formGroup]="editMedicalForm">
+                                                            <div class="dropdown_inner">
+                                                                <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                    <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                    <h5 class="text_black m-0 font-weight-bold">Add Medication</h5>
+                                                                    <button type="button" class="close_dropdown" [disabled]="!editMedicalForm.valid"  (click)="submit('medication')">Done</button>
+                                                                </div>
+
+                                                                <div class="dropdown_body p-3">
+                                                                    <div class="basic-list-group">
+                                                                        <ul class="list-group list-group-flush">
+                                                                            <li class="list-group-item d-flex align-items-center">
+                                                                                <div class="action_icon mr-2">
+                                                                                    <svg width="19.599" height="8.5" viewBox="0 0 19.599 8.5">
+                                                                                        <g id="pill-svgrepo-com" transform="translate(0 -147.391)">
+                                                                                            <path
+                                                                                                id="Path_923"
+                                                                                                data-name="Path 923"
+                                                                                                d="M15.35,147.391H4.25a4.25,4.25,0,1,0,0,8.5h11.1a4.25,4.25,0,0,0,0-8.5Zm-9.976,1.693c-2.959,0-3.162,1.574-3.164,1.59a.422.422,0,0,1-.419.377.365.365,0,0,1-.045,0,.421.421,0,0,1-.374-.464c.01-.1.294-2.344,4-2.344a.422.422,0,1,1,0,.843Zm9.976,5.753H11.767v-6.392H15.35a3.2,3.2,0,0,1,0,6.392Z"
+                                                                                                fill="#5079bf"
+                                                                                            />
+                                                                                        </g>
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <input type="text" class="form-control border_input" placeholder="Name (required)" formControlName="name"  />
+                                                                            </li>
+                                                                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                <input type="text" class="form-control border_input" placeholder="More details (optional)" formControlName="details"  />
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                        <!-- ==============  
+                                                Dropdown menu code End
+                                                =========== -->
+                                                    </div>
+                                                    <!-- card end -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- row End -->
+
+                                        <div class="row mt-5 mb-4">
+                                            <div class="col-md-6">
+                                                <h4 class="fs17 font-weight-bold mb-4">EMERGENCY CONTACTS</h4>
+
+                                                <div class="medical_cards_container">
+                                                    <ng-container *ngIf="emergency_contact.length != 0">
+                                                        <div class="card radius_5 flex-column " *ngFor="let medicalemergency of emergency_contact; let i= index">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex align-items-center w-100">
+                                                                    <div class="action_icon mr-2" >
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                            <g opacity="0.743">
+                                                                                <path id="Path_930" data-name="Path 930"
+                                                                                    d="M0,0H24V24H0Z" fill="none" />
+                                                                                <path id="Path_931" data-name="Path 931"
+                                                                                    d="M11,11H7v2H17V11H11Zm1-9A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z" />
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="medical_description text_opacity_68 flex-grow-1 w-100">
+                                                                        <h5 class="fs17 font-weight-bold m-0 text_black">
+                                                                            {{medicalemergency.name}}</h5>
+                                                                        <p class="m-0 fs14 text_black d-flex justify-content-between w-100" *ngIf="medicalemergency.relationship != 'null' && medicalemergency.relationship != 'undefined'">
+                                                                            <span>{{medicalemergency.relationship}}</span>
+                                                                            <span class="mr-1">{{medicalemergency.details}}</span>
+                                                                        </p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="bars_icon ml-auto edit_emergency_contact{{i}}" role="button"  (click)="edit('edit_emergency_contact', medicalemergency, i )">
+                                                                    <!-- (click)="openDialog('emergency_contact','Edit emergency contact',medicalemergency)" -->
+                                                                    
+                                                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                                                        <path id="Path_924" data-name="Path 924"
+                                                                            d="M0,0H24V24H0Z" fill="none" />
+                                                                        <path id="Path_925" data-name="Path 925"
+                                                                            d="M2,16v2H22V16Zm0-5v2H22V11ZM2,6V8H22V6Z"
+                                                                            fill="#5079bf" />
+                                                                    </svg>
+                                                                </div>
+                                                                <!-- ==============  
+                                                    Dropdown menu code start
+                                                    =========== -->
+
+ 
+                                                            <div class="dropdown-menu dropmenu{{i}}">
+                                                                <form [formGroup]="editMedicalForm">
+                                                                <div class="dropdown_inner">
+                                                                    <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                        <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                        <h5 class="text_black m-0 font-weight-bold">Edit Emergency Contact</h5>
+                                                                        <button type="button" class="close_dropdown" (click)="editsubmit('emergency_contact')">Done</button>
+                                                                    </div>
+
+                                                                        <div class="dropdown_body p-3">
+                                                                            <div class="basic-list-group">
+                                                                                <ul class="list-group list-group-flush">
+                                                                                    <li class="list-group-item d-flex align-items-center">
+                                                                                        <input type="text" class="form-control border_input" formControlName="name"/>
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                        <input type="text" class="form-control border_input" formControlName="details" />
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                        <input type="text" class="form-control border_input" formControlName="relation" />
+                                                                                        <span class="relation_span_text"><input
+                                                                                            type="text"
+                                                                                            class="form-control border_input"
+                                                                                            value="Brother" /></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="dropdown_footer p-3">
+                                                                            <button class="btn btn-block" type="button" (click)="delete(medicalemergency.id)">Delete Emergency
+                                                                            Contact</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+
+                                                 
+
+                                                            </div>
+                                                            <!-- ==============  
+                                                Dropdown menu code End
+                                                =========== -->
+                                                          
+                                                        </div>
+                                                    </ng-container>
+                                                    <!-- card end -->
+                                                </div>
+                                                <div class="medical_cards_container">
+
+                                                    <div class="card radius_5 flex-row align-items-center">
+                                                        <div class="d-flex align-items-center w-100 emergency_contact" role="button" (click)="select('emergency_contact')">
+                                                            <!-- (click)="openDialog('emergency_contact','Add emergency contact','0')" -->
+                                                            
+                                                            <div class="action_icon mr-2">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24"> 
+                                                                    <path id="Path_936" data-name="Path 936"
+                                                                        d="M0,0H24V24H0Z" fill="none" />
+                                                                    <path id="Path_937" data-name="Path 937"
+                                                                        d="M13,7H11v4H7v2h4v4h2V13h4V11H13ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Z"
+                                                                        fill="#5079bf" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="medical_description">
+                                                                <h5 class="fs17 font-weight-bold m-0 text_blue">Add emergency contact</h5>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- ==============  
+                                                    Dropdown menu code start
+                                                    =========== -->
+                                                        <div class="dropdown-menu dropmenu">
+                                                            <form [formGroup]="editMedicalForm">
+                                                            <div class="dropdown_inner">
+                                                                <div class="dropdown_header d-flex justify-content-between align-items-center">
+                                                                    <button type="button" class="close_dropdown" (click)="closeDropdown()">Cancel</button>
+                                                                    <h5 class="text_black m-0 font-weight-bold">Add Emergency Contact</h5>
+                                                                    <button type="button" class="close_dropdown" [disabled]="!editMedicalForm.valid" (click)="submit('emergency_contact')">Done</button>
+                                                                </div>
+
+                                                                <div class="dropdown_body p-3">
+                                                                    <div class="basic-list-group">
+                                                                        <ul class="list-group list-group-flush">
+                                                                            <li class="list-group-item d-flex align-items-center">
+
+                                                                                <input type="text" class="form-control border_input" placeholder="Name (required)" formControlName="name"  />
+                                                                            </li>
+                                                                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                <input type="text" class="form-control border_input" placeholder="Add Phone Number" formControlName="details"  />
+                                                                            </li>
+                                                                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                                                                <input type="text" class="form-control border_input" placeholder="Relationship" formControlName="relation"  />
+                                                                                <span class="relation_span_text">ex. Brother</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                        <!-- ==============  
+                                                Dropdown menu code End
+                                                =========== -->
+                                                    </div>
+                                                    <!-- card end -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- row End -->
+                                    </div>
+                                    <!-- row End -->
+                                </div>
+                                <!-- </div> -->
+                            </form>
+                        </div>
+                    </div>
+                    <button (click)="makeData()" class="btn btn-primary btn-block rounded-pill mt-0 mb-4 w-50 mx-auto">Submit</button>
+                    <div class="card-footer border-0 border_half_width py-0">
+                        <hr class="border_default" />
+                        <p class="text-center fs17 mb-4">Give emergency responders access to the most essential information that they need in order to save your life in case of an accident or emergency
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-12">
+                <div class="card position-relative">
+                    <div class="card_header_pre position-absolute">
+                        <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                    </div>
+
+                    <div class="preview_main text-center">
+                        <img class="img-fluid" src="assets/images/preview_jpg3.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+Content body end
+***********************************-->
+
+    <!--**********************************
+Right Sidebar 
+***********************************-->
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

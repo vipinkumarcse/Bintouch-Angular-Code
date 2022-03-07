@@ -1,0 +1,115 @@
+<!-- <body>
+    <div class="main-wrap">
+        <div class="template_header"> 
+            <img src="assets/images/app/ft-logo.png" alt="logo-image" />
+            <a>Get Your Card</a>
+        </div>
+        <div class="upload-btn">
+
+            <a><img [src]="coverImg" (error)="onImgError($event)" alt="icon" /></a>
+        </div> 
+        <div class="info-container" [ngStyle]="{'background':pageBack}">
+            <div class="profile-image">
+                <img [src]="profileImg" alt="image"  (error)="onImgError($event)"/>
+            </div>
+            <div class="content">                
+                <h4 class="blue-cl">{{title}}</h4>
+                <p [ngStyle]="{'color':bioTextColor}">{{bio}}</p>
+                <div class="common-btns">
+                    <a [ngStyle]="{'border-radius': buttonStyle,'background':buttonback}" *ngFor="let oth of otherLinks">{{oth.label}}</a>
+                </div>
+            </div>
+            <div class="social-media">
+                <ng-container *ngIf="iconStyle == 'list'">
+                    <div class="sm-input-wrap" *ngFor="let scl of socialLinks">
+                        <img src="assets/images/app/fb-input.png" alt="image" />
+                        <img class="fb-icon" src="{{slugImg}}{{scl.image}}" alt="image" (error)="onImgError($event)" />
+                        <input type="textbox" placeholder="username here..."  readonly/>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="iconStyle == 'grid'">
+                    <ul>
+                        <li *ngFor="let scl of socialLinks">
+                            <a>
+                                <img src="{{slugImg}}{{scl.image}}" alt="icon" (error)="onImgError($event)"/>
+                            </a>
+                        </li>
+                    </ul>   
+            </ng-container>
+            </div>
+            <p class="footer pl-0">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+        </div>
+    </div>
+</body> -->
+
+<body>
+    <div class="main-wrap">
+        <div class="template_header">
+            <img src="assets/images/app/ft-logo.png" alt="logo-image" />
+            <a href="#">Get Your Card</a>
+        </div>
+        <div class="upload-btn">
+            <a href=""><img src="assets/images/app/upload-image.png" alt="icon" /></a>
+        </div>
+        <div class="info-container">
+            <div class="profile-image">
+                <img src="assets/images/app/profile_img.png" alt="image" />
+            </div>
+            <div class="content">                
+                <h4 class="blue-cl">Marie Duponts Page</h4>
+                <p>Description Text Here Description Text Here Description  
+                    Here Description Text Here Description Text Here 
+                    Text Here Description Text Here Description Text Here </p>
+                <div class="common-btns">
+                    <a href="">Contact Card</a>
+                    <a href="">Calendar</a>
+                    <a href="">Catelog</a>
+                    <a href="">Catelog</a>
+                </div>
+            </div>
+            <div class="social-media">
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/facebook-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/instagram-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/Snapchat-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/twitter-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/youtube-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/linkedin-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/tiktok-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/pinterest-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+            </div>
+            <p class="footer pl-0 pt-4">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+        </div>
+    </div>
+  </body>

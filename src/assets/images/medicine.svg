@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19" height="8" viewBox="0 0 19 8">
+  <g id="medicine" transform="translate(-13449 -165)">
+    <g id="Rectangle_485" data-name="Rectangle 485" transform="translate(13449 165)" fill="#fff" stroke="#3166cc" stroke-width="0.5">
+      <rect width="19" height="8" rx="4" stroke="none"/>
+      <rect x="0.25" y="0.25" width="18.5" height="7.5" rx="3.75" fill="none"/>
+    </g>
+    <g id="Rectangle_486" data-name="Rectangle 486" transform="translate(13449 165)" fill="#3d949d" stroke="#3166cc" stroke-width="0.5">
+      <path d="M4,0h6a0,0,0,0,1,0,0V8a0,0,0,0,1,0,0H4A4,4,0,0,1,0,4V4A4,4,0,0,1,4,0Z" stroke="none"/>
+      <path d="M4,.25H9.553a.2.2,0,0,1,.2.2V7.553a.2.2,0,0,1-.2.2H4A3.75,3.75,0,0,1,.25,4V4A3.75,3.75,0,0,1,4,.25Z" fill="none"/>
+    </g>
+    <circle id="Ellipse_108" data-name="Ellipse 108" cx="0.5" cy="0.5" r="0.5" transform="translate(13451 167)" fill="#fff" opacity="0.85"/>
+    <circle id="Ellipse_109" data-name="Ellipse 109" cx="0.5" cy="0.5" r="0.5" transform="translate(13454 166)" fill="#fff" opacity="0.85"/>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+<body class="vh-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-xl-6 col-xxl-7">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+                                    <div class="text-center mb-3 logo">
+                                        <img src="assets/images/logo_login.png" alt="">
+                                    </div>
+
+                                    <form class="custom-form mt-5" #loginForm="ngForm" (ngSubmit)="loginForm.valid && login(loginForm)">
+                                        <div class="form-group">
+                                            <input id="username" type="text" class="form-control" name="email"
+                                            [(ngModel)]="body.email" #email="ngModel" ngModel required />
+                                            <label class="animated-label" for="username">Username</label>
+                                        <div *ngIf="loginForm.submitted && email.invalid ">
+                                            <div class="alert alert-danger custom_alert" *ngIf="email.errors?.required">
+                                                Username is required.*                                       
+                                                 </div>
+                                           
+                                        </div>
+                                    </div>
+
+                                        
+                                        <div class="form-group">
+
+                                            <input id="pass" type="password" class="form-control"
+                                                name="password" #password="ngModel" ngModel required />
+                                            <label for="pass" class="animated-label">Password</label>
+                                    
+                                              <div *ngIf="loginForm.submitted && password.invalid ">
+                                                <div class="alert alert-danger custom_alert" *ngIf="password.errors?.required">
+                                                    password is required.*                                       
+                                                     </div>
+                                               
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-center mt-5 loginBtn">
+                                            <button type="submit"
+                                                class="btn btn-primary btn-block rounded-pill">Log In</button>
+                                        </div>
+
+                                    </form>
+                                    <div class="text-center mt-3 custom-form">
+                                        <button type="submit"  (click)="signup()" class="btn btn-primary btn-block rounded-pill">Sign
+                                            Up</button>
+                                    </div>
+                                    <p class="text-center mt-5 forgot_text"><a routerLink="/forgotpassword" class="text-center mb-4">Forgot your
+                                            password?</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center term_text mt-4 ">By signing up, you agree to
+                        our <a routerLink="/terms">Terms</a> and <a routerLink="/privacy">Privacy Policy.</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 
+    <script>
+        $('.custom-form input').on('focusin', function () {
+            $(this).parent().find('label').addClass('active');
+        });
+
+        $('.custom-form input').on('focusout', function () {
+            if (!this.value) {
+                $(this).parent().find('label').removeClass('active');
+            }
+        });
+
+        $("form :input").focus(function() {
+  $("label[for='" + this.id + "']").addClass("labelfocus");
+}).blur(function() {
+  $("label").removeClass("labelfocus");
+});
+    </script> -->
+</body>

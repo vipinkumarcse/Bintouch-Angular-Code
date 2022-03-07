@@ -1,0 +1,11 @@
+.social_icon_div{
+    li a{
+        border: 5px solid transparent;
+        display: block;
+
+        &.active{
+            border: 5px solid #fff;
+            border-radius: 8px;
+        }
+    }
+}

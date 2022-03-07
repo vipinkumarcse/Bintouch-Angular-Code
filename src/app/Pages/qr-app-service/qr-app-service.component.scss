@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'helvetica-neue';
+    src: url(../../../assets/css/helvetica-neue.ttf);
+}
+*{box-sizing: border-box !important;}
+body,a,p{font-family: 'helvetica-neue';margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,a,p{padding:0;margin:0;}
+body{padding-top:65px;}
+.header_lost{display: flex;padding: 10px;background: #101434;align-items: center;position: fixed;z-index: 1;top:0;left:0;right:0;}
+.header_lost img{margin-right: 10px;}
+.header_lost a{
+    border:1px solid #fff;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    margin-left:auto;
+    background: transparent;}
+
+@media (min-width:767px){
+    .main-wrap{max-width: 320px;margin:0 auto;}
+}

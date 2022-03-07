@@ -1,0 +1,152 @@
+<!-- <app-linktree1 *ngIf="linkTree.template == '1'"></app-linktree1>
+<app-linktree2 *ngIf="linkTree.template == '2'"></app-linktree2>
+<app-linktree3 *ngIf="linkTree.template == '3'"></app-linktree3>
+<app-linktree4 *ngIf="linkTree.template == '4'"></app-linktree4> -->
+<!-- <body>
+    <div class="main-wrap">
+        <div class="template_header"> 
+            <img src="assets/images/app/ft-logo.png" alt="logo-image" />
+            <a>Get Your Card</a>
+        </div>
+        <div class="upload-btn">
+
+            <a><img [src]="coverImg" (error)="onImgError($event)" alt="icon" /></a>
+        </div> 
+        <div class="info-container" [ngStyle]="{'background':pageBack}">
+            <div class="profile-image">
+                <img [src]="profileImg" alt="image"  (error)="onImgError($event)"/>
+            </div>
+            <div class="content">                
+                <h4 class="blue-cl">{{title}}</h4>
+                <p [ngStyle]="{'color':bioTextColor}">{{bio}}</p>
+                <div class="common-btns">
+                    <a [ngStyle]="{'border-radius': buttonStyle,'background':buttonback}" *ngFor="let oth of otherLinks">{{oth.label}}</a>
+                </div>
+            </div>
+            <div class="social-media">
+                <ng-container *ngIf="iconStyle == 'list'">
+                    <div class="sm-input-wrap" *ngFor="let scl of socialLinks">
+                        <img src="assets/images/app/fb-input.png" alt="image" />
+                        <img class="fb-icon" src="{{slugImg}}{{scl.image}}" alt="image" (error)="onImgError($event)" />
+                        <input type="textbox" placeholder="username here..."  readonly/>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="iconStyle == 'grid'">
+                    <ul>
+                        <li *ngFor="let scl of socialLinks">
+                            <a>
+                                <img src="{{slugImg}}{{scl.image}}" alt="icon" (error)="onImgError($event)"/>
+                            </a>
+                        </li>
+                    </ul>   
+            </ng-container>
+            </div>
+            <p class="footer pl-0">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+        </div>
+    </div>
+</body> -->
+
+<body>
+    <div class="main-wrap">
+        <div class="template_header">
+            <img src="assets/images/app/ft-logo.png" alt="logo-image" />
+            <a href="#">Get Your Card</a>
+        </div>
+        <div class="upload-btn">
+            <a *ngIf="!linkTree.cover_photo"><img src="assets/images/app/upload-image.png" alt="icon" /></a>
+            <a *ngIf="linkTree.cover_photo"><img [src]="coverImg" alt="icon" /></a>
+        </div>
+        <div class="info-container" [ngStyle]="{'background':pageBack}">
+            <div class="profile-image">
+                <img *ngIf="!linkTree.photo" src="assets/images/app/profile_img.png" alt="image" />
+                <img *ngIf="linkTree.photo"  [src]="profileImg" alt="image" />
+            </div>
+            <div class="content">                
+                <h4 class="blue-cl" *ngIf="linkTree.title">{{linkTree.title}}</h4>
+                <p *ngIf="linkTree.title">{{linkTree.bio}}</p>
+                <div class="common-btns" >
+                    <a [ngStyle]="{'border-radius': buttonStyle,'background':buttonback, 'border-color': buttonback}" *ngFor="let oth of otherLinks">
+                            <span *ngIf="oth.image != 'profileImg'">
+                                <span  (click)="redirectToUrl(oth.url)" >{{oth.label}}</span>
+                            </span>
+                        <!-- {{oth.label}} -->
+                    </a>
+                    <!-- <a href="">Calendar</a>
+                    <a href="">Catelog</a>
+                    <a href="">Catelog</a> -->
+                </div>
+            </div>
+            <div class="social-media-grid" *ngIf="linkTree.icon_style == 'grid'">
+                <ul>
+
+                     <li *ngFor="let srv of socialLinks">
+                            <ng-container *ngIf="srv.image != 'profileImg'">
+                                <a (click)=onSocial(srv.url,srv.slug)>
+                                    <img src="{{imageUrl}}{{srv.image}}" alt="icon" />
+                                </a>
+                            </ng-container>
+                        </li>
+                    <!-- <li *ngFor="let icons of socialLinks"><a>
+                        <img src="{{imageUrl}}{{icons.image}}" alt="icon"/>
+                    </a></li> -->
+                    <!-- <li><a href=""><img src="assets/images/app/fb-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/snapchat-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/youtube-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/twitter-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/hi-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/behance-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/whatsapp-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/linkedin-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/drop-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/skype-shadow.png" alt="icon"/></a></li>
+                    <li><a href=""><img src="assets/images/app/link-shadow.png" alt="icon"/></a></li> -->
+                </ul>
+            </div>
+            <div class="social-media" *ngIf="linkTree.icon_style == 'list'">
+                <div class="sm-input-wrap" *ngFor="let srv of socialLinks">
+                    <ng-container *ngIf="srv.image != 'profileImg'">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img (click)=onSocial(srv.url,srv.slug) class="fb-icon" src="{{imageUrl}}{{srv.image}}" alt="image" />
+                    <input type="textbox" placeholder="username here..." value="{{srv.url}}" readonly/>
+                </ng-container>
+                </div>
+                <!-- <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/instagram-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/Snapchat-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/twitter-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/youtube-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/linkedin-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/tiktok-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div>
+                <div class="sm-input-wrap">
+                    <img src="assets/images/app/fb-input.png" alt="image" />
+                    <img class="fb-icon" src="assets/images/app/pinterest-circle.png" alt="image" />
+                    <input type="textbox" placeholder="username here..." />
+                </div> -->
+            </div>
+            <p class="footer pl-0 pt-4">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+        </div>
+    </div>
+  </body>

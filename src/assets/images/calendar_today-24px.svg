@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="calendar_today-24px" opacity="0.673">
+    <path id="Path_841" data-name="Path 841" d="M0,0H24V24H0Z" fill="none"/>
+    <path id="Path_842" data-name="Path 842" d="M20,3H19V1H17V3H7V1H5V3H4A2.006,2.006,0,0,0,2,5V21a2.006,2.006,0,0,0,2,2H20a2.006,2.006,0,0,0,2-2V5A2.006,2.006,0,0,0,20,3Zm0,18H4V8H20Z" fill="#fff"/>
+  </g>
+</svg>

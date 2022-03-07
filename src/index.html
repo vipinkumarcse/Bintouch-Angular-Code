@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BInTouch</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <access origin="tel:*" launch-external="true" />
+    <!-- <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script> -->
+    <!-- <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet"> -->
+    <!-- <link href="assets/css/style.css" rel="stylesheet">
+    
+-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyAuaf4H1OZbRVGB3klqnsGX1KCWzUDkVbc' async defer></script>
+
+</head>
+
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+
+
+
+    <!--*******************
+      Preloader end
+  ********************-->
+    <app-root></app-root>
+
+    <script>
+        $('#right_menu').on('click', function() {
+            $('.right_sidebar').toggleClass('open_right_menu');
+
+        });
+
+        $('.nav-control').on('click', function() {
+            $('.right_sidebar').removeClass('open_right_menu');
+
+        });
+        $('#right_menu').on('click', function() {
+            $('#main-wrapper').removeClass('menu-toggle');
+            $('.hamburger').removeClass('is-active');
+        });
+    </script>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#myModal').modal('show');
+        });
+    </script>
+    <script type="text/javascript">
+        $('#myModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    </script>
+</body>
+
+</html>

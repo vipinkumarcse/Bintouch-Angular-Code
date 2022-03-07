@@ -1,0 +1,20 @@
+<body style="background-color: white;height: 100vh; padding-top: 68px;">
+    <div class="main-wrap">
+        <div class="header_lost">
+            <img src="../../../assets/images/app/ft-logo.png" alt="logo-image" />
+            <a>Get Your Badge</a>
+        </div>
+        <div class="main-img">
+            <img *ngIf="fileType == 1" [src]="file" alt="image"/>            
+            <div class="info-container">
+                <div class="name-wrap">
+                    <p>File name : {{fileName}}</p>
+                    <button class="btn btn-info" (click)="onView()" *ngIf="fileType == 2">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

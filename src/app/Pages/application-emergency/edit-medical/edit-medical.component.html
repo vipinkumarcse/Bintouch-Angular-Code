@@ -1,0 +1,37 @@
+<div>
+    <div class="dropdown_header d-flex justify-content-between align-items-center">
+        <button type="button" class="close_dropdown">Cancel</button>
+        <h5 class="text_black m-0 font-weight-bold">Add Medical Condition</h5>
+        <button type="button" class="close_dropdown" (click)="submit()">Done</button>
+    </div>
+    <div class="dropdown_body p-3">
+        <form [formGroup]="editMedicalForm">
+            <div class="basic-list-group">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex align-items-center">
+                        <div class="action_icon mr-2">
+                            <svg width="19.866" height="19.866" viewBox="0 0 19.866 19.866">
+                                <path id="Path_926" data-name="Path 926" d="M0,0H19.866V19.866H0Z" fill="none" />
+                                <path id="Path_927" data-name="Path 927"
+                                    d="M14.479,9.953l3.16-3.159a.79.79,0,0,0,0-1.119L14.193,2.23a.791.791,0,0,0-1.119,0L9.914,5.389,6.754,2.23A.813.813,0,0,0,6.191,2a.8.8,0,0,0-.556.23L2.19,5.675a.79.79,0,0,0,0,1.119l3.16,3.159L2.19,13.112a.79.79,0,0,0,0,1.119l3.445,3.445a.791.791,0,0,0,1.119,0l3.16-3.159,3.16,3.159a.78.78,0,0,0,.564.23.813.813,0,0,0,.564-.23l3.445-3.445a.79.79,0,0,0,0-1.119L14.479,9.953ZM9.93,7.556a.794.794,0,1,1-.794.794A.8.8,0,0,1,9.93,7.556ZM6.191,9.111,3.309,6.238,6.191,3.357,9.064,6.23Zm2.151,1.619a.794.794,0,1,1,.794-.794A.8.8,0,0,1,8.342,10.731ZM9.93,12.318a.794.794,0,1,1,.794-.794A.8.8,0,0,1,9.93,12.318Zm1.588-3.175a.794.794,0,1,1-.794.794A.8.8,0,0,1,11.517,9.143Zm2.112,7.414-2.882-2.873L13.629,10.8,16.5,13.676Z"
+                                    fill="#5079bf" />
+                            </svg>
+                        </div>
+                        <input type="text" class="form-control border_input" placeholder="Name (required)"
+                            formControlName="name" />
+                    </li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                        <input type="text" class="form-control border_input" placeholder="More details (optional)"
+                            formControlName="details" />
+                    </li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between"
+                        *ngIf="data.type == 'emergency_contact'">
+                        <input type="text" class="form-control border_input" placeholder="Relationship"
+                            formControlName="relation" />
+                        <span class="relation_span_text">ex. Brother</span>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>

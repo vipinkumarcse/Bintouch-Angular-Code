@@ -1,0 +1,66 @@
+<body style="background-color: white; height: 100vh; padding-top: 68px;">
+
+    <div class="main-wrap">
+        <div class="header_lost">
+            <img src="../../../assets/images/app/ft-logo.png" alt="logo-image" />
+            <a>Get Your Badge</a>
+        </div>
+        <div class="main-img">
+            <img src="{{image}}" alt="image" (error)="onImgError($event)" />            
+            <div class="info-container">
+                <div class="name-wrap">
+                    <h5>{{name}}</h5>
+                    <p>{{relation}}</p>
+                </div>
+                <div class="des-wrap">
+                    <h4>Please Contact Us If You Found Bruno</h4>
+                    <p>{{description}}</p>
+                    <hr>
+                    <ul class="button-list">
+                        <li>
+                            <a href="tel:{{tel}}">
+                                <img src="../../../assets/images/app/call-square.png" alt="icon" />
+                                <p>Call</p>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href ="">
+                                <img src="../../../assets/images/app/map-square.png" alt="icon" />
+                                <p>Get Directions</p>
+                            </a>                            
+                        </li> -->
+                        <li>
+                            <a href="mailto:{{email}}">
+                                <img src="../../../assets/images/app/email-square.png" alt="icon" />
+                                <p>Email</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                </div>                
+                <div class="main-info">
+                    <div class="info-box">
+                        <img src="../../../assets/images/app/user-grey.png" alt="icon" />
+                        <span class="grey-cl">Contact:{{tel}} </span>
+                    </div>                    
+                    <p>{{contact}}({{title}})</p>
+                    <div class="info-box mb-3">
+                        <img src="../../../assets/images/app/phone-grey.png" alt="icon" />
+                        <span>{{tel}}</span><br>
+                    </div>
+                    <div class="info-box mb-3">
+                        <img src="../../../assets/images/app/email-grey.png" alt="icon" />
+                        <span>{{email}}</span><br>
+                    </div>
+                    <div class="info-box mb-3">
+                        <img src="../../../assets/images/app/location-grey.png" alt="icon" />
+                        <span>{{addr}}</span><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="grey-cl pl-0">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+        </div>
+    </div>
+</body>

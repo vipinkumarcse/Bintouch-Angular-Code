@@ -1,0 +1,91 @@
+<body class="vh-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-xl-6 col-xxl-7">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+									<div class="text-center mb-3 logo">
+										<img src="../../../assets/images/logo_login.png" alt="">
+									</div>
+                                    
+                                    <form class="custom-form mt-5"  #signup="ngForm" (ngSubmit)="signup.valid && Signup(signup)">
+                                        <div class="form-group">
+                                            <div class="position-relative input-outer">
+                                                <input  id="email" type="text" class="form-control" name="email" ngModel  #email="ngModel"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+                                                <label class="animated-label" for="email">Email Address</label>
+                                            </div>
+
+                                            <div *ngIf="signup.submitted && email.invalid ">
+                                                <div class="alert alert-danger custom_alert" *ngIf="email.errors?.required">
+                                                    Email is required.
+                                                </div>
+                                                <div class="alert alert-danger custom_alert" *ngIf="email.errors?.pattern">
+                                                    Enter a valid Email.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="position-relative input-outer">
+                                                <input  id="username" type="text" class="form-control" name="username" ngModel  #username="ngModel" required/>
+                                                <label class="animated-label" for="username">Username</label>
+                                            </div>
+                                            <div *ngIf="signup.submitted && username.invalid ">
+                                                <div class="alert alert-danger custom_alert" *ngIf="username.errors?.required">
+                                                    Username is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                           <div class="position-relative input-outer">
+                                            <input id="pass" type="password" class="form-control" name="password" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})"  ngModel  #password="ngModel" required/>
+                                            <label for="pass" class="animated-label">Password</label>
+                                           </div>
+                                            <div *ngIf="signup.submitted && password.invalid ">
+                                                <div class="alert alert-danger custom_alert" *ngIf="password.errors?.required">
+                                                  Password is required.
+                                                </div>
+                                                <div class="alert alert-danger custom_alert" *ngIf="password.errors?.pattern">
+                                                    Password must contain a capital letter, a sepcial character and a digit. Password length must  8 characters.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="position-relative input-outer">
+                                                <input id="confirm-pass" type="password" class="form-control" name="confirmpassword" ngModel
+                                            pattern="{{ password.value }}" #confirmpassword="ngModel" required/>
+                                            <label for="confirm-pass" class="animated-label">Confirm Password</label>
+                                            </div>
+                                            <div *ngIf=" confirmpassword.invalid && (signup.submitted || confirmpassword.touched)"
+                                        class="alert alert-danger custom_alert">
+                                        <div *ngIf="confirmpassword.errors?.required"> Confirm password is required. </div>
+                                        <div *ngIf="confirmpassword.errors?.pattern"> Password & Confirm Password does not match.</div>
+                                      </div>
+                                        </div>
+                                        
+                                        <div class="form-check mt-4">
+                                            <input class="form-check-input" type="checkbox" name="checkbox" ngModel #checkbox="ngModel" id="flexCheckDefault">
+                                            <label class="form-check-label mt-0" for="flexCheckDefault">
+                                                By signing up, you agree to
+                                                    our <a routerLink="/terms">Terms</a> and <a routerLink="/privacy">Privacy Policy.</a>
+                                            </label>
+                                          </div>
+                                        <div class="text-center mt-4 mb-2">
+                                            <button type="submit" class="btn btn-primary btn-block rounded-pill">Sign Up</button>
+                                        </div>
+                                        <p class="text-center mt-2"><a routerLink="/" class="text-center mb-4">Back To Login</a></p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>

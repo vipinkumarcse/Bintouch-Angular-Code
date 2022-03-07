@@ -1,0 +1,30 @@
+.form-group {
+    margin-bottom: 2rem;
+}
+.app_name{
+    background-color: #141934;
+    border: none;
+    color: #ffffff;
+    padding: 4px 10px;
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+}
+.app_name::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 0.7; 
+    font-weight: 500;
+  }
+  
+  .app_name:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+    opacity: 0.7; 
+    font-weight: 500;
+  }
+  
+  .app_name::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff;
+    opacity: 0.7; 
+    font-weight: 500;
+  }

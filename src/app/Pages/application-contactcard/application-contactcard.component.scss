@@ -1,0 +1,122 @@
+input.cover_pic_input {
+    width: 100%;
+    height: 145px;
+    opacity: 0;
+    position: relative;
+    z-index: 999;
+}
+
+
+.cover_pic_cover img{
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.profile_pic_input{
+    width: 91px;
+    height: 91px !important;
+    border-radius: 70px;
+    opacity: 0;
+    position: relative;
+    z-index: 999;
+}
+
+.profile_photo_contact img{
+    // position: absolute;
+    // left: 0;
+    width: 100%;
+    // top: 0;
+}
+
+.profile_photo_contact {
+    margin-top: 27vh;
+}
+
+.cover_pic_cover img {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+}
+
+
+.profile_photo_contact img {
+    width: 91px;
+    height: 91px;
+    border-radius: 70px;
+    object-fit: cover;
+}
+
+.profile_photo_contact p {
+    color: #151D43;
+}
+.app_name{
+    background-color: #141934;
+    border: none;
+    color: #ffffff;
+    padding: 4px 10px;
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+}
+.app_name::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 0.7; 
+    font-weight: 500;
+  }
+  
+  .app_name:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+    opacity: 0.7; 
+    font-weight: 500;
+  }
+  
+  .app_name::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff;
+    opacity: 0.7; 
+    font-weight: 500;
+  }
+
+  .upload_btn{
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+    margin-left: 16px;
+  }
+  .upload_btn input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100% !important;
+    opacity: 0;
+  }
+  .upload_btn .choose_btn{
+    background-color: #141937;
+    color: #fff;
+    border-radius: 6px;
+    padding: 4px 16px;
+  }
+  .mainForm .form-control{
+    background-color: #3F4973;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .white_interface_box input{
+    height: 28px !important;
+    line-height: 28px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+  .white_interface_box .mat-datepicker-toggle {
+    position: absolute;
+    top: -5px;
+    right: 7px;
+}
+.form-group{
+    margin-bottom: 1.5rem;
+}
+input.form-control.colorPicker{
+    padding: 1px 3px;
+}

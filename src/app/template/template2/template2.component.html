@@ -1,0 +1,179 @@
+<div class="main-wrap">
+    <div class="template_header">
+        <img src="assets/images/ft-logo.png" alt="logo-image" />
+        <a href="#">Get Your Card2</a>
+    </div>
+
+    <div class="profile_wrap">
+        <div class="profile_img">
+            <img *ngIf="!contact.photo" src="assets/images/user_img_square.png" alt="image" />
+            <img *ngIf="contact.photo" src="{{usrImg}}{{contact.photo}}" alt="icon" />
+        </div>
+        <div class="cover-img-sec">
+            <div class="profile_brief">
+                <h5 *ngIf="name">{{name?name:''}}</h5>
+                <p *ngIf="contact.position">{{contact.position?contact.position:''}} {{contact.company?'at':''}} {{contact.company?contact.company:''}}</p>                
+            </div>
+            <div class="upload_file">
+                <img *ngIf="!contact.cover_photo" src="assets/images/upload-image.png" alt="icon" />
+                <img class="cover-img img-fluid" *ngIf="contact.cover_photo" src="{{usrImg}}{{contact.cover_photo}}" alt="icon" />
+                <input type="file" id="myFile" name="filename">
+            </div>
+        </div>
+    </div>
+    <p class="des" *ngIf="contact.note">{{contact.note?contact.note:''}}</p>
+    <div class="main_btns_squares">
+        <ul>
+            <li><a  class="d_bg" style="margin-right:5px;" (click)="addContact()">Save Contact</a></li>
+            <li><a  class="b_bg" (click)="moveToPage()" >Share Your Contact</a></li>
+        </ul>
+    </div>
+    
+    <div class="social_media">
+        <ul>
+            <li *ngIf="contact.facebook">
+                <a (click)="iconsClick(contact.facebook, 'facebook')"><img src="assets/images/fb_grey_circle.png" alt="icon"/></a>
+            </li>
+            <li *ngIf="contact.instagram">
+                <a (click)="iconsClick(contact.instagram, 'instagram')"><img src="assets/images/insta_grey_circle.png" alt="icon"/></a>
+            </li>
+            <li *ngIf="contact.linkedin">
+                <a (click)="iconsClick(contact.linkedin, 'linkedin')"><img src="assets/images/linkedin_grey_circle.png" alt="icon"/></a>
+            </li>
+            <li *ngIf="contact.twitter">
+                <a (click)="iconsClick(contact.twitter, 'twitter')"><img src="assets/images/twitter_grey_circle.png" alt="icon"/></a>
+            </li>
+        </ul>
+        <ul>                
+            <li *ngIf="contact.facebook_page">
+                <a (click)="iconsClick(contact.facebook_page, 'facebook')"><img src="assets/images/contact-profile3/fb-para.png" alt="icon"/></a>
+            </li>
+            <li *ngIf="contact.snapchat">
+                <a (click)="iconsClick(contact.snapchat, 'snapchat')"><img src="assets/images/contact-profile3/snapchat.png" alt="icon"/></a>
+            </li>
+            <li *ngIf="contact.tiktok">
+                <a (click)="iconsClick(contact.tiktok, 'tiktok')"><img src="assets/images/contact-profile3/tiktok.png" alt="icon"/></a>
+            </li>
+            <li *ngIf="contact.youtube">
+                <a (click)="iconsClick(contact.youtube, 'youtube')"><img src="assets/images/contact-profile3/youtube.png" alt="icon"/></a>
+            </li>
+        </ul>
+        <hr class="half-border">
+    </div>
+    <div class="basic_info">
+        <div class="wraper"  *ngIf="contact.phone" (click)="iconsClick(contact.phone, 'phone')">
+            <div class="info_icon">
+                <img src="assets/images/phone_grey.png" alt="icon"/>
+            </div>
+            <div class="info_wrap"  >
+                <p class="b_lt_cl">Mobile Number</p>
+                <p>{{contact.phone?contact.phone:''}}</p>
+            </div>
+        </div>
+        <div class="wraper"  *ngIf="contact.work_phone" (click)="iconsClick(contact.work_phone, 'phone')">
+            <div class="info_icon">
+                <img src="assets/images/suitcase_grey.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Work Number</p>
+                <p>{{contact.work_phone?contact.work_phone:''}}</p>
+            </div>
+        </div>
+        <div class="wraper" *ngIf="contact.email" (click)="iconsClick(contact.email, 'email')">
+            <div class="info_icon">
+                <img src="assets/images/email_grey.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Email</p>
+                <p>{{contact.email?contact.email:''}}</p>
+            </div>
+        </div>            
+        <div class="wraper" *ngIf="contact.whatsapp" (click)="iconsClick(contact.whatsapp, 'whatsApp')">
+            <div class="info_icon">
+                <img src="assets/images/contact-profile3/grey-watsapp.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Whatsapp</p>
+                <p>{{contact.whatsapp?contact.whatsapp:''}}</p>
+            </div>
+        </div>            
+        <div class="wraper" *ngIf="contact.website" (click)="iconsClick(contact.website, 'chrome')">
+            <div class="info_icon">
+                <img src="assets/images/web_grey.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Website</p>
+                <p>{{contact.website?contact.website:''}}</p>
+            </div>
+        </div>
+        <div class="wraper" *ngIf="contact.messenger" (click)="iconsClick(contact.messenger, 'messenger')">
+            <div class="info_icon">
+                <img src="assets/images/contact-profile3/grey-messanger.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Messenger</p>
+                <p>{{contact.messenger?contact.messenger:''}}</p>
+            </div>
+        </div>            
+        <div class="wraper" *ngIf="contact.zoom" (click)="iconsClick(contact.zoom, 'zoom')">
+            <div class="info_icon">
+                <img src="assets/images/contact-profile3/grey-zoom.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Zoom</p>
+                <p>{{contact.zoom?contact.zoom:''}}</p>
+            </div>
+        </div>
+        <div class="wraper"  *ngIf="contact.address || contact.address_line2 || contact.city || contact.postcode || contact.country" (click)="iconsClick(address, 'googleMaps')">
+            <div class="info_icon">
+                <img src="assets/images/location_grey.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Location</p>
+                <p>{{contact.address?contact.address:''}} {{contact.address_line2?contact.address_line2:''}} {{contact.city?contact.city:''}}{{contact.city?',':''}} {{contact.postcode?contact.postcode:''}}{{contact.postcode?',':''}} {{contact.country?contact.country:''}}
+                </p>
+            </div>
+        </div>
+        <div class="wraper" *ngIf="contact.paypal" (click)="iconsClick(contact.paypal, 'paypal')">
+            <div class="info_icon">
+                <img src="assets/images/contact-profile3/grey-paypal.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Paypal</p>
+                <p>{{contact.paypal?contact.paypal:''}}</p>
+            </div>
+        </div>
+        <div class="wraper" *ngIf="contact.lydia" (click)="iconsClick(contact.lydia, 'lydia')">
+            <div class="info_icon">
+                <img src="assets/images/contact-profile3/lydia.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">Lydia</p>
+                <p>{{contact.lydia?contact.lydia:''}}</p>
+            </div>
+        </div>
+        <div class="wraper" *ngIf="contact.link_url" (click)="Link_Title()">
+            <div class="info_icon">
+                <img src="assets/images/contact-profile3/grey-links.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">File</p>
+                <p>{{contact.link_title?contact.link_title:'Link'}}</p>
+            </div>
+        </div>  
+        <div class="wraper" *ngIf="contact.document_url || contact.document_file" (click)="file_Title()">
+            <div class="info_icon">
+                <img src="assets/images/contact-profile3/grey-download.png" alt="icon"/>
+            </div>
+            <div class="info_wrap">
+                <p class="b_lt_cl">File</p>
+                <p>{{contact.document_title?contact.document_title:'Document'}}</p>
+            </div>
+        </div>            
+        <p class="footer-p">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+    </div>
+    <div class="template_footer">
+        <p>Be-In-Touch</p>
+        <small>Website</small>
+    </div>
+</div>

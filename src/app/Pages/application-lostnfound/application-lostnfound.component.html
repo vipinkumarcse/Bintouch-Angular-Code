@@ -1,0 +1,209 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Lost & Found</h2>
+
+            <div class="searchbar">
+            <form id="demo-2">
+                <input class="form-control" type="search" placeholder="Search here">
+            </form>
+        </div>
+        </div> 
+
+
+        <div class="row ">
+
+        <div class="col-xl-12">
+            <div class="card form_col_manage">
+                <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                    <!-- <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Your Lost & Found Profile</h4>
+                    </div> -->
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col-xl-1 col-xxl-2">
+                        <!-- <div class="profile_photo_contact d-flex">
+                            <img class="img-fluid" src="images/profile_photo_img.png"/>
+                        </div> -->
+                    </div>
+                      <div class="col-xl-8 col-xxl-7">
+                        <h4 class="card-title fs21 text_transform_none mb-4">Your Lost & Found Profile</h4>
+                        <form class="bform text_white" [formGroup]="lostForm">
+                            <div class="form-row mb-4">
+                                <div class="form-group col-md-10">
+                                    <label class="fs17 font-weight-bold w-100">Cover Photo</label>
+                                    <div class="profile_img d-inline-flex flex-column align-items-center">
+                                        <div class="profile_img_container position-relative">
+                                    <img class="img-fluid" [src]="imgURL" alt=""/>
+                                    <input type="file" nbInput fullWidth #file accept='image/*' (change)="preview(file.files)" />
+                                    
+                                </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            <!-- Form row end -->
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="fs17 font-weight-bold">Name</label>
+                                    <input type="text" class="form-control" formControlName="name" >
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label class="fs17 font-weight-bold">Function/Role/Relationship </label>
+                                    <input type="text" class="form-control" placeholder="Family Dog" formControlName="relation" >
+                                  </div>
+                            </div>
+                            <!-- Form row end -->
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="fs17 font-weight-bold">Note/Title</label>
+                                    <input type="text" class="form-control" placeholder="Please Contact Us If You Found.." formControlName="noteTitle" >
+                                </div>
+                            </div>
+                            <!-- Form row end -->
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="fs17 font-weight-bold">Description</label>
+                                    <textarea class="form-control" rows="3" formControlName="description" ></textarea>
+                                  </div>
+                                </div>
+                                <!-- Form row end -->
+                            
+                            <div class="form-row mt-4">
+                                <div class="form-group col-md-6">
+                                    <label class="fs17 font-weight-bold">Contact Name</label>
+                                    <input type="text" class="form-control" formControlName="contactName" >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="fs17 font-weight-bold">Contact Title</label>
+                                    <input type="text" class="form-control" placeholder="Owner" formControlName="contactTitle" >
+                                </div>
+                                
+                            </div>
+                            <!-- Form row end -->
+                            <hr class="border_default" />
+
+                            <div class="form-row mt-4 position-relative">
+                                <div class="form-group col-10 col-md-5">
+                                    <label class="fs17 font-weight-bold">Phone Number</label>
+                                    <input type="text" class="form-control" formControlName="phone" >
+                                </div>
+                                <div class="lstnfnd_icon col-2 col-md-7 align-self-center text-right ">
+                                    <img class="img-fluid" src="assets/images/GV-Connect-Icon.png" alt="">
+                                </div>
+                                
+                            </div>
+                            <!-- Form row end -->
+                            <hr class="border_default" />
+
+                            
+                            <div class="form-row mt-4 position-relative">
+                                <div class="form-group col-10 col-md-5">
+                                    <label class="fs17 font-weight-bold">Email</label>
+                                    <input type="text" class="form-control" formControlName="email" >
+                                </div>
+                                
+                                <div class="lstnfnd_icon col-2 col-md-7 align-self-center text-right ">
+                                    <img class="img-fluid" src="assets/images/emal_small_icon.png"/>
+                                </div>
+                                
+                            </div>
+                            <!-- Form row end -->
+                            <hr class="border_default" />
+
+                                                <h4 class="fs21 mt-4 mb-3">Address</h4>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-5 col-md-5">
+                                                        <label class="fs17 font-weight-bold">Street 1</label>
+                                                        <input type="text"  class="form-control" formControlName="street1" >
+                                                      </div>
+                                                      <div class="form-group col-5 col-md-5">
+                                                        <label class="fs17 font-weight-bold">Street 2</label>
+                                                        <input type="text" class="form-control" formControlName="street2" >
+                                                      </div>
+
+                                                      <div class="lstnfnd_icon col-2 col-md-2 align-self-center text-right">
+                                                        <img class="img-fluid" src="assets/images/Google_Maps_icon.png"/>
+                                                    </div>
+                                                    </div>
+                                                    <!-- Form row end -->
+            
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-5">
+                                                            <label class="fs17 font-weight-bold">Postal Code</label>
+                                                            <input type="text"  class="form-control" formControlName="postalCode" >
+                                                          </div>
+                                                          <div class="form-group col-md-5">
+                                                            <label class="fs17 font-weight-bold">City</label>
+                                                            <input type="text" class="form-control" formControlName="city" >
+                                                          </div>
+                                                        </div>
+                                                        <!-- Form row end -->
+            
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-5">
+                                                                <label class="fs17 font-weight-bold">State</label>
+                                                                <input type="text"  class="form-control" formControlName="state">
+                                                              </div>
+                                                              <div class="form-group col-md-5">
+                                                                <label class="fs17 font-weight-bold">County</label>
+                                                                <input type="text" class="form-control" formControlName="country" >
+                                                              </div>
+                                                            </div>
+                                                            <!-- Form row end -->
+                                                            <button (click)="makeData()" class="btn btn-primary btn-block rounded-pill mt-4 w-50 mx-auto" >Submit</button>
+
+                          </form>
+                     </div>
+                     <div class="col-xl-3 col-xxl-3">
+                                 <div class="graphic_icon text-right mt-5">
+                                     <img class="img-fluid" src="assets/images/contact_card_img.png" />
+                                 </div>
+                     </div>
+                </div>
+                </div>
+
+          
+            </div>
+            <div class="card-footer border-0 border_half_width py-0">
+                <hr class="border_default" />
+                <p class="text-center fs17 mb-0">Create a Lost & Found profile for anything  that you might loose and make it easy for others to find and
+                    Contact you directly by scanning the smart badge attached to it.</p>
+            </div>
+            </div>
+            
+        </div>
+
+        <div class="col-xl-12">
+    
+            <div class="card position-relative">
+                <div class="card_header_pre position-absolute">
+                    <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                </div>
+
+                <div class="preview_main text-center">
+                    <img class="img-fluid" src="assets/images/preview_jpg3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+<!--**********************************
+    Right Sidebar 
+***********************************-->
+
+
+
+
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

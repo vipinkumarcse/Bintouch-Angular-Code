@@ -1,0 +1,11 @@
+.video_grid iframe {
+    border-radius: 19px;
+    border: none;
+  }
+  .video_grid{margin-bottom: 2.5rem;}
+  .video_container{ height: 200px;}
+  .blank_vedio{background-color: rgba(0, 0, 0, .3); height: 200px; border-radius: 19px}
+  video{
+    object-fit: cover;
+    border-radius: 19px;
+  }

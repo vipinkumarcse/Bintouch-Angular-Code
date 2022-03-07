@@ -1,0 +1,91 @@
+<body style="background-color: white; height: 100vh;padding-top: 68px;">
+    <div class="main-wrap">
+        <div class="header_emergency">
+            <img src="../../../assets/images/app/hori-logo.png" alt="logo-image" />
+            <a>Get Yours Now</a>
+        </div>
+        <div class="main-container">
+            <div class="profile-info-wrap">
+                <div class="info-container">
+                    <img [src]="image" (error)="onImgError($event)" alt="image" />
+                    <div class="patient-info">
+                        <h3 *ngIf="emergencyData?.first_name">{{emergencyData?.first_name}} {{emergencyData?.last_name}}</h3>
+                        <p class="">{{dob}}</p>
+                        <p class="" *ngIf="isOrganDonor == 'yes'">Organ Donor</p>
+                        <p class="" *ngIf="emergencyData.diabetes">{{diabetes}}</p>
+                        <p class="" *ngIf="emergencyData.epilepsy == 'yes'">Epilepsy</p>
+                    </div>
+
+                    <div class="more-option"> 
+                        <ul>
+                            <!-- <li><a><img src="../../../assets/images/app/shadow-share.png" alt="image" /></a></li> -->
+                            <li *ngIf="emrg_cont.length != 0" (click)="call(emrg_cont[0].details)"><a><img src="assets/images/app/shadow-call-red.png" alt="image" /></a></li>
+                            <!-- <li><a><img src="../../../assets/images/app/shadow-location.png" alt="image" /></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="dimensions">    
+                    <ul>
+                        <li *ngIf="height">
+                            <p>HEIGHT</p>
+                            <h4>{{height}}<span> cm</span></h4>
+                        </li>
+                        <li *ngIf="weight">
+                            <p>WEIGHT</p>
+                            <h4>{{weight}}<span> kg</span></h4>
+                        </li>
+                        <li *ngIf="bloodType">
+                            <p>BLOOD TYPE</p>
+                            <h4>{{bloodType}}</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="white-container">
+                <div class="emergency-btn">
+                    <a><img src="../../../assets/images/app/emergency-btn.png" alt="icon" /></a>
+                </div>
+                <div class="patient-details">
+                    <div class="sec-box" *ngIf="med_condn.length != 0">
+                        <h3 class="red-cl">MEDICAL CONDITIONS</h3>
+                        <ng-container *ngFor="let med of med_condn">
+                            <p class="grey-cl" *ngIf="med.name != 'null'">{{med.name}}</p>
+                            <p class="grey-cl" *ngIf="med.details != 'null'">{{med.details}}</p>
+                        </ng-container>
+                    </div>
+                    <div class="sec-box" *ngIf="allrgy.length != 0">
+                        <h3 class="red-cl">ALLERGIES & REACTIONS</h3>
+                        <ng-container *ngFor="let all of allrgy">
+                        <p class="grey-cl" *ngIf="all.name != 'null'">{{all.name}}</p>
+                        <p class="grey-cl" *ngIf="all.details != 'null'">{{all.details}}</p>
+                        </ng-container>
+                    </div>
+                    <div class="sec-box" *ngIf="medication.length != 0">
+                        <h3 class="red-cl">MEDICATION</h3>
+                        <ng-container *ngFor="let note of medication">  
+                        <p class="grey-cl" *ngIf="note.name != 'null'">{{note.name}}</p>
+                        <p class="grey-cl" *ngIf="note.details != 'null'">{{note.details}}</p>
+                        </ng-container>
+                    </div>
+                    <div class="sec-box" *ngIf="med_note.length != 0">
+                        <h3 class="red-cl">MEDICAL EVENTS</h3>
+                        <ng-container *ngFor="let erg of med_note"> 
+                        <p class="grey-cl" *ngIf="erg.name != 'null'">{{erg.name}}</p>
+                        <p class="grey-cl" *ngIf="erg.details != 'null'">{{erg.details}}</p>
+                        </ng-container>
+                    </div>
+                    <div class="sec-box" *ngIf="emrg_cont.length != 0">
+                        <h3 class="red-cl">Emergency Contact</h3>
+                        <ng-container *ngFor="let erg of emrg_cont"> 
+                        <p class="grey-cl">{{erg.name}} - <span class="" *ngIf="erg.details" style="font-weight: 600;"  (click)="call(erg.details)"> <img class="mr-1" src="assets/images/app/call_icn.png">Call</span></p>
+                        <p class="grey-cl" *ngIf="erg.details != 'null'">{{erg.details}}</p>
+                        </ng-container>
+                    </div>
+                </div>                
+                <div class="footer pl-0">
+                    <p class="grey-cl">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>

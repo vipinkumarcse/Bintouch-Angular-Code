@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.604" height="20.604" viewBox="0 0 20.604 20.604">
+  <g id="settings_remote-24px" opacity="0.576">
+    <path id="Path_819" data-name="Path 819" d="M0,0H20.6V20.6H0Z" fill="none"/>
+    <path id="Path_820" data-name="Path 820" d="M14.009,9H8.858A.861.861,0,0,0,8,9.858v10.3a.861.861,0,0,0,.858.858h5.151a.861.861,0,0,0,.858-.858V9.858A.861.861,0,0,0,14.009,9Zm-.858,10.3H9.717V10.717h3.434Z" transform="translate(-1.132 -1.274)" fill="#fff"/>
+    <ellipse id="Ellipse_41" data-name="Ellipse 41" cx="1" cy="0.5" rx="1" ry="0.5" transform="translate(9.604 10.604)" fill="#fff"/>
+    <path id="Path_821" data-name="Path 821" d="M6.649,5.194,7.86,6.4a4.311,4.311,0,0,1,6.078,0l1.21-1.21a6.01,6.01,0,0,0-8.5,0ZM10.9,0A9.414,9.414,0,0,0,4.22,2.764l1.21,1.21a7.731,7.731,0,0,1,10.928.009l1.21-1.21A9.35,9.35,0,0,0,10.9,0Z" transform="translate(-0.597)" fill="#fff"/>
+  </g>
+</svg>

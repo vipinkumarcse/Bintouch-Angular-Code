@@ -1,0 +1,388 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview</h2>
+
+            <div class="searchbar">
+                <form id="demo-2">
+                    <input class="form-control" type="search" placeholder="Search here" [(ngModel)]="search" name="search">
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row ">
+
+            <div class="col-xl-12">
+
+                <div class="row no-gutters">
+                    <div class="col-sm-2 table_tabs">
+                        <div class="nav flex-column nav-pills mb-0">
+                            <a href="#v-pills-home" [ngClass]="{'active' : classAdd === true }"  data-toggle="pill" class="nav-link active show" (click)="applicationData()"><i class="mr-2">
+                                    <svg id="home-white-18dp" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_771" data-name="Path 771" d="M0,0H24V24H0Z" fill="none"/>
+                                        <path id="Path_772" data-name="Path 772" d="M10,20V14h4v6h5V12h3L12,3,2,12H5v8Z" fill="#fff"/>
+                                      </svg>
+                                </i> Home</a>
+                            <div>
+
+                                   <div id="div1">
+                                    <a class="nav-link d-flex justify-content-between" [ngClass]="{'active' : classMobile === true }" (click)="showMobile()">Mobile   
+                                    </a>
+                                </div>
+
+                                <div id="div1" *ngFor="let contacts of CategoryList; let i=index" (drop)="drop($event,i,contacts.id)" (dragover)="allowDrop($event)">
+                                    <a class="nav-link d-flex justify-content-between"  [ngClass]="{'active' : contacts.active === true }" (click)="getFilterApplicationListing(contacts.id)">{{contacts?.name}}   
+                                            <button class="nav-link p-2 btn smart_btn"  (click)="deleteContact(contacts?.id)">
+                                                <svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+                                                    <path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none" />
+                                                    <path id="Path_809" data-name="Path 809"
+                                                        d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z"
+                                                        fill="#b6b8c7" />
+                                                </svg>
+                                            </button>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <form [formGroup]="catForm">
+                            <input type="text" *ngIf="inputField == true" formControlName="name" (keyup.enter)="submitCat()" class="form-control add_input" placeholder="Add category">
+                        </form>
+                        <div class="d-flex justify-content-end flex-column align-items-end action_btn">
+                            <button class="nav-link btn" (click)="input()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="add-24px" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_810" data-name="Path 810" d="M0,0H24V24H0Z" fill="none"/>
+                                        <path id="Path_811" data-name="Path 811" d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z" fill="#b6b8c7"/>
+                                      </svg>
+                                </button>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="card">
+                            <div class="tab-content p-3">
+                                <div id="v-pills-home" class="tab-pane fade active show">
+                                    <div class="table-responsive custom_table custom_scrollbar height540">
+                                        <table class="table bg-warning-hover text-left">
+                                            <thead>
+                                                <tr class="text_white">
+                                                    <th class="add_sm_object">
+                                                        <a (click)="showModal(mymodal)" data-toggle="modal" data-target="#addApplication">
+                                                            <svg xmlns="http://www.w3.
+                                                            org/2000/svg" id="add-active-24px" width="24" height="24" viewBox="0 0 24 24">
+                                                                <path id="Path_810" data-name="Path 810" d="M0,0H24V24H0Z" fill="none"/>
+                                                                <path id="Path_811" data-name="Path 811" d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z" fill="#8eb8ff"/>
+                                                              </svg> Application Type
+                                                        </a>
+
+                                                   </th>
+                                                    <th class="text_white">Application Name</th>
+                                                    <th class="text_white text-center">Edit/Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="fs14">
+
+                                            <tr id="drag1" *ngFor="let body of applicationDetails | filter:search" draggable="true" (dragstart)="drag($event,body.id,body.slug)">
+                                            <!-- <ng-container *ngIf="body.source  != 'primary'"> -->
+                                                    <td class="">{{body.type}}</td>
+                                                    <td>
+                                                        <div class="d-inline-flex align-items-center">
+                                                            <div class="editDelete">
+                                                            <!-- <div class="editDelete" (click)="editname(body.base64_id,body.slug)"> -->
+                                                                <a class="ed_btn" (click)="openDialog(body.id,body.slug, body.name)"><img src="assets/images/create-24px.svg" /></a>
+                                                                <span *ngIf="body.name !=''">{{body.name}} {{body.show_id == '1'?'#'+body.id:''}}</span>
+                                                                <span *ngIf="body.name ==' '">N/A</span>
+
+                                                            </div> 
+                                                    <!--    </th>
+                                                        <th class="text_white">Application Name</th>
+                                                        <th class="text_white text-center">Edit/Delete</th>
+                                                    </tr>
+                                                </thead>
+                                              
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="v-pills-profile" class="tab-pane fade">
+                                        <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum
+                                            velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint
+                                            minim consectetur qui.
+                                        </p>
+                                        <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum
+                                            velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint
+                                            minim consectetur qui.
+                                        </p>
+                                        <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum
+                                            velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint
+                                            minim consectetur qui.
+                                        </p>
+                                        <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum
+                                            velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint.
+                                        </p> -->
+
+
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="editDelete justify-content-center" *ngIf="body.source  != 'primary'">
+                                                            <a class="ed_btn" (click)="edit(body.base64_id,body.slug)"><img src="assets/images/create-24px.svg" /></a>
+                                                            <a class="ed_btn" (click)="deleteapp(body.id,body.slug)"><img src="assets/images/delete_outline-24px.svg" /></a>
+                                                        </div>
+                                                        <div class="editDelete justify-content-center" *ngIf="body.source  == 'primary'">
+                                                            <a class="ed_btn">---</a>
+                                                            <a class="ed_btn">---</a>
+                                                        </div>
+                                                    </td>
+                                                <!-- </ng-container> -->
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="v-pills-profile" class="tab-pane fade">
+                                    <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam.
+                                        Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.
+                                    </p>
+                                    <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam.
+                                        Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.
+                                    </p>
+                                    <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam.
+                                        Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.
+                                    </p>
+                                    <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam.
+                                        Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint.
+                                    </p>
+
+                                </div>
+                                <div id="v-pills-messages" class="tab-pane fade">
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident
+                                        Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident
+                                        Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident
+                                        Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident
+                                        Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident
+                                        Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xl-12">
+
+                <div class="card position-relative">
+                    <div class="card_header_pre position-absolute">
+                        <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                    </div>
+
+                    <div class="preview_main text-center">
+                        <img class="img-fluid mobile-frame" src="assets/images/preview_jpg.jpg" alt="">
+                        <!-- <div class="preview_template">
+                            <div class="template_content custom_scrollbar">
+                                <app-template1></app-template1>
+                            </div>
+                        </div> -->
+
+                        <div class="preview_template">
+                            <div class="template_content custom_scrollbar">
+                                <img class="img-fluid perview_img" src="assets/images/splash.png">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #mymodal let-modal class="application_types">
+    <div class="modal-content">
+        <button type="button" class="close" (click)="modal.close('Save click')">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none"/>
+                            <path id="Path_823" data-name="Path 823" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" fill="#b6b8c7"/>
+                          </svg>
+                    </button>
+        <div class="modal-body">
+            <div class="btns_main_sec">
+                <h3 class="text-center font-weight-bold mb-3">Meeting & Networking</h3>
+                <div class="btns_container d-flex">
+                    <a (click)="movetoRoute('/event')" class="btn fs17 font-weight-bold text_white col">Event</a>
+                    <a (click)="movetoRoute('/calendar')" class="btn fs17 font-weight-bold text_white col">Calendar</a>
+                    <a (click)="movetoRoute('/contactcard')" class="btn fs17 font-weight-bold text_white col">Contact Card</a>
+                    <a (click)="movetoRoute('/socialmedia')" class="btn fs17 font-weight-bold text_white col">Social Media</a>
+                    <a (click)="movetoRoute('/cv')" class="btn fs17 font-weight-bold text_white col">CV</a>
+                </div>
+                <hr />
+            </div>
+
+            <div class="btns_main_sec">
+                <h3 class="text-center font-weight-bold mb-3">Action Shortcuts</h3>
+                <div class="btns_container d-flex">
+                    <a (click)="movetoRoute('/callsms')" class="btn fs17 font-weight-bold text_white col">Call/SMS</a>
+                    <a (click)="movetoRoute('/direction')" class="btn fs17 font-weight-bold text_white col">Directions</a>
+                    <a (click)="movetoRoute('/whatsapp')" class="btn fs17 font-weight-bold text_white col">WhatsApp</a>
+                    <a (click)="movetoRoute('/email')" class="btn fs17 font-weight-bold text_white col">Email</a>
+                </div>
+                <hr />
+            </div>
+
+
+            <div class="btns_main_sec">
+                <h3 class="text-center font-weight-bold mb-3">Other Sharing</h3>
+                <div class="btns_container d-flex">
+                    <a (click)="movetoRoute('/textnote')" class="btn fs17 font-weight-bold text_white col">Text/Note</a>
+                    <a (click)="movetoRoute('/link')" class="btn fs17 font-weight-bold text_white col flex-grow-4">Link</a>
+                    <a (click)="movetoRoute('/wifi')" class="btn fs17 font-weight-bold text_white col">Wifi</a>
+                </div>
+                <hr />
+            </div>
+
+            <div class="btns_main_sec">
+                <h3 class="text-center font-weight-bold mb-0">Hybrid Applications</h3>
+            </div>
+
+        </div>
+
+        <div class="modal-footer modal_footer_bg justify-content-center">
+            <div class="modalmenu w-100 position-relative">
+                <ul class="list-unstyled d-md-flex fs17 font-weight-bold justify-content-around  modalmenuList d-none">
+                    <li><a class="text_white" (click)="movetoRoute('/lostnfound')">Lost & Found</a></li>
+                    <li><a class="text_white" (click)="movetoRoute('/eMenu')">eMenu/Catalog</a></li>
+                    <li><a class="text_white invisible" href="#">Linktree</a></li>
+                    <li><a class="text_white" (click)="movetoRoute('/sequencer')">Sequencer</a></li>
+                    <li><a class="text_white" (click)="movetoRoute('/emergency')">Emergency</a></li>
+                </ul>
+                <div class="position-relative centerAddBtn_container d-none d-md-flex">
+                    <ul class="list-unstyled fs17 font-weight-bold text-center centerAddBtn">
+                        <li>
+                            <a routerLink="/linktree"><img src="assets/images/add_btn_round.svg" /></a>
+                        </li>
+                        <li><a class="text_white" (click)="movetoRoute('/linktree')">Linktree</a></li>
+                    </ul>
+                </div>
+                <div class="position-relative centerAddBtn_container centerAddBtn_menu  d-md-none">
+                    <div class="application_menu" onclick="this.classList.toggle('open')">
+                        <div class="menuListButton"><a class="text_white" (click)="movetoRoute('/lostnfound')">Lost & Found</a></div>
+                        <div class="menuListButton"><a class="text_white" (click)="movetoRoute('/linktree')">Linktree</a></div>
+                        <div class="menuListButton"><a class="text_white" (click)="movetoRoute('/eMenu')">eMenu/Catalog</a></div>
+                        <div class="menuListButton"><a class="text_white" (click)="movetoRoute('/sequencer')">Sequencer</a></div>
+                        <div class="menuListButton"><a class="text_white" (click)="movetoRoute('/emergency')">Emergency</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<div class="modal fade" id="contact_detail">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="card_header_pre d-flex justify-content-between pb-0">
+                <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                <div class="preview_icons d-flex align-items-center">
+                    <a href=""><img src="assets/images/download-24px.svg" /></a>
+                    <a href=""><img src="assets/images/create-24px.svg" /></a>
+                    <a href=""><img src="assets/images/delete_outline-24px.svg" /></a>
+                </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none"/>
+                    <path id="Path_823" data-name="Path 823" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" fill="#b6b8c7"/>
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="user_profile d-flex align-items-center">
+
+                    <img src="assets/images/img_user.jpg" alt="" />
+                    <div class="user_info d-flex flex-column">
+                        <span class="fs17 text_white font-weight-bold">Remi Dupont</span>
+                        <span class="fs14 pt-1">ESSEC/Student</span>
+                    </div>
+                </div>
+
+                <ul class="list-unstyled user_info_list pt-3">
+                    <li>
+                        <label class="fs14 m-0">Phone Number</label>
+                        <p class="text_white text_opacity_68">0033616930225</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Work Number</label>
+                        <p class="text_white text_opacity_68">0033616930224</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Website</label>
+                        <p class="text_white text_opacity_68">www.b-intouch.fr</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Home Address</label>
+                        <p class="text_white text_opacity_68">23 Rue Louis Pouey, 92800, Puteaux France
+                        </p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Birthday</label>
+                        <p class="text_white text_opacity_68">11/04/1991</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Email </label>
+                        <p class="text_white text_opacity_68">aaalfarra1@gmail.com</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Paypal</label>
+                        <p class="text_white text_opacity_68">aboud.atassi.paris@gmail.com</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Home Address</label>
+                        <p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris France
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div #activeList="cdkDropList"
+  class="box-list"
+  cdkDropList
+  cdkDropListOrientation="vertical"
+  [cdkDropListData]="CategoryList"
+  [cdkDropListConnectedTo]="[inactiveList]"
+  (cdkDropListDropped)="drop($event)" >
+  <div class="drag-box" *ngFor="let customer of CategoryList">
+    {{customer.name}}
+  </div>
+</div>
+
+<div #inactiveList="cdkDropList"
+  class="box-list"
+  cdkDropList
+  cdkDropListOrientation="vertical"
+  [cdkDropListData]="applicationDetails"
+  [cdkDropListConnectedTo]="[activeList]"
+  (cdkDropListDropped)="drop($event)">
+  <div class="drag-box" *ngFor="let customer of applicationDetails" cdkDrag>
+    {{customer.name}}
+  </div>
+</div> -->
+
+<!-- <ejs-filemanager  [allowDragAndDrop]='allowDragAndDrop' (fileDragStart)='onFileDragStart($event)' (fileDragStop)='onFileDragStop($event)' (fileDragging)='onFileDragging($event)' (fileDropped)='onFileDropped($event)' >
+</ejs-filemanager> -->

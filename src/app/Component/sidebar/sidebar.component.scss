@@ -1,0 +1,67 @@
+.bg-gradient-primary.sidebar.sidebar-dark {
+    background: #4e73df;
+    height: 100%;
+  }
+  
+  .sidebar .sidebar-brand {
+    height: auto;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 15px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    z-index: 1;
+    max-width: 185px;
+  }
+  
+  .sidebar-dark .nav-item .nav-link {
+    cursor: pointer;
+  }
+  
+  .sidebar-dark .nav-item.dash-aside.active {
+    background: #f6f7fa;
+  }
+  
+  .sidebar-dark .dash-aside.active .nav-link,
+  .sidebar-dark .nav-item.active .nav-link i {
+    color: #fff;
+  }
+  // .deznav .custom_scrollbar{
+  //   overflow-y: auto;
+  //   overflow-x: initial;
+  // }
+  // .deznav::-webkit-scrollbar {
+  //   width: 10px;
+  // }
+  
+  // /* Track */
+  // .deznav::-webkit-scrollbar-track {
+  //   background: #f1f1f1;
+  // }
+  
+  // /* Handle */
+  // .deznav::-webkit-scrollbar-thumb {
+  //   background: #888;
+  // }
+  
+  // /* Handle on hover */
+  // .deznav::-webkit-scrollbar-thumb:hover {
+  //   background: #555;
+  // }
+
+  .last-meating .card_info{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .last-meating .contact_container .contact_name{
+    flex: 1;
+  }
+  .last-meating .card_info a{
+    white-space: nowrap;
+  }
+  
+  

@@ -1,0 +1,568 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview</h2>
+
+            <div class="searchbar">
+                <form id="demo-2">
+                    <input class="form-control" type="search" placeholder="Search here" [(ngModel)]="search" name="search">
+                </form>
+            </div>
+        </div>
+        <div>
+        <div class="row ">
+            <div class="col-xl-12">
+                <div class="row no-gutters">
+                    <div class="col-sm-2 table_tabs">
+                        <div class="nav flex-column nav-pills mb-0">
+                            <a href="#v-pills-home" [ngClass]="{'active' : classAdd === true }"  data-toggle="pill" class="nav-link active show" (click)="contactData()"><i class="mr-2">
+                                    <svg id="home-white-18dp" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_771" data-name="Path 771" d="M0,0H24V24H0Z" fill="none" />
+                                        <path id="Path_772" data-name="Path 772" d="M10,20V14h4v6h5V12h3L12,3,2,12H5v8Z"
+                                            fill="#fff" />
+                                    </svg>
+                                </i> Home</a>
+                            <div>
+                                <div id="div1" *ngFor="let contacts of contactList; let i=index" (drop)="drop($event,i,contacts.id)" (dragover)="allowDrop($event)" >
+                                    <a href="#v-pills-profile" data-toggle="pill"
+                                        class="nav-link d-flex justify-content-between" [ngClass]="{'active' : contacts.active === true }" (click)="getFilterContactListing(contacts.id)">{{contacts?.name}}   
+                                        <button class="nav-link p-2 btn smart_btn"  (click)="deleteContact(contacts?.id)">
+                                            <svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+                                                <path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none" />
+                                                <path id="Path_809" data-name="Path 809"
+                                                    d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z"
+                                                    fill="#b6b8c7" />
+                                            </svg>
+                                        </button></a>
+                                    <!-- <button (click)="deleteContact(contacts?.id)">
+                                        <svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+                                            <path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none" />
+                                            <path id="Path_809" data-name="Path 809"
+                                                d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z"
+                                                fill="#b6b8c7" />
+                                        </svg>
+                                    </button> -->
+                                    <!-- <a href="#v-pills-messages" data-toggle="pill" class="nav-link">Family & Friends</a> -->
+                                </div>
+                            </div>
+
+                        </div>
+                        <form [formGroup]="catForm">
+                            <input type="text" *ngIf="inputField == true" formControlName="catname"
+                                (keyup.enter)="submitCat()" class="form-control add_input add_cat" placeholder="Add contact category">
+                        </form>
+                        <div class="d-flex justify-content-end flex-column align-items-end action_btn">
+                            <button class="nav-link btn" (click)="input()">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="add-24px" width="24" height="24"
+                                    viewBox="0 0 24 24">
+                                    <path id="Path_810" data-name="Path 810" d="M0,0H24V24H0Z" fill="none" />
+                                    <path id="Path_811" data-name="Path 811" d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z"
+                                        fill="#b6b8c7" />
+                                </svg>
+                            </button>
+
+                            <!-- <button class="nav-link btn">	
+                                    <svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none"/>
+                                        <path id="Path_809" data-name="Path 809" d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z" fill="#b6b8c7"/>
+                                      </svg>
+                                </button> -->
+                        </div>
+
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="card">
+                            <div class="tab-content p-3">
+                                <div id="v-pills-home" class="tab-pane fade active show">
+                                    <div class="table-responsive custom_table custom_scrollbar">
+                                        <table class="table bg-warning-hover text-left table_fixed">
+                                            <thead>
+                                                <tr class="text_white">
+                                                    <th class="add_sm_object col-3"><a>
+                                                            Contact Name
+                                                        </a>
+                                                    </th>
+                                                    <th class="text_white col-3">Company/Job Title</th>
+                                                    <th class="text_white col-3">Meeting Date</th>
+                                                    <th class="text_white text-center col-3 cursor_pointer" (click)="exportall()">
+                                                        <!-- data-toggle="modal" data-target="#importAll" -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" id="download-24px"
+                                                            width="24" height="24" viewBox="0 0 24 24">
+                                                            <path id="Path_806" data-name="Path 806" d="M0,0H24V24H0Z"
+                                                                fill="none" />
+                                                            <path id="Path_807" data-name="Path 807"
+                                                                d="M19,9H15V3H9V9H5l7,7Zm-8,2V5h2v6h1.17L12,13.17,9.83,11ZM5,18H19v2H5Z"
+                                                                fill="#b6b8c7" />
+                                                        </svg>
+                                                        Export All
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody *ngIf="contactDetails" class="fs14">
+                                                <!-- <div cdkDropList
+                                                [cdkDropListData]="contactDetails"
+                                                class="example-list"
+                                                (cdkDropListDropped)="drop($event)"> -->
+                                                    <tr id="drag1" *ngFor="let list of contactDetails | filter:search; let i = index" draggable="true" (dragstart)="drag($event,list.id,list.slug)">
+                                                        <td class="col" [ngClass]="{'text_white font-weight-bold' : list.active === true }" (click)="viewcontactdeatils(list.user_id)">{{list.first_name}}
+                                                            {{list.last_name}}</td>
+                                                        <td class="col" [ngClass]="{'text_white font-weight-bold' : list.active === true }" (click)="viewcontactdeatils(list.user_id)">
+                                                            {{list.company}}/{{list.position}}</td>
+                                                        <td class="col" [ngClass]="{'text_white font-weight-bold' : list.active === true }" (click)="viewcontactdeatils(list.user_id)">{{list.meeting_date
+                                                            | date : 'longDate' }}</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                                <a class="ed_btn"
+                                                                    href="https://saurabh.parastechnologies.in/BInTouch/api/export_contact/?contact_id={{list.contact_id_base64}}"
+                                                                    download><img
+                                                                        src="assets/images/download-24px.svg" /></a>
+                                                                <a class="ed_btn" (click)="viewcontact(list)"><img
+                                                                        src="assets/images/preview-white-24px.svg" /></a>
+                                                                <a class="ed_btn" (click)="delete(list)"><img
+                                                                        src="assets/images/delete_outline-24px.svg" /></a>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                <!-- </div> -->
+                                                <tr class="justify-content-center"
+                                                    *ngIf="contactDetails &&  contactDetails.length ==0">NO DATA</tr>
+                                                <!-- <tr>
+                                                        <td class="col">Charlotte Dupont</td>
+                                                        <td class="col">BDP/Architect</td>
+                                                        <td class="col">10/03/2021</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                        <a class="ed_btn" href=""><img src="assets/images/download-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/preview-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>	
+                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col">Marie Girault</td>
+                                                        <td class="col">La Foret/Property Agent</td>
+                                                        <td class="col">10/03/2021</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                        <a class="ed_btn" href=""><img src="assets/images/download-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/preview-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>	
+                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col">Sara Naroobi</td>
+                                                        <td class="col">EDF/Manager</td>
+                                                        <td class="col">08/03/2021</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                        <a class="ed_btn" href=""><img src="assets/images/download-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/preview-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>	
+                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col">Adrien Dupont</td>
+                                                        <td class="col">SG/Consultant</td>
+                                                        <td class="col">03/03/2021</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                        <a class="ed_btn" href=""><img src="assets/images/download-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/preview-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>	
+                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col">Bernard Buchard</td>
+                                                        <td class="col">Deloitte/Associate</td>
+                                                        <td class="col">03/03/2021</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                        <a class="ed_btn" href=""><img src="assets/images/download-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/preview-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>	
+                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col">Bernard Buchard</td>
+                                                        <td class="col">Deloitte/Associate</td>
+                                                        <td class="col">03/03/2021</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                        <a class="ed_btn" href=""><img src="assets/images/download-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/preview-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>	
+                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col">Bernard Buchard</td>
+                                                        <td class="col">Deloitte/Associate</td>
+                                                        <td class="col">03/03/2021</td>
+                                                        <td class="col">
+                                                            <div class="editDelete justify-content-center">
+                                                        <a class="ed_btn" href=""><img src="assets/images/download-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/preview-24px.svg"/></a>	
+                                                        <a class="ed_btn" href=""><img src="assets/images/delete_outline-24px.svg"/></a>	
+                                                    </div>
+                                                        </td>
+                                                    </tr> -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div id="v-pills-profile" class="tab-pane fade">
+                                    <div class="table-responsive custom_table custom_scrollbar">
+                                        <table class="table bg-warning-hover text-left table_fixed">
+                                            <thead>
+                                                <tr class="text_white">
+                                                    <th class="add_sm_object col-3"><a>
+                                                            Contact Name
+                                                        </a>
+                                                    </th>
+                                                    <th class="text_white col-3">Company/Job Title</th>
+                                                    <th class="text_white col-3">Meeting Date</th>
+                                                    <th class="text_white text-center col-3 cursor_pointer"
+                                                        data-toggle="modal" data-target="#importAll">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" id="download-24px"
+                                                            width="24" height="24" viewBox="0 0 24 24">
+                                                            <path id="Path_806" data-name="Path 806" d="M0,0H24V24H0Z"
+                                                                fill="none" />
+                                                            <path id="Path_807" data-name="Path 807"
+                                                                d="M19,9H15V3H9V9H5l7,7Zm-8,2V5h2v6h1.17L12,13.17,9.83,11ZM5,18H19v2H5Z"
+                                                                fill="#b6b8c7" />
+                                                        </svg>
+                                                        Export All
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="fs14">
+                                                <tr *ngFor="let list of contactDetails">
+                                                    <td class="text_white font-weight-bold col">{{list.full_name}}</td>
+                                                    <td class="text_white font-weight-bold col">
+                                                        {{list.company}}/{{list.position}}</td>
+                                                    <td class="text_white font-weight-bold col">{{list.meeting_date
+                                                        |date : 'longDate' }}</td>
+                                                    <td class="col">
+                                                        <div class="editDelete justify-content-center">
+                                                            <a class="ed_btn"
+                                                                href="https://saurabh.parastechnologies.in/BInTouch/api/export_contact/?user_id={{list.base64_id}}"
+                                                                download><img
+                                                                    src="assets/images/download-24px.svg" /></a>
+                                                            <a class="ed_btn" (click)="viewcontact(list)"><img
+                                                                    src="assets/images/preview-white-24px.svg" /></a>
+                                                            <a class="ed_btn" (click)="delete(list)"><img
+                                                                    src="assets/images/delete_outline-24px.svg" /></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr *ngIf="contactDetails &&  contactDetails.length ==0">NO DATA</tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div id="v-pills-messages" class="tab-pane fade">
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+                                        magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+                                        occaecat velit nostrud magna nulla. Velit
+                                        et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+                                        labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+                                        magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+                                        occaecat velit nostrud magna nulla. Velit
+                                        et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+                                        labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+                                        magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+                                        occaecat velit nostrud magna nulla. Velit
+                                        et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+                                        labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+                                        magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+                                        occaecat velit nostrud magna nulla. Velit
+                                        et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+                                        labore est magna commodo est ea veniam consectetur.</p>
+
+                                    <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui
+                                        magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure
+                                        occaecat velit nostrud magna nulla. Velit
+                                        et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip
+                                        labore est magna commodo est ea veniam consectetur.</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+    
+                <div class="col-xl-12">
+
+                <div class="card" style="border: 1px solid #707070;" >
+
+                    <div class="card_header_pre d-flex justify-content-between">
+                        <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                        <div class="preview_icons d-flex align-items-center">
+                            <a href="https://saurabh.parastechnologies.in/BInTouch/api/export_contact/?contact_id={{userDetailspopup?.base64_id}}"
+                                download><img src="assets/images/download-24px.svg" /></a>
+                            <!-- <a href=""><img src="assets/images/create-24px.svg" /></a> -->
+                            <a (click)="delete(userDetailspopup)"><img src="assets/images/delete_outline-24px.svg" /></a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="user_profile d-flex align-items-center">
+
+                            <img  *ngIf="!userDetailspopup?.photo"  src="assets/images/img_user.jpg" alt="" />
+                            <img  *ngIf="userDetailspopup?.photo"  src="{{ImageUrl}}{{userDetailspopup?.photo}}" alt="" />
+                            <div class="user_info d-flex flex-column">
+                                <span class="fs17 text_white font-weight-bold">{{userDetailspopup?.first_name}}
+                                    {{userDetailspopup?.last_name}}</span>
+                                <span class="fs14 pt-1">{{userDetailspopup?.profession}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 justify-content-between">
+                            <div class="col-12 col-md-5">
+                                <ul class="list-unstyled user_info_list">
+                                    <li>
+                                        <label class="fs14 m-0">Phone Number</label>
+                                        <p class="text_white text_opacity_68">{{userDetailspopup?.phone}}</p>
+                                    </li>
+                                    <li>
+                                        <label class="fs14 m-0">Work Number</label>
+                                        <p class="text_white text_opacity_68">{{userDetailspopup?.work_phone}}</p>
+                                    </li>
+                                    <li>
+                                        <label class="fs14 m-0">Website</label>
+                                        <p class="text_white text_opacity_68">{{userDetailspopup?.website}}</p>
+                                    </li>
+                                    <li>
+                                        <label class="fs14 m-0">Home Address</label>
+                                        <p class="text_white text_opacity_68">{{userDetailspopup?.address}} {{userDetailspopup?.address_line2}} {{userDetailspopup?.city}} {{userDetailspopup?.postcode}} {{userDetailspopup?.country}} 
+                                            <!-- 23 Rue Louis Pouey, 92800, Puteaux France -->
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-12 col-md-5">
+                                <ul class="list-unstyled user_info_list user_info_list_mobile">
+                                    <li>
+                                        <label class="fs14 m-0">Birthday</label>
+                                        <p class="text_white text_opacity_68">{{userDetailspopup?.dob}}</p>
+                                    </li>
+                                    <li>
+                                        <label class="fs14 m-0">Email </label>
+                                        <p class="text_white text_opacity_68">{{userDetailspopup?.email}}</p>
+                                    </li>
+                                    <li>
+                                        <label class="fs14 m-0">Paypal</label>
+                                        <p class="text_white text_opacity_68">{{userDetailspopup?.paypal}}</p>
+                                    </li>
+                                    <!-- <li>
+                                        <label class="fs14 m-0">Home Address</label>
+                                        <p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris
+                                            France</p>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--**********************************
+    Content body end
+***********************************-->
+
+
+    <!--**********************************
+    Right Sidebar 
+***********************************-->
+
+
+
+
+</div>
+<!--**********************************
+Main wrapper end
+***********************************-->
+
+
+<!--**********************************
+Import all Popup start
+***********************************-->
+
+<!-- The Modal -->
+<div class="modal fade" id="importAll">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+
+            <div class="card_header_pre d-flex justify-content-between pb-0">
+                <h4 class="font-w600 mb-0 mr-auto fs17 mt-3">CRM Integrations</h4>
+            </div>
+            <button type="button" class="close" data-dismiss="modal">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none" />
+                    <path id="Path_823" data-name="Path 823"
+                        d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"
+                        fill="#b6b8c7" />
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="crm_list text_white d-flex align-items-center justify-content-between">
+                    <p class="fs14 font-weight-bold m-0 text_opacity_68">Sales Force Sales Cloud</p>
+                    <span class="import_icon cursor_pointer">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path id="Path_806" data-name="Path 806" d="M0,0H24V24H0Z" fill="none" />
+                            <path id="Path_807" data-name="Path 807"
+                                d="M19,9H15V3H9V9H5l7,7Zm-8,2V5h2v6h1.17L12,13.17,9.83,11ZM5,18H19v2H5Z"
+                                fill="#b6b8c7" />
+                        </svg>
+                    </span>
+                </div>
+
+
+                <div class="crm_list text_white d-flex align-items-center justify-content-between">
+                    <p class="fs14 font-weight-bold m-0 text_opacity_68">Zoho CRM / Axonaut </p>
+                    <span class="import_icon cursor_pointer">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path id="Path_806" data-name="Path 806" d="M0,0H24V24H0Z" fill="none" />
+                            <path id="Path_807" data-name="Path 807"
+                                d="M19,9H15V3H9V9H5l7,7Zm-8,2V5h2v6h1.17L12,13.17,9.83,11ZM5,18H19v2H5Z"
+                                fill="#b6b8c7" />
+                        </svg>
+                    </span>
+                </div>
+
+
+                <div class="crm_list text_white d-flex align-items-center justify-content-between">
+                    <p class="fs14 font-weight-bold m-0 text_opacity_68">Bitrix24 / Hubspot</p>
+                    <span class="import_icon cursor_pointer">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path id="Path_806" data-name="Path 806" d="M0,0H24V24H0Z" fill="none" />
+                            <path id="Path_807" data-name="Path 807"
+                                d="M19,9H15V3H9V9H5l7,7Zm-8,2V5h2v6h1.17L12,13.17,9.83,11ZM5,18H19v2H5Z"
+                                fill="#b6b8c7" />
+                        </svg>
+                    </span>
+                </div>
+
+
+                <div class="crm_list text_white d-flex align-items-center justify-content-between">
+                    <p class="fs14 font-weight-bold m-0 text_opacity_68">noCRM.io / Teamgate</p>
+                    <span class="import_icon cursor_pointer">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path id="Path_806" data-name="Path 806" d="M0,0H24V24H0Z" fill="none" />
+                            <path id="Path_807" data-name="Path 807"
+                                d="M19,9H15V3H9V9H5l7,7Zm-8,2V5h2v6h1.17L12,13.17,9.83,11ZM5,18H19v2H5Z"
+                                fill="#b6b8c7" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--**********************************
+   Import all Popup End
+***********************************-->
+
+
+
+
+<!--**********************************
+View contact Popup start
+***********************************-->
+
+<!-- The Modal -->
+<div class="modal fade" id="contact_detail">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="card_header_pre d-flex justify-content-between pb-0">
+                <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                <div class="preview_icons d-flex align-items-center">
+                    <a href="https://saurabh.parastechnologies.in/BInTouch/api/export_contact/?contact_id={{userDetails?.base64_id}}"
+                    download><img src="assets/images/download-24px.svg" /></a>
+                    <!-- <a href=""><img src="assets/images/create-24px.svg" /></a> -->
+                    <a (click)="delete(userDetails)"><img src="assets/images/delete_outline-24px.svg" /></a>
+                </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none" />
+                    <path id="Path_823" data-name="Path 823"
+                        d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"
+                        fill="#b6b8c7" />
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="user_profile d-flex align-items-center">
+                    <img *ngIf="userDetails?.photo !=''" src="{{ImageUrl}}{{userDetails?.photo}}" />
+                    <img *ngIf="userDetails?.photo ==''" src="assets/images/dummy_user.png">
+                    <div class="user_info d-flex flex-column">
+                        <span class="fs17 text_white font-weight-bold">{{userDetails?.first_name}}
+                            {{userDetails?.last_name}}</span>
+                        <span class="fs14 pt-1">{{userDetails?.company}}/{{userDetails?.position}}</span>
+                    </div>
+                </div>
+
+                <ul class="list-unstyled user_info_list pt-3">
+                    <li>
+                        <label class="fs14 m-0">Phone Number</label>
+                        <p class="text_white text_opacity_68">{{userDetails?.phone}}</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Work Number</label>
+                        <p class="text_white text_opacity_68">{{userDetails?.work_phone}}</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Website</label>
+                        <p class="text_white text_opacity_68">{{userDetails?.website}}</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Home Address</label>
+                        <p class="text_white text_opacity_68">{{userDetails?.address}}, {{userDetails?.postcode}},
+                            {{userDetails?.city}}
+                            {{userDetails?.country}}</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Birthday</label>
+                        <p class="text_white text_opacity_68">{{userDetails?.dob}}</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Email </label>
+                        <p class="text_white text_opacity_68">{{userDetails?.email}}</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Paypal</label>
+                        <p class="text_white text_opacity_68">{{userDetails?.paypal}}</p>
+                    </li>
+                    <!-- <li>
+                    <label class="fs14 m-0">Home Address</label>
+                    <p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris
+                        France</p>
+                </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

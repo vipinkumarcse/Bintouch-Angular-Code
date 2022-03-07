@@ -1,0 +1,123 @@
+<div class="main-wrap">
+    <div class="template_header"> 
+        <img src="assets/images/ft-logo.png" alt="logo-image" />
+        <a>Get Your Card3</a>
+    </div>
+    <div class="upload-btn">
+        <a >
+            <img *ngIf="!contact.cover_photo" src="assets/images/upload-image.png" alt="icon" />
+            <img *ngIf="contact.cover_photo" [src]="coverImg" alt="icon" />
+        </a>
+        <!-- <input type="file" id="myFile" name="filename"> -->
+    </div>
+    <div class="info-container">
+        <div class="profile-image">
+            <img *ngIf="contact.photo" [src]="profImg" alt="image" />
+            <img *ngIf="!contact.photo" src="assets/images/square-img.png" alt="image" />
+        </div>
+        <div class="content">                
+            <h4 class="blue-cl" *ngIf="name">{{name?name:''}}</h4>
+            <p class="sm-text" *ngIf="contact.title">{{contact.position?contact.position:''}}, {{contact.company?contact.company:''}}</p>
+            <p class="profession" *ngIf="contact.profession">{{contact.profession?contact.profession:''}} </p> 
+            <!-- / Education -->
+            <p class="sm-text country">{{contact.city?contact.city:''}}{{contact.city?',':''}} {{contact.country?contact.country:''}}</p>
+            <p class="content-para" *ngIf="contact.note">{{contact.note?contact.note:''}}</p>
+            <div class="common-btns">
+                <a class="grad-btn" (click)="addContact()">Add To Contacts</a>
+                <a class="grad-btn" (click)="moveToPage()">Share Your Contact</a>
+            </div>
+        </div>
+
+        <!-- [ngClass]="!contact.facebook?'disableimage':''"  -->
+        <div class="social-btns">
+            <h4>Connect With Me</h4>
+            <ul>
+                <li *ngIf="contact.facebook"><a (click)="iconsClick(contact.facebook, 'facebook')"><img src="assets/images/contact-profile2/blue-facebook.png" alt=""/></a></li>
+                <li *ngIf="contact.facebook_page"><a (click)="iconsClick(contact.facebook_page, 'facebook')"><img src="assets/images/contact-profile2/para-facebook.png" alt="icon"/></a></li>
+                <li *ngIf="contact.instagram"><a (click)="iconsClick(contact.instagram, 'instagram')"><img src="assets/images/contact-profile2/blue-insta.png"  alt=""/></a></li>
+                <li *ngIf="contact.linkedin"><a (click)="iconsClick(contact.linkedin, 'linkedin')"><img src="assets/images/contact-profile2/blue-linkedIn.png" alt=""/></a></li> 
+                <li *ngIf="contact.tiktok"><a (click)="iconsClick(contact.tiktok, 'tiktok')"><img src="assets/images/contact-profile2/blue-tiktok.png"  alt=""/></a></li>
+                <li *ngIf="contact.youtube"><a (click)="iconsClick(contact.youtube, 'youtube')" ><img src="assets/images/contact-profile2/blue-snapchat.png" alt=""/></a></li>
+                <li *ngIf="contact.snapchat"><a (click)="iconsClick(contact.snapchat, 'snapchat')"><img src="assets/images/contact-profile2/blue-youtube.png" alt=""/></a></li>
+                <li *ngIf="contact.twitter"><a (click)="iconsClick(contact.twitter, 'twitter')"><img src="assets/images/contact-profile2/blue-twitter.png" alt=""/></a></li>
+            </ul>
+        </div>
+        <div class="contact_wrap">
+            <h4>Contact Me</h4>
+            <div class="contact-box" *ngIf="contact.phone" (click)="iconsClick(contact.phone, 'phone')">
+                <img src="assets/images/contact-profile2/phone.png" alt="icon"/>
+                <p>{{contact.phone?contact.phone:''}}</p>
+            </div>
+            <div class="contact-box" *ngIf="contact.work_phone" (click)="iconsClick(contact.work_phone, 'phone')">
+                <img src="assets/images/contact-profile2/job-phone.png" alt="icon"/>
+                <p>{{contact.work_phone?contact.work_phone:''}}</p>
+            </div>
+            <div class="contact-box" *ngIf="contact.email" (click)="iconsClick(contact.email, 'email')">
+                <img src="assets/images/contact-profile2/email.png" alt="icon"/>
+                <p>{{contact.email?contact.email:''}}</p>
+            </div>
+
+            <div class="contact-box" *ngIf="contact.website" (click)="iconsClick(contact.website, 'chrome')">
+                <img src="assets/images/contact-profile2/globe.png" alt="icon"/>
+                <p>{{contact.website?contact.website:''}}</p>
+            </div>
+            <div class="contact-box" *ngIf="contact.whatsapp" (click)="iconsClick(contact.whatsapp, 'whatsApp')">
+                <img src="assets/images/contact-profile2/watsapp.png" alt="icon"/>
+                <p>{{contact.whatsapp?contact.whatsapp:''}}</p>
+            </div>
+            <div class="contact-box" *ngIf="contact.messenger" (click)="iconsClick(contact.messenger, 'messenger')">
+                <img src="assets/images/contact-profile2/messanger.png" alt="icon"/>
+                <p>{{contact.messenger?contact.messenger:''}}</p>
+            </div>
+            <div class="contact-box" *ngIf="contact.zoom" (click)="iconsClick(contact.zoom, 'zoom')">
+                <img src="assets/images/contact-profile2/zoom-call.png" alt="icon"/>
+                <p>{{contact.zoom?contact.zoom:''}}</p>
+            </div>
+        </div>
+        <div class="map_wrap" *ngIf="contact.address || contact.address_line2 || contact.city || contact.postcode || contact.country" >
+            <h4>Locate Me</h4>
+            <div #map style="width:100%; height:250px"></div>
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.546928534843!2d2.3336332150877723!3d48.86684940806606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3ac914704b%3A0x70ceb5188e6e4292!2sRue%20Sainte-Anne%2C%20Paris%2C%20France!5e0!3m2!1sen!2sin!4v1631183253918!5m2!1sen!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+            <div class="map-btn">
+                <a class="grad-btn" (click)="iconsClick(address, 'maps')">Get Directions</a>
+            </div>
+        </div>
+        <div class="pay_wrap" *ngIf="contact.paypal || contact.lydia">
+            <h4>Contact Me</h4>
+            <div class="pay-box" *ngIf="contact.paypal" (click)="iconsClick(contact.paypal, 'paypal')">
+                <img src="assets/images/contact-profile2/paypal.png" alt="icon"/>
+                <p>{{contact.paypal?contact.paypal:''}}</p>
+            </div>
+            <div class="pay-box" *ngIf="contact.lydia" (click)="iconsClick(contact.lydia, 'lydia')">
+                <img src="assets/images/contact-profile2/lydia.png" alt="icon"/>
+                <p>{{contact.lydia?contact.lydia:''}}</p>
+            </div>
+        </div>
+        <div class="extra-btns" *ngIf="contact.link_url" (click)="Link_Title()">
+            <a class="grad-btn" >{{contact.link_title?contact.link_title:'Link'}}</a>
+        </div>
+        <div class="extra-btns" *ngIf="contact.document_url || contact.document_file" (click)="file_Title()">
+            <a class="grad-btn" >{{contact.document_title?contact.document_title:'Document'}}<img src="assets/images/contact-profile2/btn-download.png" alt="icon"/></a>
+        </div>
+        <div class="contact-form_wrap">
+            <h4>B in Touch</h4>
+            <p>Kindly send me your contact information so I can B in Touch 
+                with you.</p>
+            <form class="contact-form" [formGroup]="QueryForm">
+               
+                <input type="text" class="contact-controls" placeholder="Phone Number"  formControlName="phone"  />
+                <input type="text" class="contact-controls" placeholder="Subject"  formControlName="subject"  />
+                <input type="text" class="contact-controls" placeholder="Email"  formControlName="email"  />
+                <textarea type="textarea" row="3" class="contact-controls" placeholder="Write Message"  formControlName="message" ></textarea>
+                <div class="map-btn">
+                    <a class="grad-btn" (click)="formSbmit()">Submit</a>
+                </div>
+            </form>
+        </div>
+        <p class="footer-p">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+    </div>  
+    <div class="template_footer">
+        <p>Be-In-Touch</p>
+        <small>Website</small>
+    </div>
+</div>

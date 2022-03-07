@@ -1,0 +1,307 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / eMenu/Catalog</h2>
+
+            <div class="searchbar">
+            <form id="demo-2">
+                <input class="form-control" type="search" placeholder="Search here">
+            </form>
+        </div>
+        </div>
+
+
+        <div class="row ">
+
+        <div class="col-xl-12">
+            <div class="card form_col_manage">
+                <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                    <!-- <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Your Lost & Found Profile</h4>
+                    </div> -->
+                <div class="card-body">
+                    <form class="bform text_white" [formGroup]="menu">
+                    <div class="row">
+                    <div class="col-xl-1 col-xxl-2">
+                        <!-- <div class="profile_photo_contact d-flex">
+                            <img class="img-fluid" src="images/profile_photo_img.png"/>
+                        </div> -->
+                    </div>
+                    
+                      <div class="col-xl-11 col-xxl-10">
+                         
+                            <h4 class="card-title fs21 text_transform_none mb-4">Create Your eMenu or eCatalog</h4>
+                        
+                             <!-- <form [formGroup]="menuCatalogData" (ngSubmit)="catalogSubmit()"> -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="fs17 font-weight-bold">Menu/Catalog Title</label> 
+                                    <input type="text" class="form-control" (blur)="catalogSubmit()" formControlName="menu_name" >
+                                    <!-- <div *ngIf="!menuCatalogData.controls.menu_catelog_title.valid && menuCatalogData.controls.menu_catelog_title.dirty" class="error_main_div">
+                                        <div *ngIf="menuCatalogData.controls.menu_catelog_title.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                        </div>
+                                        <input type="submit" style="position: absolute; left: -9999px"/> -->
+
+                                    <!-- <label class="fs17 font-weight-bold">Cover Photo</label>
+                                    <img class="img-fluid" src="assets/images/cover_photo.png" alt=""/> -->
+
+                                  </div>
+                                  
+                                  <!-- <div class="col-md-4 ml-auto">
+                                    <div class="graphic_icon text-right mt-4">
+                                        <img class="img-fluid" src="assets/images/eMenu_img.png" />
+                                    </div>
+                                    </div> -->
+                            </div>
+
+                             
+                     </div>
+                    
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-xl-1 col-xxl-2">
+                        <!-- <div class="profile_photo_contact d-flex">
+                            <img class="img-fluid" src="images/profile_photo_img.png"/>
+                        </div> -->
+                    </div>
+                      <div class="col-xl-11 col-xxl-10">
+                        <div class="form-row">
+
+
+                            
+                                <div class="form-group col-md-4">
+                                    <label class="fs17 font-weight-bold">Text highlight Color</label>
+                                    <input type="color" class="form-control colorPicker" formControlName="text_highlight_color"  />
+                                </div>
+                           
+                            <!-- Form row end -->
+
+                            
+                                <div class="form-group col-md-4">
+                                    <label class="fs17 font-weight-bold">Text Color</label>
+                                    <input type="color" class="form-control colorPicker" formControlName="text_color"  />
+                                </div>
+                            
+                            <!-- Form row end -->
+
+                            
+                                <div class="form-group col-md-4">
+                                    <label class="fs17 font-weight-bold">Background Color</label>
+                                    <input type="color" class="form-control colorPicker" formControlName="bg_color"   />
+                                </div>
+                        
+
+                            <!-- <form [formGroup]="menuCategoryData" (ngSubmit)="categorySubmit()"> -->
+                                <!-- (keyup.enter)="categorySubmit(categories)" -->
+                            <div class="form-group col-md-4">
+                                <label class="fs17 font-weight-bold">Categories</label>
+
+
+                                <div class="append_new_category" id="cateInput" *ngIf="categoryLenght != 0">
+                                    <div class="input-group" *ngFor="let category of menuDetails.category" (click)="getcat(category.id)">
+                                        <!-- <form [formGroup]="menucategory"> -->
+                                        <!-- <ng-container [formGroupName]="i"> -->
+                                        <input type="text" class="form-control" placeholder="New Category" value="{{category.category_name}}" >
+                                        
+                                        <!-- <div *ngIf="!menuCategoryData.controls.menu_category_name.valid && menuCategoryData.controls.menu_category_name.dirty" class="error_main_div">
+                                            <div *ngIf="menuCategoryData.controls.menu_category_name.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                            </div> -->
+    
+                                        <div class="input-group-append">
+                                            <button class="btn border-right-0 btn_del_icon" type="button">
+                                                <img src="assets/images/delete_outline_24px.svg" alt=""/>
+                                            </button>
+                                            <button class="btn" type="button">
+                                                <img src="assets/images/swap_vert-24px.svg" alt="" />
+                                            </button>
+                                        </div>
+                                    <!-- </form> -->
+                                        <!-- </ng-container> -->
+                                    </div>
+    
+                                </div>
+
+
+                                <!-- <ng-container formArrayName="menuCategoryData"> -->
+                                <div class="append_new_category" id="cateInput" *ngIf="shoecat == true">
+                                <div class="input-group" >
+                                    <form [formGroup]="menucategory">
+                                    <!-- <ng-container [formGroupName]="i"> -->
+                                    <input type="text" class="form-control" placeholder="New Category" formControlName="category_name" (keyup.enter)="categorySubmit()">
+                                    
+                                    <!-- <div *ngIf="!menuCategoryData.controls.menu_category_name.valid && menuCategoryData.controls.menu_category_name.dirty" class="error_main_div">
+                                        <div *ngIf="menuCategoryData.controls.menu_category_name.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                        </div> -->
+
+                                    <div class="input-group-append">
+                                        <button class="btn border-right-0 btn_del_icon" type="button">
+                                            <img src="assets/images/delete_outline_24px.svg" alt=""/>
+                                        </button>
+                                        <button class="btn" type="button">
+                                            <img src="assets/images/swap_vert-24px.svg" alt="" />
+                                        </button>
+                                    </div>
+                                </form>
+                                    <!-- </ng-container> -->
+                                </div>
+
+                            </div>
+                        <!-- </ng-container> -->
+                            <!-- <input type="submit" style="position: absolute; left: -9999px"/> -->
+                            <button id="cateBtn" type="button" class="btn dashbutton fs14 w-100" (click)="addCategory()"> Add Category</button>
+                            </div>
+                            <!-- </form> -->
+
+                                <div class="form-group col-md-4" *ngIf="categoryLenght != 0">
+                                <label class="fs17 font-weight-bold" id="items_heading">Items</label>
+                                <div class="append_new_category" id="itemInput">
+                                    <ng-container *ngIf="itemsList?.items.length != 0">
+                                <div class="input-group" *ngFor="let items of itemsList.items" (click)="getItems(items?.id)">
+                                    <input type="text" class="form-control" placeholder="New Item" value="{{items?.name}}"
+                                    >
+                                    <!-- <div *ngIf="!menuItems.controls.menu_item.valid && menuItems.controls.menu_item.dirty" class="error_main_div">
+                                        <div *ngIf="menuItems.controls.menu_item.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                        </div> -->
+                                    <div class="input-group-append">
+                                        <button class="btn border-right-0 btn_del_icon" type="button">
+                                            <img src="assets/images/delete_outline_24px.svg" alt=""/>
+                                        </button>
+                                        <button class="btn" type="button">
+                                            <img src="assets/images/swap_vert-24px.svg" alt=""/>
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            </div>
+                            <button id="itemBtn" type="button" class="btn dashbutton fs14 w-100" (click)="addItems()"> Add Item</button>
+                                </div>
+
+
+                           <!-- <form items start></form>      -->
+                           <!-- <ng-container formArrayName="menuItemsData">
+                                <div class="col-md-4" *ngFor="let items of getControlsItems(); let i=index">
+                                    <ng-container [formGroupName]="i"> -->
+                                        <ng-container *ngIf="showItems == true">
+                                        <form class="bform text_white" [formGroup]="menuItem">
+                                        <div class="col-md-4">
+                                <div class="add_item_form" id="itemForm">
+                                    <div class="form-row ">
+                                        <div class="form-group col-md-12 ">
+                                            <label class="fs17 font-weight-bold">Photo</label>
+                                            <div class="img-upload-outer">
+                                                <!-- assets/images/cover_photo.png -->
+                                                <img class="img-fluid" *ngIf="itemImage" src="{{itemImage}}" alt=""/>
+                                                <img class="img-fluid" *ngIf="!itemImage" src="assets/images/cover_photo.png" alt=""/>
+                                                <input type="file" accept=".png, .jpg, .jpeg" (change)="selectItemImage($event)">
+                                            </div>
+                                            <!-- <div *ngIf="!menuItems.controls.image.valid && menuItems.controls.image.dirty" class="error_main_div">
+                                                <div *ngIf="menuItems.controls.image.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                                </div> -->
+                                            </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label class="fs17 font-weight-bold"> Name</label>
+                                            <input type="text" class="form-control" formControlName="name" >
+                                            <!-- <div *ngIf="!menuItems.controls.name.valid && menuItems.controls.name.dirty" class="error_main_div">
+                                                <div *ngIf="menuItems.controls.name.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                                </div> -->
+                                            </div>
+                                    </div>
+                                    
+        
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label class="fs17 font-weight-bold">Description</label>
+                                            <textarea class="form-control" rows="5" formControlName="description" ></textarea>
+                                            <!-- <div *ngIf="!menuItems.controls.description.valid && menuItems.controls.description.dirty" class="error_main_div">
+                                                <div *ngIf="menuItems.controls.description.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        
+        
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label class="fs17 font-weight-bold"> Price</label>
+                                            <input type="text" class="form-control" formControlName="price" >
+                                            <!-- <div *ngIf="!menuItems.controls.price.valid && menuItems.controls.price.dirty" class="error_main_div">
+                                                <div *ngIf="menuItems.controls.price.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                                </div> -->
+                                            </div>
+                                    </div>
+                                    
+        
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label class="fs17 font-weight-bold"> Url</label>
+                                            <input type="text" class="form-control" formControlName="url">
+                                            <!-- <div *ngIf="!menuItems.controls.url.valid && menuItems.controls.url.dirty" class="error_main_div">
+                                                <div *ngIf="menuItems.controls.url.hasError('required')" class="error_message"> This field is Mandatory !</div>
+                                                </div> -->
+                                            </div>
+                                    </div>
+                                    <button (click)="menuItemSubmit()" class="btn btn-info btn-xs mt-4">Save</button>
+                                    </div>
+                                    <!-- </ng-container> -->
+                            </div>
+                        </form>
+                        </ng-container>
+                            <!-- </ng-container> -->
+
+
+
+<!-- <form items> -->
+
+                        </div>
+                     </div>
+                </div>
+                <!-- <input type="submit" style="position: absolute; left: -9999px" /> -->
+                <div class="form-row">
+                    <div class="form-group col-md-12 loginBtn mb-0">
+                        <button  class="btn btn-primary btn-block rounded-pill mt-4 w-50 mx-auto" (click)="catalogSubmit()"> Submit</button>
+                    </div>
+                    </div>
+               </form>
+
+                </div>
+
+                
+            </div>
+            <div class="card-footer border-0 border_half_width py-0">
+                <hr class="border_default" />
+                <p class="text-center fs17 mb-4">Create & Design your own menu, brochure, or catalog and share it with your friends or clients without having
+                    To print and waste any paper.</p>
+            </div>
+            </div>
+            
+        </div>
+
+        <div class="col-xl-12">
+    
+            <div class="card position-relative">
+                <div class="card_header_pre position-absolute">
+                    <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                </div>
+
+                <div class="preview_main text-center">
+                    <img class="img-fluid" src="assets/images/preview_jpg3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+<!--**********************************
+    Right Sidebar 
+***********************************-->
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

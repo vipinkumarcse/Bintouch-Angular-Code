@@ -1,0 +1,29 @@
+<div>
+    <div class="dropdown_header d-flex justify-content-between align-items-center">
+        <button type="button" class="close_dropdown" mat-dialog-close>Cancel</button>
+        <h5 class="m-0">Edit Name</h5>
+        <button type="button" class="close_dropdown" (click)="submit()">Done</button>
+    </div>
+    <div class="dropdown_body p-3">
+        <form [formGroup]="EditnameForm">
+            <div class="basic-list-group">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                        <input type="text" class="form-control border_input" placeholder="Application Name" formControlName="title" />
+                    </li>
+                </ul>
+                <!-- <ul class="list-group list-group-flush" *ngIf="this.fromParent.slug == 'contact'">
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                        <input type="text" class="form-control border_input" placeholder="First Name" formControlName="first_name" />
+                    </li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                        <input type="text" class="form-control border_input" placeholder="Last Name" formControlName="last_name" />
+                    </li>
+                </ul> -->
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

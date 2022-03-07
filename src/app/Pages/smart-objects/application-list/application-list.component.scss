@@ -1,0 +1,32 @@
+.add_input{
+    width: 95%;
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: white;
+    color: black !important;
+}
+
+.smart_btn {
+    padding: 10px !important;
+    height: max-content !important;
+}
+
+.smart_btn:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.new_application {
+    background: linear-gradient( 
+0deg
+ , #0d102f 0%, #1a214c 60%, #2a366f 100%);
+    border-radius: 30px;
+}
+
+
+.custom_table {
+    max-height: calc(100vh - 3.5rem);
+    overflow-y: auto;
+  }

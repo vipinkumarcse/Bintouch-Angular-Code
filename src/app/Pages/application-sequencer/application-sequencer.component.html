@@ -1,0 +1,176 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Sequencer</h2>
+
+            <div class="searchbar">
+                <form id="demo-2">
+                    <input class="form-control" type="search" placeholder="Search here">
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row ">
+
+            <div class="col-xl-12">
+                <div class="card form_col_manage">
+                    <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                        <!-- <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Your Lost & Found Profile</h4>
+                    </div> -->
+                        <div class="card-body">
+                            <form class="bform text_white" [formGroup]="sequenceForm">
+
+                                <div class="row">
+                                    <div class="col-xl-1 col-xxl-2">
+                                        <!-- <div class="profile_photo_contact d-flex">
+                            <img class="img-fluid" src="images/profile_photo_img.png"/>
+                        </div> -->
+                                    </div>
+                                    <div class="col-xl-8 col-xxl-7">
+                                        <h4 class="card-title fs21 text_transform_none mb-4">Create a Sequence of
+                                            Applications</h4>
+                                        <p class="fs17 text_opacity_68">Choose the applications that you want your smart
+                                            object to
+                                            open in order; for example, first tap opens first application,
+                                            second tap, second application, and so on…</p>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label class="fs17 font-weight-bold ">Set Timer</label>
+                                                <!-- <input class="form-control datetimepicker timepick" id="timepicker"> -->
+                                                <select class="form-control default-select" formControlName="timer"
+                                                    (change)="getDatatimer()">
+                                                    <option selected disabled>-select from the list-</option>
+                                                    <option value="1">1 hour</option>
+                                                    <option value="2">2 hour</option>
+                                                    <option value="3">3 hour</option>
+                                                    <option value="4">4 hour</option>
+                                                    <option value="5">5 hour</option>
+                                                    <option value="6">6 hour</option>
+                                                    <option value="7">7 hour</option>
+                                                    <option value="8">8 hour</option>
+                                                    <option value="9">9 hour</option>
+                                                    <option value="10">10 hour</option>
+                                                    <option value="11">11 hour</option>
+                                                    <option value="12">12 hour</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Form row end -->
+                                        <p class="fs17 text_opacity_68">Set a time for the tap order to reset to the
+                                            first application.
+                                            For example, by choosing 1 hour, your Smart Object’s next
+                                            tap resets back to the first application in the sequence, if
+                                            not used within an hour.</p>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label class="fs17 font-weight-bold ">Select object</label>
+                                                    <!-- <input class="form-control datetimepicker timepick" id="timepicker"> -->
+                                                    <select class="form-control default-select" formControlName="tag_id"
+                                                        (change)="getDatatimer()">
+                                                        <option *ngFor="let object of smartobjects" [value]="object.tag_id">
+                                                            {{object.tag_name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-xxl-3">
+                                        <div class="graphic_icon text-right mt-5">
+                                            <img class="img-fluid" src="assets/images/sequencer_img.png" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-xl-1 col-xxl-2">
+                                        <!-- <div class="profile_photo_contact d-flex">
+                            <img class="img-fluid" src="images/profile_photo_img.png"/>
+                        </div> -->
+                                    </div>
+                                    <div class="col-xl-8 col-xxl-7">
+                                        <div class="form-row">
+                                            <!-- Add Application Div Start -->
+                                            <div class="form-group col-md-12" id="addApplicationForm"
+                                                *ngIf="array.length > 0">
+                                                <div class="mainForm p-3 radius_5 position-relative">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2"
+                                                        *ngFor="let dataapp of arrayShow; let i= index">
+                                                        <div class="form_group_inner mt-2 flex-grow-1 mr-3">
+                                                            <label class="fs17 font-weight-bold"> Application
+                                                                N{{i+1}}</label>
+                                                            <input class="form-control default-select"
+                                                                value="{{dataapp.slug}}" readonly>
+                                                        </div>
+                                                        <div class="delte_icon pointer align-self-end"
+                                                            id="deletApplForm" (click)="delete(i)">
+                                                            <img src="assets/images/delete_outline-24px.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group col-md-12" id="addApplicationForm"
+                                                *ngIf="appShow == true">
+                                                <div class="mainForm p-3 radius_5 position-relative">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="form_group_inner mt-2 flex-grow-1 mr-3">
+                                                            <label class="fs17 font-weight-bold"> Application</label>
+                                                            <select class="form-control default-select"
+                                                                formControlName="applicationid"
+                                                                (change)="getData($event.target.value)">
+                                                                <option *ngFor="let list of applicationDetails"
+                                                                    [value]="list.id">{{list.slug}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- <div class="delte_icon pointer align-self-end" id="deletApplForm">
+                                                        <img src="assets/images/delete_outline-24px.svg" alt="">
+                                                    </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Add Application Form Div End -->
+                                            <div class="form-group col-md-12">
+                                                <button id="addApplicationBtn" type="button"
+                                                    class="btn dashbutton fs14 w-100" (click)="showApp()"> Add
+                                                    Application</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer border-0 border_half_width py-0">
+                        <hr class="border_default" />
+                        <p class="text-center fs17 mb-0">Set up a sequence of applications or links, to be shared in
+                            order, one at a time, every new scan.
+                            Get creative and save time when you have multiple events that require sharing something
+                            different each time</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="card position-relative">
+                    <div class="card_header_pre position-absolute">
+                        <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                    </div>
+
+                    <div class="preview_main text-center">
+                        <img class="img-fluid" src="assets/images/preview_jpg11.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

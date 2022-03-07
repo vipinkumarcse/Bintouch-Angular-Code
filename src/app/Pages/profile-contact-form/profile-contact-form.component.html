@@ -1,0 +1,71 @@
+<body>
+    <div class="main-wrap">
+        <div class="contact_wrap">
+            <div class="img_uploader">
+                <img [src]="imgURLCover" alt="image" />
+                <input type="file" nbInput fullWidth #fileCover accept='image/*' (change)="cover(fileCover.files)" />
+            </div>
+            <div class="user_info">
+                <p>Share your Contact Information with <br>
+                    <span class="user_name">{{name | titlecase }}</span>
+                </p>
+            </div>
+        </div>
+        <!-- <img src="../../../assets/images/contact-img.png" alt="image" /> -->
+        <div class="contact_field">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <input type="text" formControlName="firstName" placeholder="First Name" />
+                <ng-container *ngIf="submitted && repProc.firstName.errors">
+                    <p class="error-message-repair" *ngIf=" repProc.firstName.errors.required">
+                        First Name is required!
+                    </p>
+                </ng-container>
+                <input type="text" formControlName="lastName" placeholder="Last Name" />
+                <!-- <input type="date" [min]="minDate" formControlName="dob" placeholder="Date of Birth Name" /> -->
+                <!-- <input type="date" [min]="minDate" formControlName="dob" placeholder="Date of Birth Name" /> -->
+                <!-- <input type="date" value=" " placeholder="DD/MM/YYYY"> -->
+                <input type="date" placeholder="DOB" onClick="$(this).removeClass('placeholderclass')"  formControlName="dob" class="dateclass placeholderclass">
+                <ng-container *ngIf="submitted && repProc.dob.errors">
+                    <p class="error-message-repair" *ngIf=" repProc.dob.errors.required">
+                        D.O.B is required!
+                    </p>
+                </ng-container>
+                <input type="text" formControlName="company" placeholder="Company" />
+                <ng-container *ngIf="submitted && repProc.company.errors">
+                    <p class="error-message-repair" *ngIf=" repProc.company.errors.required">
+                        Company is required!
+                    </p>
+                </ng-container>
+                <input type="text" formControlName="position" placeholder="Title/Position" />
+                <ng-container *ngIf="submitted && repProc.position.errors">
+                    <p class="error-message-repair" *ngIf=" repProc.position.errors.required">
+                        Title/Position is required!
+                    </p>
+                </ng-container>
+                <input type="number" min="1" (keydown)="onDown($event)" formControlName="phone" placeholder="Phone Number" />
+                <ng-container *ngIf="submitted && repProc.phone.errors">
+                    <p class="error-message-repair" *ngIf=" repProc.phone.errors.required">
+                        Phone is required!
+                    </p>
+                </ng-container>
+                <input type="number" (keydown)="onDown($event)" min="1" formControlName="workPhone" placeholder="Work Number" />
+                <input type="text" formControlName="email" placeholder="Email Address" />
+                <ng-container *ngIf="submitted && repProc.email.errors">
+                    <p class="error-message-repair" *ngIf=" repProc.email.errors.required">
+                        Email is required!
+                    </p>
+                    <p class="error-message-repair" *ngIf=" repProc.email.errors.email">
+                        Email is not valid!
+                    </p>
+                </ng-container>
+                <input type="text" formControlName="website" placeholder="Website URL" />
+                <input type="text" formControlName="address" placeholder="Address Street 1" />
+                <input type="number" min="1" formControlName="postal" placeholder="Postal Code" />
+                <input type="text" formControlName="city" placeholder="City" />
+                <div class="main-btns mt-3">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

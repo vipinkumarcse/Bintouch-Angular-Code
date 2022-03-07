@@ -1,0 +1,444 @@
+<app-sidebar></app-sidebar>
+<!--**********************************
+            Content body start
+        ***********************************-->
+<div class="content-body">
+	<div class="container-fluid">
+		<div class="form-head d-flex flex-wrap align-items-center mb-5">
+			<h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview</h2>
+
+			<div class="searchbar">
+				<form id="demo-2">
+					<input class="form-control" type="search" placeholder="Search here">
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card_scroll custom_scrollbar video_wrapper d-flex flex-column">
+				<div class="card-body text-white">
+					<ng-container *ngFor="let list of tutorialList">
+					<h4 class="card-title fs21 text_transform_none mb-4">{{list.cat_name}}</h4>
+					<!-- <ng-container> -->
+					<div class="row">
+						<div class="col-md-6 col-lg-4" *ngFor="let tutorial of list.tutorial">
+							<div class="video_grid">
+								<div class="video_container">
+									<!-- <iframe width="100%" height="200"
+										src="{{service.tutorial}}{{tutorial.video}}">
+									</iframe> -->
+									<video width="100%" height="200"  controls   #videoPlayer *ngIf="tutorial.type == 'upload' ">
+										<source src="{{service.tutorial}}{{tutorial.video}}"/>
+									</video>
+									<iframe *ngIf="tutorial.type == 'youtube'" width="100%" height="200" [src]="tutorial.safevideo" frameborder="0"></iframe>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">{{tutorial.name}}</h5>
+							</div>
+
+						</div>
+
+						<!-- <div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Interface: How it works</h5>
+							</div>
+						</div> -->
+
+						<!-- <div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Interface: How it works</h5>
+							</div>
+						</div> -->
+
+					</div>
+				<!-- </ng-container> -->
+				</ng-container>
+
+					<!-- Blank spacer div for space -->
+					<!-- <div class="p-3"></div> -->
+					<!-- Blank spacer div for space -->
+					<!-- <h4 class="card-title fs21 text_transform_none mb-4">Workflow Tutorials</h4>
+					<div class="row">
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">How to add a new smart object</h5>
+							</div>
+
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">How to Create Applications</h5>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">How to add an application to an
+									object</h5>
+							</div>
+						</div>
+
+					</div> -->
+
+					<!-- Blank spacer div for space -->
+					<!-- <div class="p-3"></div> -->
+					<!-- Blank spacer div for space -->
+					<!-- <h4 class="card-title fs21 text_transform_none mb-4">Applications Tutorials</h4>
+					<div class="row">
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-4">
+							<div class="video_grid">
+								<div class="blank_vedio d-flex w-100 align-items-center justify-content-center">
+									<div class="playBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"
+											viewBox="0 0 78 78">
+											<g id="play_circle_filled_white_24dp" opacity="0.687">
+												<path id="Path_951" data-name="Path 951" d="M0,0H78V78H0Z"
+													fill="none" />
+												<path id="Path_952" data-name="Path 952"
+													d="M34.5,2A32.5,32.5,0,1,0,67,34.5,32.512,32.512,0,0,0,34.5,2ZM28,49.125V19.875L47.5,34.5Z"
+													transform="translate(4.5 4.5)" fill="#fff" />
+											</g>
+										</svg>
+									</div>
+								</div>
+								<h5 class="fs17 font-weight-bold text-center mt-3">Video Title Here</h5>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div> -->
+	</div>
+	<!--**********************************
+            Content body end
+        ***********************************-->
+
+
+	<!--**********************************
+            Right Sidebar 
+        ***********************************-->
+</div>
+<!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+
+
+<!--**********************************
+       View contact Popup start
+    ***********************************-->
+
+<!-- The Modal -->
+<div class="modal fade" id="contact_detail">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+
+			<div class="card_header_pre d-flex justify-content-between pb-0">
+				<h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+				<div class="preview_icons d-flex align-items-center">
+					<a href=""><img src="assets/images/download-24px.svg" /></a>
+					<a href=""><img src="assets/images/create-24px.svg" /></a>
+					<a href=""><img src="assets/images/delete_outline-24px.svg" /></a>
+				</div>
+			</div>
+			<button type="button" class="close" data-dismiss="modal">
+				<svg width="24" height="24" viewBox="0 0 24 24">
+					<path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none" />
+					<path id="Path_823" data-name="Path 823"
+						d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"
+						fill="#b6b8c7" />
+				</svg>
+			</button>
+			<div class="modal-body">
+				<div class="user_profile d-flex align-items-center">
+
+					<img src="assets/images/img_user.jpg" alt="" />
+					<div class="user_info d-flex flex-column">
+						<span class="fs17 text_white font-weight-bold">Remi Dupont</span>
+						<span class="fs14 pt-1">ESSEC/Student</span>
+					</div>
+				</div>
+
+				<ul class="list-unstyled user_info_list pt-3">
+					<li>
+						<label class="fs14 m-0">Phone Number</label>
+						<p class="text_white text_opacity_68">0033616930225</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Work Number</label>
+						<p class="text_white text_opacity_68">0033616930224</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Website</label>
+						<p class="text_white text_opacity_68">www.b-intouch.fr</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Home Address</label>
+						<p class="text_white text_opacity_68">23 Rue Louis Pouey, 92800, Puteaux
+							France</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Birthday</label>
+						<p class="text_white text_opacity_68">11/04/1991</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Email </label>
+						<p class="text_white text_opacity_68">aaalfarra1@gmail.com</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Paypal</label>
+						<p class="text_white text_opacity_68">aboud.atassi.paris@gmail.com</p>
+					</li>
+					<li>
+						<label class="fs14 m-0">Home Address</label>
+						<p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris
+							France</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <div class="video_container">
+												<iframe width="100%" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+												</iframe>
+											</div> -->

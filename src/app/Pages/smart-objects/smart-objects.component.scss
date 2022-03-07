@@ -1,0 +1,28 @@
+.add_input{
+    width: 95%;
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: white;
+    color: black !important;
+}
+
+.smart_btn {
+    padding: 0 !important;
+    height: max-content !important;
+}
+
+.smart_btn:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.table_tabs .nav-pills .nav-link.active .smart_btn {
+    margin-right: 30px;
+}
+a.nav-link.d-flex.justify-content-between.zoom {
+    transform: scale(1.1);
+    transition: 0.5s all;
+    z-index: 9999;
+}

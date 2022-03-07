@@ -1,0 +1,101 @@
+<div class="row no-gutters p-4 new_application">
+    <div class="col-sm-3 table_tabs">
+        <div class="nav flex-column nav-pills mb-0">
+            <a href="#v-pills-home" data-toggle="pill" class="nav-link active show" (click)="applicationData()"><i class="mr-2" >
+                <svg id="home-white-18dp" width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_771" data-name="Path 771" d="M0,0H24V24H0Z" fill="none"/>
+                    <path id="Path_772" data-name="Path 772" d="M10,20V14h4v6h5V12h3L12,3,2,12H5v8Z" fill="#fff"/>
+                  </svg>
+            </i> Home</a>
+            <div>
+
+
+                <div id="div1">
+                    <a class="nav-link d-flex justify-content-between" (click)="showMobile()">Mobile   
+                    </a>
+                </div>
+                <ng-container *ngFor="let contacts of CategoryList" >
+                
+
+                    <a 
+													class="nav-link" (click)="getFilterApplicationListing(contacts.id)">{{contacts?.name}}   </a>
+												<!-- <button class="btn smart_btn d-block ml-auto" (click)="deleteContact(contacts?.id)">
+													<svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+														<path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none" />
+														<path id="Path_809" data-name="Path 809"
+															d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z"
+															fill="#b6b8c7" />
+													</svg>
+												</button> -->
+                    <!-- <button (click)="deleteContact(contacts?.id)">
+                        <svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+                            <path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none" />
+                            <path id="Path_809" data-name="Path 809"
+                                d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z"
+                                fill="#b6b8c7" />
+                        </svg>
+                    </button> -->
+                    <!-- <a href="#v-pills-messages" data-toggle="pill" class="nav-link">Family & Friends</a> -->
+                </ng-container>
+            </div>
+            
+        </div>
+        <!-- <form [formGroup]="catForm">
+            <input type="text" *ngIf="inputField == true" formControlName="name"
+                (keyup.enter)="submitCat()" class="form-control add_input">
+        </form> -->
+        <!-- <div class="d-flex justify-content-end flex-column align-items-end action_btn">
+            <button class="nav-link btn">
+                <svg xmlns="http://www.w3.org/2000/svg" id="add-24px" width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_810" data-name="Path 810" d="M0,0H24V24H0Z" fill="none"/>
+                    <path id="Path_811" data-name="Path 811" d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z" fill="#b6b8c7"/>
+                  </svg>
+            </button> -->
+
+            <!-- <button class="nav-link btn">	
+                <svg id="delete_outline-24px" width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_808" data-name="Path 808" d="M0,0H24V24H0Z" fill="none"/>
+                    <path id="Path_809" data-name="Path 809" d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM8,9h8V19H8Zm7.5-5-1-1h-5l-1,1H5V6H19V4Z" fill="#b6b8c7"/>
+                  </svg>
+            </button> -->
+        <!-- </div> -->
+        
+    </div>
+    <div class="col-sm-9">
+        <div class="card">
+            <div class="tab-content p-3">
+                <div id="v-pills-home" class="tab-pane fade active show">
+                    <div class="table-responsive custom_table custom_scrollbar">
+                        <table class="table bg-warning-hover text-left">
+                            <thead>
+                                <tr class="text_white">
+                                    
+                                    <th class="text_white">Application Name</th>
+                                    <th class="text_white text-center">Link</th>
+                                </tr>
+                            </thead>
+                            <tbody  class="fs14">
+                                <tr *ngFor="let body of applicationDetails">
+                                    <td [ngClass]="{'text_white font-weight-bold' : appId == body.id }">
+                                        <div class="d-inline-flex align-items-center">
+                                            <span *ngIf="body.name !=''">{{body.name}}</span>
+                                            <span *ngIf="body.name ==' '">N/A</span>
+
+                                        </div>
+                                    </td>
+                                    <td (click)="urlAssign(body)">
+                                        <div class="editDelete justify-content-center">
+                                    <a class="link_btn"><img src="assets/images/link_btn.svg"/></a>	
+                                </div>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,168 @@
+<!-- <body *ngIf="hasData">
+    <div class="main-wrap">
+        <div class="head d-flex">
+            <div class="back-arrow">
+            </div>
+            <h4 class="blue-cl">Food Menu</h4>
+            <div class="search-icon">
+            </div>
+        </div>
+        <div class="tabs">            
+            <ul class="tab-list">
+                <li *ngFor="let allCat of allCatData"><a><i>{{allCat.category_name}}</i></a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="card" id="salad" *ngFor="let cat of allCatData">
+                <div class="card-title">
+                    <h3 class="blue-cl">{{cat.category_name}}</h3>
+                </div>
+                <div class="card-body" *ngFor="let itm of cat.items">
+                    <div class="menu-img">
+                        <img src="{{imgUrl}}{{itm.photo}}" alt="image" style="height: 100px;" (error)="onImgError($event)" />
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <h3 class="blue-cl">{{itm.name}}</h3>
+                            <p class="blue-cl">{{itm.price}} Euro</p>
+                        </div>
+                        <p class="">{{itm.description}}</p>
+                        <a>{{itm.url}}</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+        </div>
+    </div>
+  </body>
+
+<body style="background-color: white; height: 100vh; padding-top: 68px;" *ngIf="!hasData">
+    <h3 style="color: black !important;">No Data Found</h3>
+</body> -->
+
+
+<body>
+    <div class="main-wrap">
+        <div class="head d-flex">
+            <div class="back-arrow">
+                <img src="../../../assets/images/back_arrow.png" alt="icon" />
+            </div>
+            <h4 class="blue-cl">Food Menu</h4>
+            <div class="search-icon">
+                <img src="../../../assets/images/search_icon.png" alt="icon" />
+            </div>
+        </div>
+        <div class="tabs">            
+            <ul class="tab-list">
+                <li *ngFor="let cat of emenuData.category"><a href="#salad"><i>{{cat.category_name}}</i></a></li>
+                <!-- <li><a href="#dishes"><i>Main Dishes</i></a></li>
+                <li><a href="#desserts"><i>Desserts</i></a></li> -->
+            </ul>
+        </div>
+        <div class="container" [ngStyle]="{'background':emenuData.bg_color}">
+            <div class="card" id="salad" *ngFor="let cat of emenuData.category">
+                <div class="card-title">
+                    <h3 class="blue-cl" [ngStyle]="{'color':emenuData.text_highlight_color}">{{cat.category_name}}</h3>
+                    <!-- <a href=""><img src="img/share_card.png" alt="icon" /></a> -->
+                </div>
+                <div class="card-body" *ngFor="let catitems of cat.items">
+                    <div class="menu-img">
+                        <img src="../../../assets/images/dish_img.png" alt="image" />
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <h3 class="blue-cl" [ngStyle]="{'color':emenuData.text_highlight_color}">{{catitems.name}}</h3>
+                            <p class="blue-cl">{{catitems.price}} Euro</p>
+                        </div>
+                        <p class="" [ngStyle]="{'color':emenuData.text_color}">{{catitems.description}}</p>
+                        <a href="blue-cl">{{catitems.url}}</a>
+                    </div>
+                </div>
+                <!-- <div class="card-body m-0">
+                    <div class="menu-img">
+                        <img src="../../../assets/images/dish_img.png" alt="image" />
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <h3 class="blue-cl">Ceser Salad</h3>
+                            <p class="blue-cl">9.00 Euro</p>
+                        </div>
+                        <p class="">Come and taste delicious food from all over 
+                            the world. Come and taste delicious food 
+                            from all over the world.</p>
+                        <a href="blue-cl">www.myresto.com/allergies</a>
+                    </div>
+                </div> -->
+            </div>
+
+
+            <div class="card" id="dishes">
+                <h3 class="blue-cl mb-2">Main Dishes</h3>
+                <div class="card-body">
+                    <div class="menu-img">
+                        <img src="../../../assets/images/dish_img.png" alt="image" />
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <h3 class="blue-cl">Ceser Salad</h3>
+                            <p class="blue-cl">9.00 Euro</p>
+                        </div>
+                        <p class="">Come and taste delicious food from all over 
+                            the world. Come and taste delicious food 
+                            from all over the world.</p>
+                        <a href="blue-cl">www.myresto.com/allergies</a>
+                    </div>
+                </div>
+                <div class="card-body m-0">
+                    <div class="menu-img">
+                        <img src="../../../assets/images/dish_img.png" alt="image" />
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <h3 class="blue-cl">Ceser Salad</h3>
+                            <p class="blue-cl">9.00 Euro</p>
+                        </div>
+                        <p class="">Come and taste delicious food from all over 
+                            the world. Come and taste delicious food 
+                            from all over the world.</p>
+                        <a href="blue-cl">www.myresto.com/allergies</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="desserts">
+                <h3 class="blue-cl mb-2">Desserts</h3>
+                <div class="card-body">
+                    <div class="menu-img">
+                        <img src="../../../assets/images/dish_img.png" alt="image" />
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <h3 class="blue-cl">Ceser Salad</h3>
+                            <p class="blue-cl">9.00 Euro</p>
+                        </div>
+                        <p class="">Come and taste delicious food from all over 
+                            the world. Come and taste delicious food 
+                            from all over the world.</p>
+                        <a href="blue-cl">www.myresto.com/allergies</a>
+                    </div>
+                </div>
+                <div class="card-body m-0">
+                    <div class="menu-img">
+                        <img src="../../../assets/images/dish_img.png" alt="image" />
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <h3 class="blue-cl">Ceser Salad</h3>
+                            <p class="blue-cl">9.00 Euro</p>
+                        </div>
+                        <p class="">Come and taste delicious food from all over 
+                            the world. Come and taste delicious food 
+                            from all over the world.</p>
+                        <a href="blue-cl">www.myresto.com/allergies</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer">All Rights Reserved. ©2021 B-in-Touch.fr</p>
+        </div>
+    </div>
+  </body>

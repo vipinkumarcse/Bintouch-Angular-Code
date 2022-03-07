@@ -1,0 +1,31 @@
+<body>
+    <div class="main-wrap">
+        <div class="splash-sec">
+            <img class="img-fluid main_logo" src="assets/images/splash_logo.png">
+            <img class="img-fluid" src="assets/images/logo_name.png">
+        </div>
+    </div>
+</body>
+<ng-template #mymodal let-modal>
+    <div id="member_status" class="login_me" role="dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="top-sec">
+                <button type="button" style="outline: none;" class="close close_modal" (click)="modalService.dismissAll()" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span> </button>
+                <p>Long press on QR Code to connect</p>
+            </div>
+            <div class="modal-body">
+                <form class="member_status_form">
+                    <div class="text-center">
+                        <!-- <div class="text-center"> -->
+                        <!-- <div class="form-row"> -->
+                        <img [src]="qrimg" alt="demo" style="height: 150px;width: 150px;">
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>

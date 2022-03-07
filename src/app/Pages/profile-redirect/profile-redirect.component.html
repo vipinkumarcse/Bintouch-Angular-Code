@@ -1,0 +1,75 @@
+<body>
+    <div class="main-wrap">
+        <!-- <div class="head"><a>https://b-intouch.fr/nfc/MSC0001</a></div> -->
+        <div [ngStyle]="{'background-color': UppbackColor}">
+            <div class="user-info">
+                <div class="user-img"><img [src]="photo" (error)="onImgError($event)" alt="image" /></div>
+                <div class="user-details">
+                    <h3 [ngStyle]="{'color': headingColor}" class="mb_0">{{fullName}}</h3>
+                    <h4 class="mb_0">{{position}}</h4>
+                    <h5 class="mb_0">{{company}}</h5>
+                    <p class="mb_0">{{city}}</p>
+                </div>
+            </div>
+            <form class="status">
+                <input type="text" [value]="bio" style="color: #9E9E9E" [ngStyle]="{'background-color': UppbackColor}" placeholder="Bio here…" readonly/>
+            </form>
+            <div class="main-btns" *ngIf="isActive">
+                <button (click)="addContact()" [ngStyle]="{'background':buttonback,'border-radius': buttonStyle}">Add To Contact</button>
+                <button (click)="moveToPage()" [ngStyle]="{'background':buttonback,'border-radius': buttonStyle}">Send Your Contact</button>
+            </div>
+            <div class="section share_sec" [ngStyle]="{'background': backColor}">
+                <ng-container *ngFor="let oth of otherServices">
+                    <ng-container *ngIf="oth.image != 'contact.png'">
+                        <button [ngStyle]="{'border-radius': buttonStyle}" (click)="redirectToUrl(oth.content)" class="{{oth.slug}}">{{oth.name}}</button>
+                    </ng-container>
+                </ng-container>
+
+                <div class="margin_center">
+                    <ul class="social-media">
+                        <li *ngFor="let srv of services">
+                            <ng-container *ngIf="srv.image != 'contact.png'">
+                                <a (click)=onSocial(srv.content,srv.slug,srv.title)>
+                                    <img src="{{appicon == 'round'? round_icn : imgUrl}}{{srv.image}}" alt="icon" />
+                                </a>
+                            </ng-container>
+                        </li>
+                    </ul>
+                    <!-- <p>All Rights Reserved. ©2021 B-in-Touch.fr</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="template_footer">
+            <img src="../../../assets/images/ft-logo.png" alt="logo-image" />
+            <a>Get Your Card</a>
+        </div>
+    </div>
+</body>
+
+
+<ng-template #mymodal let-modal>
+    <div id="member_status" class="login_me" role="dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <button type="button" style="outline: none;" class="close close_modal" (click)="modalService.dismissAll()" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span> </button>
+            <div class="modal-header">
+                <p>Long press on QR Code to connect</p>
+            </div>
+            <div class="modal-body">
+                <form class="member_status_form">
+                    <div class="text-center">
+                        <!-- <div class="text-center"> -->
+                        <!-- <div class="form-row"> -->
+                        <img [src]="qrimg" alt="demo" style="height: 150px;width: 150px;">
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true"></ngx-spinner>

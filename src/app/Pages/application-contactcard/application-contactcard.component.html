@@ -1,0 +1,573 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <form [formGroup]="Appname">
+            <div class="d-flex align-items-center justify-content-start mr-auto">
+                <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Contact Card &lt;</h2>
+                <input class="app_name" placeholder="Application Name" formControlName="title">
+            </div>
+            </form>
+            <!-- <div class="searchbar">
+                <form id="demo-2">
+                    <input class="form-control" type="search" placeholder="Search here" />
+                </form>
+            </div> -->
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card form_col_manage">
+                    <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                        <!-- <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Your Contact Card</h4>
+                    </div> -->
+                        <div class="card-body">
+                            <form class="bform text_white" [formGroup]="AppContcat">
+                                <div class="row">
+                                    <!-- <div class="col-xl-2 col-xxl-2" (change)="selectImagephoto($event)">
+                        <div class="profile_photo_contact position-relative">
+                            <input type="file" class="profile_pic_input">
+                            <img class="img-fluid" *ngIf="imgURLProfile" src="{{imgURLProfile}}" />
+                            coverPhoto
+                            <img class="img-fluid" *ngIf="!imgURLProfile" src="assets/images/profile_photo_img.png"/>
+                        </div>
+                    </div> -->
+                                    <div class="col-xl-9 col-xxl-8">
+                                        <h4 class="card-title fs21 text_transform_none mb-4">Your Contact Card</h4>
+
+                                        <div class="form-row mb-4" (change)="selectImage($event)">
+                                            <div class="form-group col-md-10 mb-0">
+                                                <label class="fs17 font-weight-bold">Cover Photo</label>
+                                                <div class="position-relative cover_pic_cover">
+                                                    <input type="file" class="cover_pic_input" />
+                                                    <img class="img-fluid" *ngIf="coverPhoto" src="{{coverPhoto}}" alt="" />
+                                                    <img class="img-fluid" *ngIf="!coverPhoto" src="assets/images/cover_photo.png" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Form row end -->
+
+                                        
+                                    </div>
+                                    <div class="col-xl-3 col-xxl-4 align-self-end mb-4">
+                                        <div class="graphic_icon text-right">
+                                            <img class="img-fluid" src="assets/images/contact_card_img.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="white_interface_box position-relative">
+                                        <div class="white_interface_img">
+                                                <img src="../../../assets/images/user_white_img.png" alt="img" class="img-fluid" />
+                                            </div>
+                                    <h4 class="fs-22 font-weight-bold mt-3 mb-4">Personal Details</h4>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">First Name</label>
+                                            <input type="text" class="form-control mr-4" formControlName="first_name" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Middle Name</label>
+                                            <input type="text" class="form-control" formControlName="middle_name" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Last Name</label>
+                                            <input type="text" class="form-control" formControlName="last_name" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Profession/Education</label>
+                                            <input type="text" class="form-control" formControlName="profession" />
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Birthdate</label>
+                                            <div class="position-relative">
+                                                <input type="text" placeholder="dd/mm/yyyy" id="mdate" class="form-control" formControlName="dob" matInput [matDatepicker]="picker" />
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                                <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="profile_photo_contact position-relative mt-0">
+                                                            <img class="img-fluid" *ngIf="imgURLProfile" src="{{imgURLProfile}}" />
+                                                            <img class="img-fluid" *ngIf="!imgURLProfile" src="assets/images/profile_photo_img.png"/>
+                                                        </div>
+                                                        <div class="upload_btn" (change)="selectImagephoto($event)">
+                                                            <input type="file" class="">
+                                                            <button class="btn choose_btn">Choose Image</button>
+                                                        </div>
+                                                </div>
+                                                <p class="my-2" style="color: #151D43;">(Recommended 200px x 200px )</p>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                                <label class="fs17 font-weight-normal">Bio</label>
+                                                <textarea name="" class="form-control" rows="5" formControlName="note"></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- Form row end -->
+
+                                </div>
+
+                                <div class="white_interface_box position-relative">
+                                        <div class="white_interface_img">
+                                                <img src="../../../assets/images/work_white_img.png" alt="img" class="img-fluid" />
+                                            </div>
+                                    <h4 class="fs-22 font-weight-bold mt-3 mb-4">Work Details</h4>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Job Title</label>
+                                            <input type="text" class="form-control" formControlName="position" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Company</label>
+                                            <input type="text" class="form-control" formControlName="company" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Work Number</label>
+                                            <input type="text" class="form-control" formControlName="work_phone" />
+                                        </div>
+                                    </div>
+                                    <!-- Form row end -->
+
+                                </div>
+
+
+
+                                <div class="white_interface_box position-relative">
+                                        <div class="white_interface_img">
+                                                <img src="../../../assets/images/contact_white_img.png" alt="img" class="img-fluid" />
+                                            </div>
+                                    <h4 class="fs-22 font-weight-bold mt-3 mb-4">Contact Details</h4>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Website (https://example.com)</label>
+                                            <input type="text" class="form-control" formControlName="website" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Mobile Number</label>
+                                            <input type="text" class="form-control" formControlName="phone" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">WhatsApp</label>
+                                            <input type="text" class="form-control" formControlName="whatsapp" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                                <label class="fs17 font-weight-normal">Email</label>
+                                                <input type="text" class="form-control" formControlName="email" />
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                    <label class="fs17 font-weight-normal">Facebook Messenger</label>
+                                                    <input type="text" class="form-control" formControlName="messenger" />
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-normal">Zoom</label>
+                                                        <input type="text" class="form-control" formControlName="zoom" />
+                                                    </div>
+                                    </div>
+                                    <!-- Form row end -->
+
+                                </div>
+
+
+                                <div class="white_interface_box position-relative">
+                                        <div class="white_interface_img">
+                                                <img src="../../../assets/images/location_white_img.png" alt="img" class="img-fluid" />
+                                            </div>
+                                    <h4 class="fs-22 font-weight-bold mt-3 mb-4">Location</h4>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Street Address 1</label>
+                                            <input type="text" class="form-control" formControlName="address" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Street Address 2</label>
+                                            <input type="text" class="form-control" formControlName="address_line2" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">City/Town</label>
+                                            <input type="text" class="form-control" formControlName="city" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                                <label class="fs17 font-weight-normal">State/Province</label>
+                                                <input type="text" class="form-control" formControlName="state" />
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                    <label class="fs17 font-weight-normal">Zip/Postal Code</label>
+                                                    <input type="text" class="form-control" formControlName="postcode" />
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-normal">Country</label>
+                                                        <input type="text" class="form-control" formControlName="country" />
+                                                    </div>
+                                    </div>
+                                    <!-- Form row end -->
+
+                                </div>
+
+
+
+
+                                <div class="white_interface_box position-relative">
+                                        <div class="white_interface_img">
+                                                <img src="../../../assets/images/share_white_img.png" alt="img" class="img-fluid" />
+                                            </div>
+                                    <h4 class="fs-22 font-weight-bold mt-3 mb-4">Social Media</h4>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Facebook</label>
+                                            <input type="text" class="form-control" placeholder="Username Only" formControlName="facebook" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Facebook Page</label>
+                                            <input type="text" class="form-control" placeholder="Profile/Page Username Only" formControlName="facebook_page" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Twitter</label>
+                                            <input type="text" class="form-control" placeholder="Username Only" formControlName="twitter" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                                <label class="fs17 font-weight-normal">Instagram</label>
+                                                <input type="text" class="form-control" placeholder="Username Only" formControlName="instagram" />
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                    <label class="fs17 font-weight-normal">SnapChat</label>
+                                                    <input type="text" class="form-control" placeholder="Username Only" formControlName="snapchat" />
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-normal">Linkedin</label>
+                                                        <input type="text" class="form-control" placeholder="Username Only" formControlName="linkedin" />
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                            <label class="fs17 font-weight-normal">YouTube</label>
+                                                            <input type="text" class="form-control" placeholder="Full Url to Channel" formControlName="youtube" />
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                                <label class="fs17 font-weight-normal">TikTok</label>
+                                                                <input type="text" class="form-control" placeholder="Username Only" formControlName="tiktok" />
+                                                            </div>
+                                    </div>
+                                    <!-- Form row end -->
+
+                                </div>
+
+
+                                <div class="white_interface_box position-relative">
+                                        <div class="white_interface_img">
+                                                <img src="../../../assets/images/other_white_img.png" alt="img" class="img-fluid" />
+                                            </div>
+                                    <h4 class="fs-22 font-weight-bold mt-3 mb-4">Other</h4>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Document Title</label>
+                                            <input type="text" class="form-control" formControlName="document_title" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Title</label>
+                                            <input type="text" class="form-control" formControlName="link_title" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="fs17 font-weight-normal">Paypal</label>
+                                            <input type="text" class="form-control" formControlName="paypal" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label class="fs17 font-weight-normal">File</label>
+                                                <input type="text" (keyup)="checkDocumentUrl()" class="form-control" formControlName="document_url" />
+                                            </div>
+
+                                            <div class="upload_btn ml-0">
+                                                <input type="file" class="form-control" formControlName="document_file"  (change)="fileUpload($event)" />
+                                                <button id="document_file_button" class="btn choose_btn">Choose File</button>
+                                            </div>
+                                        </div>
+                                            <div class="form-group col-md-4">
+                                                    <label class="fs17 font-weight-normal">Link</label>
+                                                    <input type="text" class="form-control" formControlName="link_url" />
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                        <label class="fs17 font-weight-normal">Lydia</label>
+                                                        <input type="text" class="form-control" formControlName="lydia" />
+                                                    </div>
+                                    </div>
+                                    <!-- Form row end -->
+
+                                </div>
+
+
+                                <div class="white_interface_box position-relative">
+                                        <div class="white_interface_img">
+                                                <img src="../../../assets/images/brush_white_img.png" alt="img" class="img-fluid" />
+                                            </div>
+
+
+                                            <div class="row mt-5">
+                                                    <div class="col-sm-4">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12">
+                                                                <label class="fs17 font-weight-bold">Background Color</label>
+                                                                <input type="color" class="form-control colorPicker" formControlName="bg_color" />
+                                                            </div>
+                                                        </div>
+                                                        <!-- Form row end -->
+                
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12">
+                                                                <label class="fs17 font-weight-bold">Text Color</label>
+                                                                <input type="color" class="form-control colorPicker" formControlName="text_color" />
+                                                            </div>
+                                                        </div>
+                                                        <!-- Form row end -->
+                
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12">
+                                                                <label class="fs17 font-weight-bold">Button Color</label>
+                                                                <input type="color" class="form-control colorPicker"  formControlName="btn_color" />
+                                                            </div>
+                                                        </div>
+                                                        <!-- Form row end -->
+                                                    </div>
+                
+                                                    <div class="col">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12 px-0 mb-0">
+                                                                <!-- Add Application Div Start -->
+                                                                <label class="fs17 font-weight-bold">Template</label>
+                                                                <div class="mainForm p-3 radius_5 position-relative mb-4">
+                                                                    <div class="form_group_inner icon_container radius_5 p-4 text-center mt-3 d-flex align-items-center justify-content-center">
+                                                                        <img class="img-fluid selc_temp" src="assets/images/button_template.svg" alt="" />
+                                                                    </div>
+                
+                                                                    <div class="form_group_inner mt-3">
+                                                                        <select class="form-control default-select" formControlName="template">
+                                                                            <!-- <option value="" selected disabled>Select Page Template</option> -->
+                                                                            <option value="1">Template 1</option>
+                                                                            <option value="2">Template 2</option>
+                                                                            <option value="3">Template 3</option>
+                                                                            <option value="4">Template 4</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Add Application Form Div End -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- Form row end -->
+                                                    </div>
+                
+                                                    <div class="col">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12 px-0 mb-0">
+                                                                <!-- Add Application Div Start -->
+                                                                <label class="fs17 font-weight-bold">Social Media Icon Style</label>
+                                                                <div class="mainForm p-3 radius_5 position-relative mb-4">
+                                                                    <div class="form_group_inner icon_container radius_5 p-4 text-center mt-3 d-flex align-items-center justify-content-center">
+                                                                        <img class="img-fluid" src="assets/images/facebook.png" alt="" />
+                                                                    </div>
+                                                                    <div class="form_group_inner mt-3">
+                                                                        <select class="form-control default-select" formControlName="icon_style">
+                                                                            <option value="" selected disabled>Select Icon Style</option>
+                                                                            <option value="round">Round Style</option>
+                                                                            <option value="rectangular">Rectangular Style</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Add Application Form Div End -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- Form row end -->
+                                                    </div>
+                                                </div>
+                                    
+                                    <!-- Form row end -->
+
+                                </div>
+                                    <!-- <div class="form-row mb-2" *ngFor="let icon of serviceIcon">
+                                        <div class="form-group col-md-12">
+                                            <div class="d-flex align-items-center">
+                                                <div class="choose_social_media_icon mr-3">
+                                                    <img src="{{service.serviceSocialIcon}}{{icon?.image}}" alt="" />
+                                                </div>
+                                                <select class="form-control default-select" formControlName="social_1">
+                                                    <option selected disabled>-Choose from the list-</option>
+                                                    <option *ngFor="let link of icon.data" [value]="link.content">{{link.title}} #{{link.id}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- Form row end -->
+
+                                    <!-- <div class="form-row mb-2">
+                                    <div class="form-group col-md-12">
+                                        <div class="d-flex align-items-center">
+                                        <div class="choose_social_media_icon mr-3">
+                                            <img src="assets/images/social-media-contact/Facebook.png" alt="">
+                                        </div>
+                                        <select class="form-control default-select">
+                                            <option selected disabled>-Choose from the list-</option>
+                                            <option>Social Media Link 1</option>
+                                            <option>Social Media Link 2</option>
+                                            <option>Social Media Link 3</option>
+                                        </select>
+                                    </div>
+                                      </div>
+                                    </div> -->
+                                    <!-- Form row end -->
+
+                                    <!-- <div class="form-row mb-2">
+                                    <div class="form-group col-md-12">
+                                        <div class="d-flex align-items-center">
+                                        <div class="choose_social_media_icon mr-3">
+                                            <img src="assets/images/social-media-contact/Facebook.png" alt="">
+                                        </div>
+                                        <select class="form-control default-select">
+                                            <option selected disabled>-Choose from the list-</option>
+                                            <option>Social Media Link 1</option>
+                                            <option>Social Media Link 2</option>
+                                            <option>Social Media Link 3</option>
+                                        </select>.
+                                    </div>
+                                      </div>
+                                    </div> -->
+                                    <!-- Form row end -->
+
+                                    <!-- <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <div class="d-flex align-items-center">
+                                        <div class="choose_social_media_icon mr-3">
+                                            <img src="assets/images/social-media-contact/Facebook.png" alt="">
+                                        </div>
+                                        <select class="form-control default-select">
+                                            <option selected disabled>-Choose from the list-</option>
+                                            <option>Social Media Link 1</option>
+                                            <option>Social Media Link 2</option>
+                                            <option>Social Media Link 3</option>
+                                        </select>
+                                    </div>
+                                      </div>
+                                    </div> -->
+                                    <!-- Form row end -->
+                                
+
+                                <!-- Color Pickers section start -->
+                                <!-- Color Pickers section end -->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-8 col-xxl-7 mx-auto">
+                            <button (click)="submit()" class="btn btn-primary btn-block rounded-pill mx-auto mb-4 w-50">Submit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer border-0 border_half_width py-0">
+                        <hr class="border_default" />
+                        <p class="text-center fs17 mb-3">The easiest way at the end of a meeting to send your contact card directly to someone’s phone, so he/she can easily save it and add it to his/her contacts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-12">
+                <div class="card position-relative">
+                    <div class="card_header_pre position-absolute">
+                        <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                    </div>
+
+                    <div class="preview_main text-center">
+                        <img class="img-fluid" src="assets/images/preview_jpg3.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+    Content body end
+***********************************-->
+
+    <!--**********************************
+    Right Sidebar 
+***********************************-->
+</div>
+<!--**********************************
+Main wrapper end
+***********************************-->
+
+<!--**********************************
+View contact Popup start
+***********************************-->
+
+<!-- The Modal -->
+<div class="modal fade" id="contact_detail">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="card_header_pre d-flex justify-content-between pb-0">
+                <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                <div class="preview_icons d-flex align-items-center">
+                    <a href=""><img src="images/download-24px.svg" /></a>
+                    <a href=""><img src="images/create-24px.svg" /></a>
+                    <a href=""><img src="images/delete_outline-24px.svg" /></a>
+                </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none" />
+                    <path id="Path_823" data-name="Path 823" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" fill="#b6b8c7" />
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="user_profile d-flex align-items-center">
+                    <img src="images/img_user.jpg" alt="" />
+                    <div class="user_info d-flex flex-column">
+                        <span class="fs17 text_white font-weight-bold">Remi Dupont</span>
+                        <span class="fs14 pt-1">ESSEC/Student</span>
+                    </div>
+                </div>
+
+                <ul class="list-unstyled user_info_list pt-3">
+                    <li>
+                        <label class="fs14 m-0">Phone Number</label>
+                        <p class="text_white text_opacity_68">0033616930225</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Work Number</label>
+                        <p class="text_white text_opacity_68">0033616930224</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Website</label>
+                        <p class="text_white text_opacity_68">www.b-intouch.fr</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Home Address</label>
+                        <p class="text_white text_opacity_68">23 Rue Louis Pouey, 92800, Puteaux France</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Birthday</label>
+                        <p class="text_white text_opacity_68">11/04/1991</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Email </label>
+                        <p class="text_white text_opacity_68">aaalfarra1@gmail.com</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Paypal</label>
+                        <p class="text_white text_opacity_68">aboud.atassi.paris@gmail.com</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Home Address</label>
+                        <p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris France</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

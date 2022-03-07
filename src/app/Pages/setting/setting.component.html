@@ -1,0 +1,206 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview</h2>
+
+            <!-- <div class="searchbar">
+            <form id="demo-2">
+                <input class="form-control" type="search" placeholder="Search here">
+            </form>
+        </div> -->
+        </div>
+
+
+        <div class="row ">
+
+            <div class="col-xl-12">
+                <div class="card form_col_manage">
+                    <div class="card_scroll custom_scrollbar d-flex flex-column">
+                        <!-- <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Your Contact Card</h4>
+                    </div> -->
+                        <div class="card-body">
+                            <!-- <form class="bform text_white" #profileForm="ngForm" (ngSubmit)="profile(profileForm)"> -->
+                            <div class="row">
+                                <div class="col-md-3">
+
+                                    <div class="d-flex flex-column align-items-center profile_img mt-3">
+                                        <div class="profile_img_container position-relative">
+                                            <img *ngIf="userData.photo" src="{{src}}" alt="image">
+                                            <img *ngIf="!userData.photo" class="mx-2" src="assets/images/dummy_user.png"
+                                                alt="image">
+                                            <!-- <div class="close_icon d-flex align-items-center justify-content-center">
+                               <svg  width="512" height="512" x="0" y="0" viewBox="0 0 511.99 511.99" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                 <ellipse  cx="255.992" cy="255.999" rx="236.278" ry="236.278" fill="#629ceb" data-original="#1138f7" class=""/>
+                                 <path  d="M255.995,511.979c-65.587,0-131.174-24.957-181.108-74.872c-99.849-99.849-99.849-262.348,0-362.217   l0,0c99.849-99.829,262.368-99.849,362.217,0c99.849,99.869,99.849,262.348,0,362.217   C387.169,487.022,321.562,511.979,255.995,511.979z M102.939,102.942c-84.374,84.394-84.374,221.719,0,306.113   c84.414,84.374,221.738,84.394,306.113,0s84.374-221.719,0-306.113C324.637,18.568,187.333,18.568,102.939,102.942L102.939,102.942   z" fill="#629ceb" data-original="#1138f7" class=""/>
+                                 <path  d="M187.115,344.678c-5.079,0-10.157-1.944-14.026-5.813c-7.757-7.757-7.757-20.295,0-28.052   l140.26-140.26c7.757-7.757,20.295-7.757,28.052,0c7.757,7.757,7.757,20.295,0,28.052l-140.26,140.26   C197.252,342.734,192.193,344.678,187.115,344.678z" fill="#ffffff" data-original="#ffffff" class=""/>
+                                 <path  d="M327.355,344.678c-5.079,0-10.157-1.944-14.026-5.813l-140.26-140.26   c-7.757-7.757-7.757-20.295,0-28.052s20.295-7.757,28.052,0l140.26,140.26c7.757,7.757,7.757,20.295,0,28.052   C337.513,342.734,332.434,344.678,327.355,344.678z" fill="#ffffff" data-original="#ffffff" class=""/>
+                               </svg>
+                             </div> -->
+                                            <input type="file" (change)="profilePic($event)" accept=".png, .jpg, .jpeg">
+                                        </div>
+                                        <p class="fs17 font-weight-bold mt-3">Profile Photo</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row mt-5">
+                                        <div class="col-md-6">
+                                            <form #profileForm="ngForm" (ngSubmit)="profile(profileForm)">
+                                                <div class="form-row">
+                                                    <div class="form-group w-100">
+                                                        <label class="fs17 font-weight-bold"> Username</label>
+                                                        <input type="text" name="username" #username="ngModel"
+                                                            [(ngModel)]="userData.username" class="form-control">
+                                                    </div>
+
+                                                    <div class="form-group w-100">
+                                                        <label class="fs17 font-weight-bold"> Email</label>
+                                                        <input type="email" class="form-control" name="account_email"
+                                                            #email="ngModel" [(ngModel)]="userData.account_email">
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary btn-block rounded-pill mt-4 w-50 mx-auto">Submit</button>
+                                            </form>
+                                            <!-- Form row end -->
+
+
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <form #passwordForm="ngForm" (ngSubmit)="changePassword(passwordForm)">
+                                                <div class="form-row">
+                                                    <div class="form-group w-100">
+                                                        <label class="fs17 font-weight-bold"> Current Password</label>
+                                                        <input type="password" class="form-control" name="pass" #pass="ngModel"
+                                                            [(ngModel)]="CPassword.pass" >
+                                                    </div>
+
+                                                    <div class="form-group w-100">
+                                                        <label class="fs17 font-weight-bold"> New Password</label>
+                                                        <input type="password" class="form-control"
+                                                            #newPassword="ngModel" [(ngModel)]="CPassword.newPassword"
+                                                            name="newPassword">
+                                                    </div>
+
+                                                    <div class="form-group w-100">
+                                                        <label class="fs17 font-weight-bold"> Confirm Password</label>
+                                                        <input type="password" class="form-control"
+                                                            #confirmPassword="ngModel"
+                                                            [(ngModel)]="CPassword.confirmPassword"
+                                                            name="confirmPassword">
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary btn-block rounded-pill mt-4 w-50 mx-auto">Submit</button>
+                                            </form>
+                                            <!-- Form row end -->
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--**********************************
+    Content body end
+***********************************-->
+
+
+        <!--**********************************
+    Right Sidebar 
+***********************************-->
+
+
+
+
+
+    </div>
+</div>
+<!--**********************************
+Main wrapper end
+***********************************-->
+
+
+
+<!--**********************************
+View contact Popup start
+***********************************-->
+
+<!-- The Modal -->
+<div class="modal fade" id="contact_detail">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="card_header_pre d-flex justify-content-between pb-0">
+                <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                <div class="preview_icons d-flex align-items-center">
+                    <a href=""><img src="images/download-24px.svg" /></a>
+                    <a href=""><img src="images/create-24px.svg" /></a>
+                    <a href=""><img src="images/delete_outline-24px.svg" /></a>
+                </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none" />
+                    <path id="Path_823" data-name="Path 823"
+                        d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"
+                        fill="#b6b8c7" />
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="user_profile d-flex align-items-center">
+
+                    <img src="assets/images/img_user.jpg" alt="" />
+                    <div class="user_info d-flex flex-column">
+                        <span class="fs17 text_white font-weight-bold">Remi Dupont</span>
+                        <span class="fs14 pt-1">ESSEC/Student</span>
+                    </div>
+                </div>
+
+                <ul class="list-unstyled user_info_list pt-3">
+                    <li>
+                        <label class="fs14 m-0">Phone Number</label>
+                        <p class="text_white text_opacity_68">0033616930225</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Work Number</label>
+                        <p class="text_white text_opacity_68">0033616930224</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Website</label>
+                        <p class="text_white text_opacity_68">www.b-intouch.fr</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Home Address</label>
+                        <p class="text_white text_opacity_68">23 Rue Louis Pouey, 92800, Puteaux
+                            France</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Birthday</label>
+                        <p class="text_white text_opacity_68">11/04/1991</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Email </label>
+                        <p class="text_white text_opacity_68">aaalfarra1@gmail.com</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Paypal</label>
+                        <p class="text_white text_opacity_68">aboud.atassi.paris@gmail.com</p>
+                    </li>
+                    <li>
+                        <label class="fs14 m-0">Home Address</label>
+                        <p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris
+                            France</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

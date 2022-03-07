@@ -1,0 +1,193 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / CV </h2>
+
+            <div class="searchbar">
+            <form id="demo-2">
+                <input class="form-control" type="search" placeholder="Search here">
+            </form>
+        </div>
+        </div>
+
+
+        <div class="row ">
+
+        <div class="col-xl-12">
+            <div class="card form_col_manage">
+                <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                    <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Choose how you want to share your CV</h4>
+                    </div>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <form class="bform text_white" [formGroup]="AppForm">
+                            <div class="form-row mt-4">
+                                <div class="form-group col-md-7">
+                                    <div class="radio mb-1">
+                                        <input id="radio-1" class="radio-custom" name="radio-group" type="radio" (click)="select('upload')">
+                                        <label for="radio-1" class="radio-custom-label fs17 font-weight-bold text-white">Upload your CV</label>
+                                    </div>
+                                    <div class="pl_2rem">
+                                        <div class="custom-file upload_main" (change)="selectfile($event)">
+                                            <input type="file" class="custom-file-input" formControlName="file_name">
+                                            <label class="custom-file-label">Choose file</label>
+                                            <div class="input-group-append upload_btn">
+                                                <span class="input-group-text fs17 font-weight-bold text-white border-0">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                        <path id="upload_icon" d="M18,15v3H6V15H4v3a2.006,2.006,0,0,0,2,2H18a2.006,2.006,0,0,0,2-2V15ZM7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9,12,4Z" transform="translate(-4 -4)" fill="#fff"/>
+                                                      </svg>
+                                                    Upload</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                  </div>
+
+                                  <div class="form-group col-md-5">
+                                    <div class="radio mb-1">
+                                        <input id="radio-2" class="radio-custom" name="radio-group" type="radio" (click)="select('link')">
+                                        <label for="radio-2" class="radio-custom-label fs17 font-weight-bold text-white">Add a link to your CV</label>
+                                    </div>	
+                                    <div class="pl_2rem"><input type="text" class="form-control" placeholder="https://cvonline.me/@example17" formControlName="content"></div>
+                                    
+        
+                                  </div>
+                            </div>
+                            <!-- Form row end -->
+                            
+                            <button (click)="submit()" class="btn btn-primary btn-block rounded-pill mt-5 w-50 mx-auto" >Submit</button>
+                          </form>
+                          <div class="cvlinks mt-4">
+                          <div class="row">
+                            <div class="col-12 fs17 text_opacity_68 text_white mb-3">
+                                Create & share your CV online on one of these platforms:
+                        </div>
+                        <div class="col">
+                            <a href="" class="fs14 font-weight-bold text_white">https://cvonline.me</a>
+                        </div>
+                        <div class="col">
+                            <a href="" class="fs14 font-weight-bold text_white">https://resume.io/</a>
+                        </div>
+                        <div class="col">
+                            <a href="" class="fs14 font-weight-bold text_white">https://zety.com/</a>
+                        </div>
+                        </div>
+                    </div>
+
+                     </div>
+                     <div class="col-md-4">
+                                 <div class="graphic_icon text-right">
+                                     <img class="img-fluid" src="assets/images/cv_img.png" />
+                                 </div>
+                     </div>
+                </div>
+                </div>
+
+                <div class="card-footer border-0 border_half_width py-0">
+                    <hr />
+                    <p class="text-center fs17 mb-0">Invite people to an event that you create by sending them an invitation that opens directly in their phone calendar</p>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+
+        <div class="col-xl-12">
+    
+            <div class="card position-relative">
+                <div class="card_header_pre position-absolute">
+                    <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                </div>
+
+                <div class="preview_main text-center">
+                    <img class="img-fluid" src="assets/images/preview_jpg4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+<!--**********************************
+    Right Sidebar 
+***********************************-->
+
+
+
+
+</div>
+<div class="modal fade" id="contact_detail">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+				
+				<div class="card_header_pre d-flex justify-content-between pb-0">
+					<h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+					<div class="preview_icons d-flex align-items-center">
+						<a href=""><img src="assets/images/download-24px.svg"/></a>
+						<a href=""><img src="assets/images/create-24px.svg"/></a>
+						<a href=""><img src="assets/images/delete_outline-24px.svg"/></a>
+					</div>
+				</div>
+				<button type="button" class="close" data-dismiss="modal">
+					<svg width="24" height="24" viewBox="0 0 24 24">
+						<path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none"/>
+						<path id="Path_823" data-name="Path 823" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" fill="#b6b8c7"/>
+					  </svg>
+				</button>
+			<div class="modal-body">
+				<div class="user_profile d-flex align-items-center">
+							
+					<img src="assets/images/img_user.jpg" alt=""/>
+					<div class="user_info d-flex flex-column">
+						<span class="fs17 text_white font-weight-bold">Remi Dupont</span>
+						<span class="fs14 pt-1">ESSEC/Student</span>
+					</div>
+			</div>
+
+			<ul class="list-unstyled user_info_list pt-3">
+				<li>
+					<label class="fs14 m-0">Phone Number</label>
+					<p class="text_white text_opacity_68">0033616930225</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Work Number</label>
+					<p class="text_white text_opacity_68">0033616930224</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Website</label>
+					<p class="text_white text_opacity_68">www.b-intouch.fr</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Home Address</label>
+					<p class="text_white text_opacity_68">23 Rue Louis Pouey, 92800, Puteaux
+						France</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Birthday</label>
+					<p class="text_white text_opacity_68">11/04/1991</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Email </label>
+					<p class="text_white text_opacity_68">aaalfarra1@gmail.com</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Paypal</label>
+					<p class="text_white text_opacity_68">aboud.atassi.paris@gmail.com</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Home Address</label>
+					<p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris
+						France</p>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</div>
+  </div>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>

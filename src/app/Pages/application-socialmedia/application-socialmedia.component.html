@@ -1,0 +1,248 @@
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap align-items-center mb-5">
+            <h2 class="font-w600 mb-0 mr-auto text_opacity_68 letterspace">Overview / Social Media  &lt;</h2>
+
+            <div class="searchbar">
+            <form id="demo-2">
+                <input class="form-control" type="search" placeholder="Search here">
+            </form>
+        </div>
+        </div>
+
+
+        <div class="row ">
+
+        <div class="col-xl-12">
+            <div class="card form_col_manage">
+                <div class="card_scroll height540 custom_scrollbar d-flex flex-column">
+                    <div class="card-header border-0">
+                        <h4 class="card-title fs21 text_transform_none">Supported Apps</h4>
+                    </div>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-xl-6 col-xxl-7">
+                          <div class="social_media_list">
+                        
+                            <ul class="social_icon_div d-flex flex-wrap" id="social_icon_list">
+                                <li *ngFor="let icon of serviceIcon">
+                                   <a [ngClass]="{'active' : icon.active === true }" (click)="selectIcon(icon.slug, icon.name)"><img class="img-fluid" src="{{service.serviceSocialIcon}}{{icon.image}}" alt=""></a>
+                                </li>
+                                <!-- <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Instagram.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Snapchat.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Twitter.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Youtube.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Linkedin.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Tiktok.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Pinterest.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Behance.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Tumblr.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Dribbble.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/devianART.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/indeed.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Doctorlib.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Meetup.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Zoom.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Trustpilot.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/TripAdvisor.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Qzone.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Weibo.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Renren.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Reddit.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/Foursquare.png" alt=""></a>
+                                 </li>
+                                 <li>
+                                    <a href="#"><img class="img-fluid" src="assets/images/social-media/yelp.png" alt=""></a>
+                                 </li> -->
+                            </ul>
+                             
+                          </div>
+                     </div>
+                     <div class="col-xl-6 col-xxl-5">
+                        <form class="bform text_white" [formGroup]="AppForm">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="fs17 font-weight-bold">Link / Deep Link</label>
+                                    <input type="text" class="form-control" formControlName="content">
+                                  </div>
+                            </div>
+                            <!-- Form row end -->
+                            <div class="deep_links">
+                                <ul class="fs17 text_opacity_68">
+                                    <li>Add User: https://snapchat.com/add/</li>
+                                    <li>User: linkedin.com/in/</li>
+                                    <li>Company: linkedin.com/company/</li>
+                                    <li>User: pinterest.com/</li>
+                                    <li>User: youtube.com/user/</li>
+                                    <li>Video: youtube.com/watch?v=</li>
+                                    <li>Channel: youtube.com/channel/</li>
+                                    <li>Instagram Tv: instagram.com/tv/</li>
+                                    <li>Tag: instagram.com/tags/</li>
+                                    <li>Tag: instagram.com/explore/tags/</li>
+                                    <li>Media: instagram.com/p/</li>
+                                    <li>Location: instagram.com/explore/locations/</li>
+                                    <li>Camera Effect: instagram.com/a/r/?effect_id=</li>
+                                    <li>User: instagram.com/</li>
+                                    <li>All: tripadvisor.</li>
+                                </ul>
+                            </div>
+                            <button (click)="submit()" class="btn btn-primary btn-block rounded-pill mt-5 w-50 mx-auto" >Submit</button>
+                          </form>
+                     </div>
+                </div>
+                </div>
+
+               
+            </div>
+            <div class="card-footer border-0 border_half_width py-0">
+                <hr />
+                <p class="text-center fs17 mb-0">The Easiest way to share with other a social media profile or content, by sending them a deep link that opens
+                    Directly in their social media application								
+                    </p>
+            </div>
+            </div>
+            
+        </div>
+
+        <div class="col-xl-12">
+    
+            <div class="card position-relative">
+                <div class="card_header_pre position-absolute">
+                    <h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+                </div>
+
+                <div class="preview_main text-center">
+                    <img class="img-fluid" src="assets/images/preview_jpg5.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+<!--**********************************
+    Right Sidebar 
+***********************************-->
+
+
+
+
+
+</div>
+<div class="modal fade" id="contact_detail">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+				
+				<div class="card_header_pre d-flex justify-content-between pb-0">
+					<h4 class="font-w600 mb-0 mr-auto fs17 text_opacity_68 letterspace">Preview</h4>
+					<div class="preview_icons d-flex align-items-center">
+						<a href=""><img src="assets/images/download-24px.svg"/></a>
+						<a href=""><img src="assets/images/create-24px.svg"/></a>
+						<a href=""><img src="assets/images/delete_outline-24px.svg"/></a>
+					</div>
+				</div>
+				<button type="button" class="close" data-dismiss="modal">
+					<svg width="24" height="24" viewBox="0 0 24 24">
+						<path id="Path_822" data-name="Path 822" d="M0,0H24V24H0Z" fill="none"/>
+						<path id="Path_823" data-name="Path 823" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" fill="#b6b8c7"/>
+					  </svg>
+				</button>
+			<div class="modal-body">
+				<div class="user_profile d-flex align-items-center">
+							
+					<img src="assets/images/img_user.jpg" alt=""/>
+					<div class="user_info d-flex flex-column">
+						<span class="fs17 text_white font-weight-bold">Remi Dupont</span>
+						<span class="fs14 pt-1">ESSEC/Student</span>
+					</div>
+			</div>
+
+			<ul class="list-unstyled user_info_list pt-3">
+				<li>
+					<label class="fs14 m-0">Phone Number</label>
+					<p class="text_white text_opacity_68">0033616930225</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Work Number</label>
+					<p class="text_white text_opacity_68">0033616930224</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Website</label>
+					<p class="text_white text_opacity_68">www.b-intouch.fr</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Home Address</label>
+					<p class="text_white text_opacity_68">23 Rue Louis Pouey, 92800, Puteaux
+						France</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Birthday</label>
+					<p class="text_white text_opacity_68">11/04/1991</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Email </label>
+					<p class="text_white text_opacity_68">aaalfarra1@gmail.com</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Paypal</label>
+					<p class="text_white text_opacity_68">aboud.atassi.paris@gmail.com</p>
+				</li>
+				<li>
+					<label class="fs14 m-0">Home Address</label>
+					<p class="text_white text_opacity_68">231 Rue Saint honoré, 75001, Paris
+						France</p>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</div>
+  </div>
+
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"></ngx-spinner>
